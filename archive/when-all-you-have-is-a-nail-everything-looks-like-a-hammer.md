@@ -1,6 +1,6 @@
 ---
 path: /archive/nail-everything-looks-like-hammer
-date: 2019-03-02T22:29:05.088Z
+date: 2013-09-12T21:29:05.088Z
 title: 'When All You Have is a Nail, Everything Looks Like a Hammer'
 ---
 
