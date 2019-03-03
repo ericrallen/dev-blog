@@ -17,19 +17,19 @@ I wanted to find a way to ensure that if I needed to update the bookmarklet’s 
 We took a three part approach to solving this issue.
 
 ### Part I: The Bookmarklet Link
-```
-	javascript:(function() {
-    	//get current time in seconds
-        var time=new Date().getTime()/1000;
-        //append query string to loader url with 
-        //timestamp as version number
-        document
-        	.getElementsByTagName('body')[0]	
-            .appendChild(document.createElement('script'))
-            .src='//example.com/js/bookmarklet.loader.min.js?v=' + 
-            time
-       ;
-    })();
+```js
+javascript:(function() {
+  //get current time in seconds
+  var time=new Date().getTime()/1000;
+  //append query string to loader url with 
+  //timestamp as version number
+  document
+    .getElementsByTagName('body')[0]	
+    .appendChild(document.createElement('script'))
+    .src='//example.com/js/bookmarklet.loader.min.js?v=' + 
+    time
+  ;
+})();
 ```
 
 You’ll want to minify this script and point it to your javascript file, but the code above is your bookmarklet. We’ll handle the rest of the logic in another file so we can easily update the script whenever we need to.
