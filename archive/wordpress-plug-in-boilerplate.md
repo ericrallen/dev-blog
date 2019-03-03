@@ -2,6 +2,7 @@
 path: /archive/wordpress-plug-boilerplate
 date: 2013-09-14T21:32:11.783Z
 title: WordPress Plug-in Boilerplate
+postType: archivedPost
 ---
 
 I end up having to create a lot of WordPress plug-ins, which means I end up having to copy/paste or rewrite a lot of functionality. That kind of sucks, so I decided to stop doing it.

@@ -2,10 +2,11 @@
 path: /archive/nail-everything-looks-like-hammer
 date: 2013-09-12T21:29:05.088Z
 title: 'When All You Have is a Nail, Everything Looks Like a Hammer'
+postType: archivedPost
 ---
 
 > I suppose it is tempting, if the only tool you have is a hammer, to treat everything as if it were a nail.
-> 
+>
 > - Abraham Maslow
 
 Sometimes we have to use the tools that are within a project’s budget of time and money. Sometimes those solutions aren’t ideal.

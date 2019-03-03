@@ -2,6 +2,7 @@
 path: /archive/building-a-cacheable-updateable-bookmarklet
 date: 2013-04-19T21:22:18.395Z
 title: Building a Cacheable Updateable Bookmarklet
+postType: archivedPost
 ---
 
 **Note**: This may be common knowledge to many of you, but I couldn’t track down many good resources for this kind of thing while building my first bookmarklet.

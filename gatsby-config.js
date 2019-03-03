@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Eric R Allen | Internet Alchemist',
+    title: 'Eric Allen | Internet Alchemist',
   },
   plugins: [
     `gatsby-plugin-netlify-cms`,
@@ -17,6 +17,13 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/archive`,
+        name: "markdown-pages",
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/projects`,
         name: "markdown-pages",
       },
     },

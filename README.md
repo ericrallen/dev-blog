@@ -3,3 +3,5 @@
 # Dev Blog
 
 Simple Developer Blog built with Gatsby and Netlify CMS.
+
+**NOTE**: This is still a work in progress, but it should be available at [ericrallen.dev](https://ericrallen.dev/).
