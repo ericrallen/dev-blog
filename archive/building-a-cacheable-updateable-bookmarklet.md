@@ -1,5 +1,5 @@
 ---
-path: /archive//building-a-cacheable-updateable-bookmarklet
+path: /archive/building-a-cacheable-updateable-bookmarklet
 date: 2013-04-19T21:22:18.395Z
 title: Building a Cacheable Updateable Bookmarklet
 ---
