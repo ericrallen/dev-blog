@@ -3,6 +3,7 @@ path: /proxy-config-dotfiles
 title: Dealing with Proxies
 link: 'https://github.com/ericrallen/proxy-config-dotfiles/'
 postType: projectPost
+featured: true
 ---
 I got tired of dealing with proxies as a consultant, so I documented - pretty thoroughly - everything I knew about them to make it easier for my future self and my colleagues.
 
