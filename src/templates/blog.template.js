@@ -1,8 +1,8 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 import { graphql } from "gatsby";
-import { Helmet } from 'react-helmet';
 
+import Post from '../components/post';
 import Nav from '../components/nav';
 import navItems from '../constants/nav';
 
@@ -11,23 +11,11 @@ export default function Template({ data }) {
   // data.markdownRemark holds our post data
   const { markdownRemark } = data;
 
-  const { frontmatter, html } = markdownRemark;
-
   return (
-    <main className="blog-post-container">
-      <Helmet title={`${frontmatter.title} | Eric Allen`} />
+    <Fragment>
+      <Post {...markdownRemark} />
       <Nav items={navItems} />
-      <article className="blog-post">
-        <header>
-          <h1>{frontmatter.title}</h1>
-          <h2>{frontmatter.date}</h2>
-        </header>
-        <div
-          className="blog-post-content"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-      </article>
-    </main>
+    </Fragment>
   );
 }
 

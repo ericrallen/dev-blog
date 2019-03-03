@@ -19,8 +19,9 @@ collections:
       - { name: path, label: Path }
       - { name: title, label: Title }
       - { name: date, label: Date, widget: date }
-      - { name: postType, label: 'Post Type', widget: select, value: "blogPost", options: [ "blogPost", "archivedPost" ] }
+      - { name: postType, label: 'Post Type', widget: hidden, default: "blogPost" }
       - { name: body, label: Body, widget: markdown }
+      - { name: featured, label: "Featured Post", widget: boolean, default: false }
   - name: archive
     label: "Archived Posts"
     folder: blog
@@ -30,7 +31,7 @@ collections:
       - { name: path, label: Path }
       - { name: title, label: Title }
       - { name: date, label: Date, widget: date }
-      - { name: postType, label: 'Post Type', widget: select, value: "archivedPost", options: [ "blogPost", "archivedPost" ] }
+      - { name: postType, label: 'Post Type', widget: hidden, default: "archivedPost" }
       - { name: body, label: Body, widget: markdown }
   - name: project
     label: Projects
@@ -40,5 +41,6 @@ collections:
       - { name: path, label: Path }
       - { name: title, label: Title }
       - { name: link, label: Link }
-      - { name: postType, label: 'Post Type', widget: select, value: "projectPost", options: [ "projectPost" ] }
+      - { name: postType, label: 'Post Type', widget: hidden, value: "projectPost" }
       - { name: body, label: Body, widget: markdown }
+      - { name: featured, label: "Featured Project", widget: boolean, default: false }

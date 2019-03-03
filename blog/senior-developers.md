@@ -3,6 +3,7 @@ path: /blog/senior-developers
 title: Senior Developers
 date: 2019-03-03T14:19:16.370Z
 postType: blogPost
+featured: true
 ---
 While I don't care about title inflation, or title absurdity, I do care about what the people dolling out and receiving some of these titles assume that they mean.
 
