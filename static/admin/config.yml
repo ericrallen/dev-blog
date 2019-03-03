@@ -33,7 +33,7 @@ collections:
       - { name: postType, label: 'Post Type', widget: select, value: "archivedPost", options: [ "blogPost", "archivedPost" ] }
       - { name: body, label: Body, widget: markdown }
   - name: project
-    label: Project
+    label: Projects
     folder: project
     create: true
     fields:
