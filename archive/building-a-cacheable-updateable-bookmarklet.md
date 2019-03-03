@@ -21,12 +21,12 @@ We took a three part approach to solving this issue.
 javascript:(function() {
   //get current time in seconds
   var time=new Date().getTime()/1000;
-  //append query string to loader url with 
+  //append query string to loader url with
   //timestamp as version number
   document
-    .getElementsByTagName('body')[0]	
+    .getElementsByTagName('body')[0]
     .appendChild(document.createElement('script'))
-    .src='//example.com/js/bookmarklet.loader.min.js?v=' + 
+    .src='//example.com/js/bookmarklet.loader.min.js?v=' +
     time
   ;
 })();
@@ -40,38 +40,37 @@ It’s important that this file be as lightweight and focused as possible becaus
 
 ### Part II: The Lightweight, Uncacheable Bookmarklet Loader
 
-```
-	var ia_loader = (function() {
-    	//we need to change this when we update our actual bookmarklet.min.js file
-    	var v</em>num = '1.0.2';
-    
-    	//build url for loading bookmarklet logic
-    	var ia_url = '//example.com';
-    	var url = location.protocol +
-    		ia_url +
-        	'/js/bookmarklet.min.js?v=' +
-        	v_num
-    	;
-    
-    	//this will store our public vars and methods
-    	//in this case we only have one public method
-    	var pub = {};
-    
-    	//add <script> tag to the document to load our bookmarklet logic
-    	pub.load_bookmarklet = function() {
-    		var script = document.createElement("script");
-        	script.src = url;
-        	document.getElementsByTagName("head")[0]
-        		.appendChild(script)
-        	;
-    	};
-    
-    	//make our public methods and properties accessible
-    	return pub;
-   	})();
-    
-    //load our bookmarklet
-    ia_loader.load_bookmarklet();
+```js
+var ia_loader = (function() {
+  //we need to change this when we update our actual bookmarklet.min.js file
+  var v_num = '1.0.2';
+
+  //build url for loading bookmarklet logic
+  var ia_url = '//example.com';
+  var url =
+    location.protocol +
+    ia_url +
+    '/js/bookmarklet.min.js?v=' +
+    v_num
+  ;
+
+  //this will store our public vars and methods
+  //in this case we only have one public method
+  var pub = {};
+
+  //add <script> tag to the document to load our bookmarklet logic
+  pub.load_bookmarklet = function() {
+    var script = document.createElement("script");
+      script.src = url;
+      document.getElementsByTagName("head")[0].appendChild(script);
+  };
+
+  //make our public methods and properties accessible
+  return pub;
+})();
+
+//load our bookmarklet
+ia_loader.load_bookmarklet();
 ```
 
 This script, once minified, loads in about 1-25 ms on average on our Rackspace Cloud Sites setup with Cloud Flare enabled for the domain.
@@ -80,9 +79,9 @@ Now, you may be thinking that it seems stupid to add a JavaScript file to the do
 
 If you do know of a better way, please share it with us in the comments.
 
-This script's purpose is really just to allow you to update the `v_num` variable whenever you make changes to your bookmarklet and want to push those changes to all of your bookmarklet's users.
+This script's purpose is really just to allow you to update the `js›v_num` variable whenever you make changes to your bookmarklet and want to push those changes to all of your bookmarklet's users.
 
-If the `v_num` property hasn't changed, the browser will load a cached version of our actual logic if it can.
+If the `js›v_num` property hasn't changed, the browser will load a cached version of our actual logic if it can.
 
 ### Part III: The Cacheable Bookmarklet Logic
 
@@ -94,155 +93,153 @@ I'm not going to go into all of our bookmarklet's logic here, but if there is an
 
 There's a stripped-down version of the bookmarklet logic file so you can see how it works after the jump.
 
-```
-	var ia_bookmarklet = (function() {
-    	var bm_version = '1.0.2'; //version of the bookmarklet
-        var jq_version = '1.7.1'; //version of jQuery we're targeting
-        var ia_jq; //var to map to jQuery (it will be our $ for this bookmarklet)
-        var ia_url = '//example.com'; //domain where our libraries and code are hosted
-        
-        var pub = {}; //will store public methods and properties
-        
-        //our container
-        pub.bookmarklet_container = 'internet_alcheme_bookmarklet_container';
-        
-        //boolean vars for checking the status of our libraries
-        pub.zero_clip_ready = false;
-        pub.zxcvbn_ready = false;
+```js
+var ia_bookmarklet = (function() {
+  var bm_version = '1.0.2'; //version of the bookmarklet
+    var jq_version = '1.7.1'; //version of jQuery we're targeting
+    var ia_jq; //var to map to jQuery (it will be our $ for this bookmarklet)
+    var ia_url = '//example.com'; //domain where our libraries and code are hosted
 
-		//our jQuery checker
-        //modified from: http://coding.smashingmagazine.com/2010/05/23/make-your-own-bookmarklets-with-jquery/)
-        
-        pub.initialize = function() {
-        	//if jQuery isn't included already or it's a lower version
-            if (window.jQuery === undefined || window.jQuery.fn.jquery < jq*version) {
-            var done = false;
-            var script = document.createElement("script");
-            script.src = location.protocol +
-            	"//ajax.googleapis.com/ajax/libs/jquery/" +
-                jq*version +
-                "/jquery.min.js"
-            ;
-            
-            script.onload = script.onreadystatechange = function() {
-            	if(!done && (!this.readyState || this.readyState == "loaded" || this.readyState == "complete")) {
-            		done = true;
-    
-    				//if we loaded our own jQuery
-    				//we need to put it into noConflict mode and map it to our own jQuery variable
-    				ia_jq = jQuery.noConflict(true);
+    var pub = {}; //will store public methods and properties
 
-    				//the function containing our bookmarklet's initialization
-    				bm_init();
-         		}
-            
-            	document.getElementsByTagName("head")[0].
-            		appendChild(script)
-            	;
-			//if jQuery was found and it is >= jq_version
-			} else {
-  				//just map jQuery to our mmp_jq var
-  				ia_jq = jQuery;
+    //our container
+    pub.bookmarklet_container = 'internet_alcheme_bookmarklet_container';
 
-  				//the function containing our bookmarklet's initialization
-  				bm_init();
-			}
-		};
+    //boolean vars for checking the status of our libraries
+    pub.zero_clip_ready = false;
+    pub.zxcvbn_ready = false;
 
-		//initialize the actual bookmarklet logic now that we've got jQuery all sorted out
-    	function bm_init() {
-    		//we add a loader to the window to let the user know stuff is happening
-        	set_window();
-        
-        	//and we check the necessary libraries
-        	check_libs();
-        
-        	//we set up an Interval to check the loaded status of our libraries
-     	   ia_bookmarklet.check_timer = setInterval(
-  				function() {
-    				recheck_libs();
-  				},
-  				20
-			);
-		}
+    //our jQuery checker
+    //modified from: http://coding.smashingmagazine.com/2010/05/23/make-your-own-bookmarklets-with-jquery/)
 
-		//this adds the loader to the window function
-    	set_window() { //add a preloader here }
+    pub.initialize = function() {
+      //if jQuery isn't included already or it's a lower version
+      if (window.jQuery === undefined || window.jQuery.fn.jquery < jq*version) {
+        var done = false;
+        var script = document.createElement("script");
+        script.src =
+          location.protocol +
+          "//ajax.googleapis.com/ajax/libs/jquery/" +
+          jq*version +
+          "/jquery.min.js"
+        ;
 
-		//actually perform our necessary operations function
-   	 bm_logic() {
-   			//clear the interval for checking our libraries
-    		clearInterval(ia_bookmarklet.check_timer);
+        script.onload = script.onreadystatechange = function() {
+          if(!done && (!this.readyState || this.readyState == "loaded" || this.readyState == "complete")) {
+            done = true;
 
-			//logic goes here
-		}
-    
-    	//check the required libraries
-    	//our bookmarklet required ZeroClipboard and ZXCVBN
-    	function check_libs() {
-    		//if we can't find ZeroClipboard we need to load it
-        	if(window.ZeroClipboard === undefined) {
-        		load_script('ZeroClipboard', '/*js/zero-clipboard/ZeroClipboard.min.js', 'zero*clip*ready');
-        	//if it has already been loaded by the website
-        	} else {
-        		ia_bookmarklet.zero_clip_ready = true;
-        	}
+            //if we loaded our own jQuery
+            //we need to put it into noConflict mode and map it to our own jQuery variable
+            ia_jq = jQuery.noConflict(true);
 
-			//if we can't find zxcvbn we need to load it
-			if(window.zxcvbn === undefined) {
-  				load_script('zxcvbn', '/_js/zxcvbn/zxcvbn.js', 'zxcvbn_ready');
-        	//if it has already been loaded by the website
-			} else {
-  				ia_bookmarklet.zxcvbn_ready = true;
-			}
-		}
-    
-    	//load our library scripts and set their loaded vars to true
-    	function load_script(lib, src, toggle) {
-    		var script = document.createElement("script");
-       	 script.src = location.protocol +
-        		ia_url +
-           	 src +
-           	 "?v=" +
-        	    bm_version
-    	    ;
+            //the function containing our bookmarklet's initialization
+            bm_init();
+        }
 
-			script.onload = script.onreadystatechange = function() {
-        		ia_bookmarklet[var] = true;
-            	log(lib + ' loaded');
-   			};
+        document.getElementsByTagName("head")[0].appendChild(script);
+  //if jQuery was found and it is >= jq_version
+  } else {
+      //just map jQuery to our mmp_jq var
+      ia_jq = jQuery;
 
-			document.getElementsByTagName("head")[0].
-        		appendChild(script)
-        	;
-		}
-    
-    	//check the loaded status of the libraries
-    	function recheck_libs() {
-    		//if our libraries are loaded we are good to go
-   	     if(ia_bookmarklet.zxcvbn_ready && ia_bookmarklet.zero_clip_ready) {
-        		//finally we get to actually do stuff
-         	   bm_logic();
-        	}
-   	 }
-    
-    	//just a simplified, capability-checking function for logging to the console
-    	function log(msg) {
-    		if(window.console && console.log) {
-    	    	console.log(msg);
-    	    }
-    	}
-    
-    	//make our public methods and properties accessible
-    	return pub;
-    })();
-    
-    //we want to make sure we aren't doubling up on our bookmarklet, so let's find the container we are going to add
-    var ia_div = document.getElementById(ia_bookmarklet.bookmarklet_container);
-    
-    //if we didn't find our container, load the bookmarklet
-    if(!ia_div) {
-    	ia_bookmarklet.initialize();
+      //the function containing our bookmarklet's initialization
+      bm_init();
+  }
+};
+
+//initialize the actual bookmarklet logic now that we've got jQuery all sorted out
+function bm_init() {
+  //we add a loader to the window to let the user know stuff is happening
+  set_window();
+
+  //and we check the necessary libraries
+  check_libs();
+
+  //we set up an Interval to check the loaded status of our libraries
+  ia_bookmarklet.check_timer = setInterval(
+    function() {
+      recheck_libs();
+    },
+    20
+  );
+}
+
+//this adds the loader to the window function
+set_window() { //add a preloader here }
+
+//actually perform our necessary operations function
+bm_logic() {
+  //clear the interval for checking our libraries
+  clearInterval(ia_bookmarklet.check_timer);
+
+  //logic goes here
+}
+
+  //check the required libraries
+  //our bookmarklet required ZeroClipboard and ZXCVBN
+  function check_libs() {
+    //if we can't find ZeroClipboard we need to load it
+    if(window.ZeroClipboard === undefined) {
+      load_script('ZeroClipboard', '/*js/zero-clipboard/ZeroClipboard.min.js', 'zero*clip*ready');
+      //if it has already been loaded by the website
+    } else {
+      ia_bookmarklet.zero_clip_ready = true;
     }
+
+    //if we can't find zxcvbn we need to load it
+    if(window.zxcvbn === undefined) {
+      load_script('zxcvbn', '/_js/zxcvbn/zxcvbn.js', 'zxcvbn_ready');
+    //if it has already been loaded by the website
+    } else {
+      ia_bookmarklet.zxcvbn_ready = true;
+    }
+  }
+
+  //load our library scripts and set their loaded vars to true
+  function load_script(lib, src, toggle) {
+    var script = document.createElement("script");
+    script.src =
+      location.protocol +
+      ia_url +
+      src +
+      "?v=" +
+      bm_version
+    ;
+
+    script.onload = script.onreadystatechange = function() {
+      ia_bookmarklet[var] = true;
+      log(lib + ' loaded');
+    };
+
+    document.getElementsByTagName("head")[0].appendChild(script);
+  }
+
+  //check the loaded status of the libraries
+  function recheck_libs() {
+    //if our libraries are loaded we are good to go
+    if(ia_bookmarklet.zxcvbn_ready && ia_bookmarklet.zero_clip_ready) {
+      //finally we get to actually do stuff
+      bm_logic();
+    }
+  }
+
+  //just a simplified, capability-checking function for logging to the console
+  function log(msg) {
+    if(window.console && console.log) {
+      console.log(msg);
+    }
+  }
+
+  //make our public methods and properties accessible
+  return pub;
+})();
+
+//we want to make sure we aren't doubling up on our bookmarklet, so let's find the container we are going to add
+var ia_div = document.getElementById(ia_bookmarklet.bookmarklet_container);
+
+//if we didn't find our container, load the bookmarklet
+if(!ia_div) {
+  ia_bookmarklet.initialize();
+}
 
 ```
