@@ -1,3 +1,7 @@
+publish_mode: editorial_workflow
+
+site_url: https://ericrallen.dev
+
 backend:
   name: github
   repo: ericrallen/dev-blog
@@ -7,24 +11,26 @@ public_folder: assets
 
 collections:
   - name: blog
-    label: Blog
+    label: "Blog Posts"
     folder: blog
     create: true
+    filter: { field: "postType", value: "blogPost" }
     fields:
       - { name: path, label: Path }
-      - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
-      - { name: postType, label: 'Post Type', value: blogPost }
+      - { name: date, label: Date, widget: date }
+      - { name: postType, label: 'Post Type', widget: select, value: "blogPost", options: [ "blogPost", "archivedPost" ] }
       - { name: body, label: Body, widget: markdown }
   - name: archive
-    label: Archive
-    folder: archive
+    label: "Archived Posts"
+    folder: blog
     create: true
+    filter: { field: "postType", value: "archivedPost" }
     fields:
       - { name: path, label: Path }
-      - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
-      - { name: postType, label: 'Post Type', value: archivedPost }
+      - { name: date, label: Date, widget: date }
+      - { name: postType, label: 'Post Type', widget: select, value: "archivedPost", options: [ "blogPost", "archivedPost" ] }
       - { name: body, label: Body, widget: markdown }
   - name: project
     label: Project
@@ -33,6 +39,6 @@ collections:
     fields:
       - { name: path, label: Path }
       - { name: title, label: Title }
-      - { name: link, lavel: Link }
-      - { name: postType, label: 'Post Type', value: projectPost }
+      - { name: link, label: Link }
+      - { name: postType, label: 'Post Type', widget: select, value: "projectPost", options: [ "projectPost" ] }
       - { name: body, label: Body, widget: markdown }
