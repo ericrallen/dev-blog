@@ -1,4 +1,7 @@
 module.exports = {
+  siteMetadata: {
+    title: 'Eric R Allen | Internet Alchemist',
+  },
   plugins: [
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-catch-links`,
