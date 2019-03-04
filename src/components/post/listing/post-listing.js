@@ -2,18 +2,20 @@ import React from 'react';
 
 import { Link } from 'gatsby';
 
+import styles from './post-listing.module.scss';
+
 export default ({ posts, show = 0 }) => {
   const renderedPosts = posts
     .filter(post => post.node.frontmatter.title.length > 0)
     .map(({ node: post }) => (
       <article className="blog-post-preview" key={post.id}>
         <header>
-          <h1>
+          <h4 className={styles.title}>
             <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
-          </h1>
-          <h2>{post.frontmatter.date}</h2>
+          </h4>
+          {post.frontmatter.date && <p className={styles.date}>Posted on <date>{post.frontmatter.date}</date></p>}
         </header>
-        <p>{post.excerpt}</p>
+        <p className={styles.excerpt}>{post.excerpt}</p>
       </article>
     ))
   ;

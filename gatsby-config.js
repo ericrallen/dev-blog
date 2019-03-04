@@ -46,7 +46,7 @@ module.exports = {
                 js: 'javascript',
               },
               showLineNumbers: false,
-              noInlineHighlight: true,
+              noInlineHighlight: false,
             },
           },
         ],

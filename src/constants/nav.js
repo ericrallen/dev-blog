@@ -11,8 +11,4 @@ export default [
     label: 'Blog',
     url: '/blog',
   },
-  {
-    label: 'Archives',
-    url: '/archive'
-  }
 ];

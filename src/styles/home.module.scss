@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.aside {
+  @media (min-width: 768px) {
+    width: 50%;
+
+    h3 {
+      font-size: 14px;
+      color: #666;
+      margin: 0 0 5px;
+    }
+  }
+}
