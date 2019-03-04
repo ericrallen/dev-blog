@@ -1,33 +1,28 @@
 import React from "react";
 
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 
+import ProjectListing from '../components/project/listing';
 import Nav from '../components/nav';
 import navItems from '../constants/nav';
 
-const renderPosts = (posts) => posts
-  .filter(post => post.node.frontmatter.title.length > 0)
-  .map(({ node: post }) => (
-    <article className="blog-post-preview" key={post.id}>
-      <header>
-        <h1>
-          <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
-        </h1>
-        <h2>{post.frontmatter.date}</h2>
-      </header>
-      <p>{post.excerpt}</p>
-    </article>
-  ))
-;
+import styles from '../styles/projects.module.scss';
 
 export default function Index({ data }) {
   const { edges: posts } = data.allMarkdownRemark;
 
   return (
     <main className="blog-posts">
-      <h1>Projects</h1>
-      {renderPosts(posts)}
-      <Nav items={navItems} />
+      <header>
+        <h1>Projects</h1>
+        <p>A small assortment of things I've been working on recently. You can find more on <a href="https://github.com/ericrallen/">my GitHub profile</a>.</p>
+      </header>
+      <section className={styles.projectGrid}>
+        <ProjectListing posts={posts} />
+      </section>
+      <footer>
+        <Nav items={navItems} />
+      </footer>
     </main>
   );
 }
@@ -40,12 +35,11 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          excerpt(pruneLength: 250)
           id
           frontmatter {
             title
             path
-            link
+            blurb
           }
         }
       }
