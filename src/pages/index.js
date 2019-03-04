@@ -4,6 +4,9 @@ import { graphql } from 'gatsby';
 
 import Intro from '../components/intro';
 import PostListing from '../components/post/listing';
+import ProjectListing from '../components/project/listing';
+
+import shuffle from '../utils/shuffle-array';
 
 import styles from '../styles/home.module.scss';
 
@@ -11,16 +14,18 @@ export default ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark;
 
   const featuredPosts = posts.filter(post => post.node.frontmatter.postType === 'blogPost');
-  const featuredProjects = posts.filter(post => post.node.frontmatter.postType === 'projectPost');
+  const featuredProjects = shuffle(posts.filter(post => post.node.frontmatter.postType === 'projectPost'));
 
   return (
     <main className={styles.container}>
       <Intro />
       <aside className={styles.aside}>
         <h3>Featured Post</h3>
-        <PostListing posts={featuredPosts} show={1} />
-        <h3>Featured Project</h3>
-        <PostListing posts={featuredProjects} show={1} />
+        <PostListing posts={featuredPosts} show={2} />
+        <h3>Featured Projects</h3>
+        <section className={styles.projectGrid}>
+          <ProjectListing posts={featuredProjects} show={2} />
+        </section>
       </aside>
     </main>
   );
@@ -39,7 +44,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             date(formatString: "YYYY-MM-DD")
-            link
+            blurb
             path
             postType
           }

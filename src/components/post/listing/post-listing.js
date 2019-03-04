@@ -15,7 +15,7 @@ export default ({ posts, show = 0 }) => {
           </h4>
           {post.frontmatter.date && <p className={styles.date}>Posted on <date>{post.frontmatter.date}</date></p>}
         </header>
-        <p className={styles.excerpt}>{post.excerpt}</p>
+        <p className={styles.excerpt}>{post.frontmatter.blurb || post.excerpt}</p>
       </article>
     ))
   ;
