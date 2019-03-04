@@ -16,7 +16,12 @@ body {
 }
 
 code {
-  font-family: Hack, Menlo, Consolas, Roboto Mono, Ubuntu Monospace, Noto Mono, Oxygen Mono, Liberation Mono, monospace;
+  font-family: Hack, Menlo, Consolas, Roboto Mono, Ubuntu Monospace, Noto Mono, Oxygen Mono, Liberation Mono, monospace !important;
+
+  /*:not(pre) > & {
+    background-color: #fdf6e3;
+    padding: 2px 4px;
+  }*/
 }
 
 #___gatsby {

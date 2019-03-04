@@ -1,10 +1,12 @@
 import React from "react";
 
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 
 import PostListing from '../components/post/listing';
 import Nav from '../components/nav';
 import navItems from '../constants/nav';
+
+import styles from '../styles/blog.module.scss';
 
 export default function Index({ data }) {
   const { edges: posts } = data.allMarkdownRemark;
@@ -13,6 +15,7 @@ export default function Index({ data }) {
     <main className="blog-posts">
       <h1>Blog</h1>
       <PostListing posts={posts} />
+      <p className={styles.archiveMessage}>Looking for an older post? Maybe it's in the <Link to="/archive">Archives</Link>.</p>
       <Nav items={navItems} />
     </main>
   );

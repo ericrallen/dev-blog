@@ -5,6 +5,8 @@ import { graphql } from 'gatsby';
 import Intro from '../components/intro';
 import PostListing from '../components/post/listing';
 
+import styles from '../styles/home.module.scss';
+
 export default ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark;
 
@@ -12,9 +14,9 @@ export default ({ data }) => {
   const featuredProjects = posts.filter(post => post.node.frontmatter.postType === 'projectPost');
 
   return (
-    <main>
+    <main className={styles.container}>
       <Intro />
-      <aside>
+      <aside className={styles.aside}>
         <h3>Featured Post</h3>
         <PostListing posts={featuredPosts} show={1} />
         <h3>Featured Project</h3>
