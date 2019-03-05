@@ -2,6 +2,8 @@ import React from "react";
 
 import { graphql } from "gatsby";
 
+import Helmet from 'react-helmet';
+
 import PostListing from '../components/post/listing';
 import Nav from '../components/nav';
 import navItems from '../constants/nav';
@@ -11,6 +13,7 @@ export default function Index({ data }) {
 
   return (
     <main className="blog-posts">
+      <Helmet title="Archived Posts | Eric Allen" />
       <header>
         <h1>Archived Posts</h1>
         <p>This page contains posts from various past incarnations of my blogging saved here for posterity.</p>

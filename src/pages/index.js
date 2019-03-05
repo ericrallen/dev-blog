@@ -2,6 +2,8 @@ import React from 'react'
 
 import { graphql } from 'gatsby';
 
+import Helmet from 'react-helmet';
+
 import Intro from '../components/intro';
 import PostListing from '../components/post/listing';
 import ProjectListing from '../components/project/listing';
@@ -12,12 +14,14 @@ import styles from '../styles/home.module.scss';
 
 export default ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark;
+  const { siteMetadata } = data.site;
 
   const featuredPosts = posts.filter(post => post.node.frontmatter.postType === 'blogPost');
   const featuredProjects = shuffle(posts.filter(post => post.node.frontmatter.postType === 'projectPost'));
 
   return (
     <main className={styles.container}>
+      <Helmet title={siteMetadata.title} />
       <Intro />
       <aside className={styles.aside}>
         <h3>Featured Post</h3>
@@ -33,6 +37,11 @@ export default ({ data }) => {
 
 export const pageQuery = graphql`
   query FeaturedPostQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] },
       filter: { frontmatter: { postType: { in: [ "blogPost", "projectPost" ] }, featured: { eq: true }}},

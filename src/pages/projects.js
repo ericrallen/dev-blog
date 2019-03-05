@@ -2,6 +2,8 @@ import React from "react";
 
 import { graphql } from "gatsby";
 
+import Helmet from 'react-helmet';
+
 import ProjectListing from '../components/project/listing';
 import Nav from '../components/nav';
 import navItems from '../constants/nav';
@@ -13,9 +15,10 @@ export default function Index({ data }) {
 
   return (
     <main className="blog-posts">
+      <Helmet title="Projects | Eric Allen" />
       <header>
         <h1>Projects</h1>
-        <p>A small assortment of things I've been working on recently. You can find more on <a href="https://github.com/ericrallen/">my GitHub profile</a>.</p>
+        <p>A small assortment of things I've worked on that aren't under NDA. You can find more on <a href="https://github.com/ericrallen/">my GitHub profile</a>.</p>
       </header>
       <section className={styles.projectGrid}>
         <ProjectListing posts={posts} />
