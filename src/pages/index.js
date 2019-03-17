@@ -7,7 +7,9 @@ import Helmet from 'react-helmet';
 import Intro from '../components/intro';
 import PostListing from '../components/post/listing';
 import ProjectListing from '../components/project/listing';
+import Nav from '../components/nav';
 
+import navItems from '../constants/nav';
 import shuffle from '../utils/shuffle-array';
 
 import styles from '../styles/home.module.scss';
@@ -24,13 +26,16 @@ export default ({ data }) => {
       <Helmet title={siteMetadata.title} />
       <Intro />
       <aside className={styles.aside}>
-        <h3>Featured Post</h3>
+        <h3>Featured Posts</h3>
         <PostListing posts={featuredPosts} show={2} />
         <h3>Featured Projects</h3>
         <section className={styles.projectGrid}>
           <ProjectListing posts={featuredProjects} show={2} />
         </section>
       </aside>
+      <footer>
+        <Nav items={navItems} />
+      </footer>
     </main>
   );
 }
