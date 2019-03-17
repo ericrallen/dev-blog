@@ -10,7 +10,7 @@ export default ({ frontmatter, html }) => (
     <section className="blog-post">
       <header>
         <h1>{frontmatter.title}</h1>
-        {frontmatter.date && <p className={styles.date}>Posted on <date>{frontmatter.date}</date></p>}
+        {frontmatter.date && <p className={styles.date}>Posted on <time>{frontmatter.date}</time></p>}
       </header>
       <article
         className={`blog-post-content ${styles.post}`}

@@ -19,7 +19,9 @@ export default function Index({ data }) {
       <h1>Blog</h1>
       <PostListing posts={posts} />
       <p className={styles.archiveMessage}>Looking for an older post? Maybe it's in the <Link to="/archive">Archives</Link>.</p>
-      <Nav items={navItems} />
+      <footer>
+        <Nav items={navItems} />
+      </footer>
     </main>
   );
 }

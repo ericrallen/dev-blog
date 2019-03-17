@@ -17,16 +17,20 @@ body {
 
 code {
   font-family: Hack, Menlo, Consolas, Roboto Mono, Ubuntu Monospace, Noto Mono, Oxygen Mono, Liberation Mono, monospace !important;
-
-  /*:not(pre) > & {
-    background-color: #fdf6e3;
-    padding: 2px 4px;
-  }*/
 }
 
 #___gatsby {
   padding: 5% 5% 15%;
-  max-width: 840px;
+  max-width: 1050px;
+
+  a {
+    color: #007ea7;
+
+    &:hover,
+    &:focus {
+      color: #1e3c46;
+    }
+  }
 }
 
 ::selection,

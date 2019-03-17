@@ -19,7 +19,9 @@ export default function Index({ data }) {
         <p>This page contains posts from various past incarnations of my blogging saved here for posterity.</p>
       </header>
       <PostListing posts={posts} />
-      <Nav items={navItems} />
+      <footer>
+        <Nav items={navItems} />
+      </footer>
     </main>
   );
 }
