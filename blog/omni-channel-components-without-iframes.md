@@ -62,8 +62,13 @@ Here are a few routes you could go in this situation:
 1. Have each of the teams build the Calculator in their own codebase. This quickly leads to either a dissonant experience as one team is able to fix a bug and deploy it while the other has to wait for its next release cycle or an organizational nightmare as updates must be coordinated across multiple lines of business.
 2. Have each of the teams build the Calculator inside of a shared Pattern Library that has components built in each of the necessary frameworks. This generally leads to fragmentation of the experience, though it can promote code reuse if the multi-framework pattern library has been designed well - that is rarely the case, though.
 3. Have one team try to build and maintain multiple versions of the Calculator for each channel. This leads to a jack of all trades team that could be a great boon to the business, but will quickly be on the chopping block when budgets change. It's also just as easy to have the experiences fragment due to release cycles and the cross-organziation coordination required to execute on this vision.
-4. Have one team build the Calculator and embed it in each channel. This is what we're going to spend most of our time talking about.
+4. Have one team build the Calculator and embed it in each channel. This one can be a hard solve with a lot of challenges to overcome depending on your approach, but it lets one team focus on the challenge while every one else can continue delivering to the business.
 
-The enterprise has an overall goal to move towards more of a "write once, run anywhere" approach, reduce duplicate code, and increase code reuse, so 
+The enterprise has an overall goal to move towards more of a "write once, run anywhere" approach, reduce duplicate code, and increase code reuse, so we're going to focus on #4.
 
-**NOTE**: MyBank is a fictional institution imagined for illustrative purposes. It is not based on any existing institution. Any similarities between MyBank and an existing company are purely coincidental and due to my years of experience working with enterprise financial services clients.
+### Write Once, Run Anywhere
+
+
+
+
+_**Disclaimer**: MyBank is a fictional institution imagined for illustrative purposes. It is not based on any existing institution. Any similarities between MyBank and an existing company are purely coincidental and due to my years of experience working with enterprise financial services clients._
