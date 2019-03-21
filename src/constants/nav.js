@@ -11,4 +11,8 @@ export default [
     label: 'Blog',
     url: '/blog',
   },
+  {
+    label: 'About',
+    url: '/about'
+  }
 ];
