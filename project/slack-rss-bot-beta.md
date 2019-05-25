@@ -2,6 +2,7 @@
 path: /rss-bot
 title: '@RSS Bot'
 link: 'https://www.rssbot.app/'
+postType: projectPost
 blurb: Slack bot that generates RSS Feeds from links shared in a channel.
 featured: true
 ---
