@@ -28,7 +28,7 @@ export default ({ data }) => {
           passion for standards and digital craftsmanship.
         </p>
         <p>
-          I've been an individual contributor, a team lead, a manager, and a teacher.
+          I've been an individual contributor, a team lead, a manager, and a professor.
           I want to continue sharpening my skills as a developer and mentor, but
           not end up in middle management.
         </p>
