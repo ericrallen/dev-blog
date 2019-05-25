@@ -1,7 +1,8 @@
 ---
 path: /rss-bot
-title: 'Slack @RSS bot [Beta]'
-link: 'https://github.com/InterwebAlchemy/scrape-rss-bot'
+title: '@RSS Bot'
+link: 'https://www.rssbot.app/'
+postType: projectPost
 blurb: Slack bot that generates RSS Feeds from links shared in a channel.
 featured: true
 ---
@@ -11,4 +12,6 @@ We could not find a good solution, so I built one that listens for URLs in Slack
 
 It will include any text the OP posted with the link and utilizes [metascraper](https://github.com/microlinkhq/metascraper) to unfurl the shared links.
 
-It is currently in a closed Beta at [https://www.rssbot.app/](https://www.rssbot.app/).
+It is open to the world at [https://www.rssbot.app/](https://www.rssbot.app/).
+
+The source code is on GitHub: [https://github.com/InterwebAlchemy/scrape-rss-bot](https://github.com/InterwebAlchemy/scrape-rss-bot)
