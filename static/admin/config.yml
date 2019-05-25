@@ -41,7 +41,7 @@ collections:
       - { name: path, label: Path }
       - { name: title, label: Title }
       - { name: link, label: Link }
-      - { name: postType, label: 'Post Type', widget: hidden, value: "projectPost" }
+      - { name: postType, label: 'Post Type', widget: hidden, default: "projectPost" }
       - { name: blurb, label: Blurb }
       - { name: body, label: Body, widget: markdown }
       - { name: featured, label: "Featured Project", widget: boolean, default: false }
