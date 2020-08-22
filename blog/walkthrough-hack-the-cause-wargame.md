@@ -1,6 +1,6 @@
 ---
 path: hack-the-cause-walkthrough
-title: 'Walkthrough: Hack the Cause Wargame'
+title: Hack the Cause Wargame Walkthrough
 date: 2015-09-02T04:00:00.000Z
 postType: archivedPost
 ---
