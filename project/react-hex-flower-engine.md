@@ -1,5 +1,5 @@
 ---
-path: react-hex-flower-engine
+path: /react-hex-flower-engine
 title: React Hex Flower Engine
 link: 'https://dvdagames.github.io/react-hex-flower-engine/'
 postType: projectPost
