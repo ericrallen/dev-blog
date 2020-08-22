@@ -6,6 +6,8 @@ postType: projectPost
 blurb: Slack bot that generates RSS Feeds from links shared in a channel.
 featured: true
 ---
+**Note**: @RSS Bot was a fun experiment, but was ultimately shut down after over a year of providing RSS feeds for various Slack channels due to maintenance costs and lack of time to dedicate to responding to changes in the Slack API. Not being allowed in the Slack App Directory for "exfiltrating data" also took the wind out of the project's sails.
+
 We were looking for a simple solution for helping our developers keep up with links posted in some of our Slack channels due to frequent discussion pushing the links "above the fold" and out of the user's mind.
 
 We could not find a good solution, so I built one that listens for URLs in Slack channels and asks the user who posted them if they want to add the URL to the RSS Feed. It also allows other users to add a link that was posted to the RSS Feed for that channel via a Message Action if the original poster (OP) chooses not to add the URL to the RSS Feed.
