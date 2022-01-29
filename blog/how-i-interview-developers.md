@@ -31,7 +31,7 @@ Here's an actual message I received from a candidate we did not hire after an in
 
 I share all of this with you not to inflate my own ego, but to hopefully establish some credibility with you and show you that I've been putting in the work.
 
-If you still aren't sure about me, that's cool - I get it. I have provided some links to great posts from lots of other peopel you might want to listen to instead in the [Further Reading](#further-reading) section.
+If you still aren't sure about me, that's cool - I get it. I have provided some links to great posts from lots of other people you might want to listen to instead in the [Further Reading](#further-reading) section.
 
 **Disclaimer**: I do have to confess that I wasn't always a good interviewer. In fact, I started out as a pretty bad one who fumbled through dozens of interviews before starting to understand there was a problem and wanting to fix it. If you're one of those unlucky candidates I interviewed early on, I'm sorry.
 
@@ -94,6 +94,7 @@ I break the interview into 6 parts:
 
 
 ## Further Reading
+<a id="further-reading></a>
 
 Here are some articles about interviewing that I've found insightful and some that have challenged my beliefs about interviewing, too.
 
