@@ -6,11 +6,8 @@ export default ({ items }) => (
   <article>
     <img src={image} alt=" " aria-hidden="true" />
     <p>
-      A Web Developer from Charlotte, NC currently a consultant for&nbsp;
-      <a href="https://skookum.com/">
-        Skookum
-      </a>
-      .
+      A Web Developer currently in Boston, MA constantly working to improve developer
+      experience and user experience.
     </p>
   </article>
 );
