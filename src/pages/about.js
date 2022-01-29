@@ -24,13 +24,26 @@ export default ({ data }) => {
       <aside className={styles.aside}>
         <h3>About</h3>
         <p>
-          I like to solve problems, break things, and then fix them. I have a
-          passion for standards and digital craftsmanship.
+          I'm a Senior Full Stack Developer with over a decade of professional experience,
+          very strong Front End skills, and a love for TypeScript, CSS, a11y, and good automation.
         </p>
         <p>
-          I've been an individual contributor, a team lead, a manager, and a professor.
-          I want to continue sharpening my skills as a developer and mentor, but
-          not end up in middle management.
+          I care about Developer Experience almost as much as User Experience and
+          am hoping to eventually combine my love of writing code with my love for
+          teaching and mentoring and move into a Developer Advocate or Developer
+          Evangelist role.
+        </p>
+        <p>
+          I have experience leading teams, steering initiatives, implementing standards,
+          and mentoring junior talent at a diverse group of companies that includes tiny
+          (~5 people) design firms, fast-growing startups, mid-size consulting firms
+          (150-500 people) and massive (100k+ people) Fortune 50 financial institutions.
+        </p>
+        <p>
+          My primary goals are to help innovate rapidly, improve Developer Experience
+          whenever possible, spread knowledge, and codify practices in organizations
+          that need help bridging the gap between seniors and juniors, designers
+          and developers, technology and business, or developers and customers.
         </p>
         <h3>License</h3>
         <p className={styles.license}>
