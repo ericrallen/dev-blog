@@ -94,7 +94,7 @@ I break the interview into 6 parts:
 
 
 ## Further Reading
-<a id="further-reading></a>
+<a id="further-reading"></a>
 
 Here are some articles about interviewing that I've found insightful and some that have challenged my beliefs about interviewing, too.
 
