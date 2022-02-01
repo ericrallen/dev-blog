@@ -3,23 +3,12 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 export default ({ posts, show = 0 }) => {
-  const renderedProjects = posts
+  const featuredProjects = posts.filter(post => post.node.frontmatter.featured);
+
+  const unfeaturedPosts = posts.filter(post => !post.node.frontmatter.featured);
+
+  const renderedProjects = [...featuredProjects, ...unfeaturedPosts]
     .filter(post => post.node.frontmatter.title.length > 0)
-    .sort((a, b) => {
-      if (a.node.frontmatter.featured === true && b.node.frontmatter.featured === true) {
-        return 0;
-      }
-
-      if (a.node.frontmatter.featured === true) {
-        return -1;
-      }
-
-      if (b.node.frontmatter.featured === true) {
-        return 1;
-      }
-
-      return 0;
-    })
     .map(({ node: post }) => (
       <article className="project-post-preview" key={post.id}>
         <h3>
