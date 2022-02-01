@@ -65,12 +65,12 @@ I break a basic interview into roughly 6 parts:
     - Don't hesitate to ask for clarification or more explanation.
     - **Protip**: Let them know upfront if you might have to mute a bunch because your dog somehow knows when you're interviewing and sometimes decides to be as annoying as possible during interviews
 
-2. **Interviewer Questions Round 1** (*15-30 minutes*): this section has some easy getting started questions and then asks some specific behavioral interview questions
+2. **Interviewer Questions Round 1** (*15-30 minutes*): This section has some easy getting started questions and then some specific behavioral interview questions.
     1. Tell me briefly about a project you've been working on in the last 6-12 months. What tech stack have you been using?
         - There's no need to get into everything a candidate has done throughout their career - you've seen their resume and/or LinkedIn, right? - just get into what they've been doing lately as that's generally the most relevant.
-        - you may need to stop the candidate if they go too long on this one; about 5 minutes should be the upper bound, but 2-3 minutes is ideal
+        - **Protip**: You may need to stop the candidate if they go too long on this one; about 5 minutes should be the upper bound, but 2-3 minutes is ideal.
     2. What kind of role are you looking for? Are there any other experiences you'd like to highlight that you think would make you successful in that role?
-        - this gives them a chance to describe what they are looking to do in their next role and also give you a deeper dive into any other experience they have that might be relevant
+        - This gives them a chance to describe what they are looking to do in their next role and also gives you a deeper dive into any other experience they have that might be relevant.
     3. What technologies are you looking to work with? Are there any you would specifically like to avoid working?
         - Avoiding some tech is totally okay. Sometimes a specific language, framework, etc. just isn't our thing. I avoid Java and Ember because I just don't really like or fully grok them.
     4. Tell me about a project where you feel like you really succeeded. What about your contribution to that project made it so successful?
@@ -80,13 +80,13 @@ I break a basic interview into roughly 6 parts:
         - Some people won't feel comfortable talking about failure, so if someone gives you a non-commital answer you may need to probe deeper for an actual real-world example. Be sure to let them know that failure is a thing that happens to all of us and they don't have to incriminate themselves for taking down `us-east-1`, but we want to hear about a situation where they learned from a mistake.
     6. Tell me about a conflict you had with a coworker, stakeholder, customer, etc. What happened? How did you resolve it? In hindsight, would you approach it differently?
         - How do they approach conflicts? What do they do when they can't come to an agreement? No one wants conflict at work, but there are lots of times that we might disagree about how to approach solving some problem, how some business request degrades user experience, or how some user request is not possible given our current resources.
-        - This is also a good time to reflect on how your current team approaches conflict and maybe briefly discuss it with the candidate as part of the discussion.
+        - This can also be a good time to reflect on how your current team approaches conflict and maybe briefly discuss it with the candidate as part of the discussion.
 
-3. **Candidate Questions Round 1** (*5-10 minutes*): this is a good time to shift gears and let the candidate ask some questions - remember this is as much a chance for them to interview the company as it is for the company to interview them
+3. **Candidate Questions Round 1** (*5-10 minutes*): This is a good time to shift gears and let the candidate ask some questions - remember this is as much a chance for them to interview the company as it is for the company to interview them.
     - Engage as openly and honestly with the candidate as you can. Try not to ramble and to answer questions concisely. After you've done a lot of interviews, you'll start to refine the answers to certain questions and find that you've got certain responses ready.
     - One thing I do sometimes to try to keep myself from rambling is to start a stopwatch when I start answering a question and glance at it every so often so I know how long I've been talking. Remember, this is the candidate's time to learn about the company and the longer you speak the less time they have to ask other questions.
 
-4. **Interviewer Questions Round 2** (*10-15 minutes*): this section gets into some more technical interview questions and also allows you a chance to dig deeper into any follow-up questions you want to ask based on anything that's been talked about so far.
+4. **Interviewer Questions Round 2** (*10-15 minutes*): This section gets into some more technical interview questions and also allows you a chance to dig deeper into any follow-up questions you want to ask based on anything that's been talked about so far.
     1. Tell me about an interesting or particularly challenging problem you solved in the last 3-6 months. What made this problem interesting? How did you approach solving it?
         - This gives the candidate another chance to show off their skill set and talk about it passionately. You can probe deeper into any specifics around this and just sort of talk about it with them a bit.
     2. Tell me about a tradeoff you had to make in the last 6-12 months. What were the options? How did you choose between them?
@@ -106,7 +106,7 @@ I break a basic interview into roughly 6 parts:
           - [Serverless Functions](https://www.splunk.com/en_us/data-insider/what-are-serverless-functions.html) ([AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html), [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/), [Google Cloud Functions](https://cloud.google.com/functions/docs), etc.)
           - [Caching](https://www.cloudflare.com/learning/cdn/what-is-caching/)
           - [Containers](https://www.docker.com/resources/what-container)
-	5. **For Junior-ish Roles**: What language, library, framework, etc. are you looking forward to learning and working with in the near future? What tech is exciting to you right now?
+    5. **For Junior-ish Roles**: What language, library, framework, etc. are you looking forward to learning and working with in the near future? What tech is exciting to you right now?
 
 5. **Candidate Questions Round 2** (*remaining time minus 30 seconds to a minute*)
 
