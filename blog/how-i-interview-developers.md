@@ -57,13 +57,13 @@ While you can't always avoid it, I try not to take too many notes during the dis
 I break a basic interview into roughly 6 parts:
 
 1. **Introduction** (*1-2 minutes*): set expectations
-    - make sure it's still a good time and the candidate is free for the scheduled duration (you can also find out if they have a hard stop at the end or let them know if you do - sometimes interview discussions go out of the original timebox and that's okay if it's a good conversation and interviewer and interviewee are equally engaged)
-    - basic introduction (just your name, role, and how long you've been with the company; anything more is wasting time - the candidate can ask if they are curious) 
-    - this will be a conversational interview; questions, follow up questions, and back and forth discussion are all encouraged - sometimes we may need to move on from a topic, but we can circle back or follow up in email
-    - there are no right or wrong answers
-    - there will be specific time allotted for candidate questions near the halfway point and again at the end
-    - please don't hesitate to ask for clarification or more explanation
-    - let them know upfront if you might have to mute a bunch because your dog somehow knows when you're interviewing and sometimes decides to be as annoying as possible during interviews
+    - Make sure it's still a good time and the candidate is free for the scheduled duration. You should also find out if they have a hard stop at the end and let them know if you do - sometimes interview discussions go out of the original timebox and that's okay if it's a good conversation and interviewer and interviewee are equally engaged.
+    - Basic introduction: just your name, role, and how long you've been with the company; anything more is wasting time - the candidate can ask if they are curious.
+    - This will be a conversational interview; questions, follow-up questions, and back and forth discussion are all encouraged - due to time constraints, we may need to move on from a topic, but we can circle back or follow up in email.
+    - There are no right or wrong answers.
+    - There will be time for their questions near the halfway point and again at the end.
+    - Don't hesitate to ask for clarification or more explanation.
+    - **Protip**: Let them know upfront if you might have to mute a bunch because your dog somehow knows when you're interviewing and sometimes decides to be as annoying as possible during interviews
 
 2. **Interviewer Questions Round 1** (*15-30 minutes*): this section has some easy getting started questions and then asks some specific behavioral interview questions
     1. Tell me briefly about a project you've been working on in the last 6-12 months. What tech stack have you been using?
