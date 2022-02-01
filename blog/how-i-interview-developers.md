@@ -49,7 +49,7 @@ Some roles or candidates involve digging into other topics a little more deeply 
 
 **Aside**: I did actually have a candidate start to have a mild panic attack once - it was during that "hiring blitz" I mentioned earlier. It all turned out okay, but it really solidified for me just how stressful these things can be.
 
-While you can't always avoid it, I try not to take too many notes during the discussion. Just some high level bits and then I flesh them out after. You really want to engage with the candidate as another human being and that requires listening and actively participating in the conversation. If something feels really important and you want to make sure you capture it, ask the candidate if they are okay pausing for a few seconds so you can write it down correctly and then get back to the conversation.
+While you can't always avoid it, I try not to take too many notes during the discussion. Just some high-level bits and then I flesh them out after. You really want to engage with the candidate as another human being and that requires listening and actively participating in the conversation. If something feels really important and you want to make sure you capture it, ask the candidate if they are okay pausing for a few seconds so you can write it down correctly and then get back to the conversation.
 
 ## My Interview Questions
 <a id="my-interview-questions"></a>
@@ -61,23 +61,23 @@ I break a basic interview into roughly 6 parts:
     - basic introduction (just your name, role, and how long you've been with the company; anything more is wasting time - the candidate can ask if they are curious) 
     - this will be a conversational interview; questions, follow up questions, and back and forth discussion are all encouraged - sometimes we may need to move on from a topic, but we can circle back or follow up in email
     - there are no right or wrong answers
-    - there will be specific time aloted for candidate questions near the halfway point and again at the end
+    - there will be specific time allotted for candidate questions near the halfway point and again at the end
     - please don't hesitate to ask for clarification or more explanation
-    - let them know up front if you might have to mute a bunch because your dog somehow knows when you're interviewing and sometimes decides to be as annoying as possible during interviews
+    - let them know upfront if you might have to mute a bunch because your dog somehow knows when you're interviewing and sometimes decides to be as annoying as possible during interviews
 
 2. **Interviewer Questions Round 1** (*15-30 minutes*): this section has some easy getting started questions and then asks some specific behavioral interview questions
     1. Tell me briefly about a project you've been working on in the last 6-12 months. What tech stack have you been using?
         - There's no need to get into everything a candidate has done throughout their career - you've seen their resume and/or LinkedIn, right? - just get into what they've been doing lately as that's generally the most relevant.
         - you may need to stop the candidate if they go too long on this one; about 5 minutes should be the upper bound, but 2-3 minutes is ideal
     2. What kind of role are you looking for? Are there any other experiences you'd like to highlight that you think would make you successful in that role?
-        - this gives them a chance to describe what they are looking to do in their next role and also give you a deeper dive on any other experience they have that might be relevant
+        - this gives them a chance to describe what they are looking to do in their next role and also give you a deeper dive into any other experience they have that might be relevant
     3. What technologies are you looking to work with? Are there any you would specifically like to avoid working?
         - Avoiding some tech is totally okay. Sometimes a specific language, framework, etc. just isn't our thing. I avoid Java and Ember because I just don't really like or fully grok them.
     4. Tell me about a project where you feel like you really succeeded. What about your contribution to that project made it so successful?
         - Let them tell you about that time they totally crushed it. This is a chance to ask more questions and dig deeper into what they did, how they did it, and what they feel they are bringing to the table.
     5. Tell me about a project where you feel like you failed. What happened? What, if anything, would you do differently now?
-        - Everyone has struggled on a project at some point. It's okay to fail as long as you learn something from it. (Ask me how I know you always need to backup the production database.) This is chance for the candidate to be a little vulnerable, show how they take (or shift) responsibility, and how they've learned from past mistakes.
-        - Some people won't feel comfortable talking about failure, so if someone gives you a non-commital answer you may need to probe deeper for an actual real world example. Be sure to let them know that failure is a thing that happens to all of us and they don't have to incriminate themselves for taking down `us-east-1`, but we want to hear about a situation where they learned from a mistake.
+        - Everyone has struggled on a project at some point. It's okay to fail as long as you learn something from it. (Ask me how I know you always need to back up the production database.) This is a chance for the candidate to be a little vulnerable, show how they take (or shift) responsibility, and how they've learned from past mistakes.
+        - Some people won't feel comfortable talking about failure, so if someone gives you a non-commital answer you may need to probe deeper for an actual real-world example. Be sure to let them know that failure is a thing that happens to all of us and they don't have to incriminate themselves for taking down `us-east-1`, but we want to hear about a situation where they learned from a mistake.
     6. Tell me about a conflict you had with a coworker, stakeholder, customer, etc. What happened? How did you resolve it? In hindsight, would you approach it differently?
         - How do they approach conflicts? What do they do when they can't come to an agreement? No one wants conflict at work, but there are lots of times that we might disagree about how to approach solving some problem, how some business request degrades user experience, or how some user request is not possible given our current resources.
         - This is also a good time to reflect on how your current team approaches conflict and maybe briefly discuss it with the candidate as part of the discussion.
@@ -86,12 +86,12 @@ I break a basic interview into roughly 6 parts:
     - Engage as openly and honestly with the candidate as you can. Try not to ramble and to answer questions concisely. After you've done a lot of interviews, you'll start to refine the answers to certain questions and find that you've got certain responses ready.
     - One thing I do sometimes to try to keep myself from rambling is to start a stopwatch when I start answering a question and glance at it every so often so I know how long I've been talking. Remember, this is the candidate's time to learn about the company and the longer you speak the less time they have to ask other questions.
 
-4. **Interviewer Questions Round 2** (*10-15 minutes*): this section gets into some more technical interview questions and also allows you a chance to dig deeper into any followup questions you want to ask based anything that's been talked about so far.
+4. **Interviewer Questions Round 2** (*10-15 minutes*): this section gets into some more technical interview questions and also allows you a chance to dig deeper into any follow-up questions you want to ask based on anything that's been talked about so far.
     1. Tell me about an interesting or particularly challenging problem you solved in the last 3-6 months. What made this problem interesting? How did you approach solving it?
-        - This gives the candidate another chance to showoff their skill set and talk about it passionately. You can probe deeper into any specifics around this and just sort of talk about it with them a bit.
+        - This gives the candidate another chance to show off their skill set and talk about it passionately. You can probe deeper into any specifics around this and just sort of talk about it with them a bit.
     2. Tell me about a tradeoff you had to make in the last 6-12 months. What were the options? How did you choose between them?
-        - A lot of what we do involves managing tradeoffs: performance vs readability, faster delivery vs future maintainability, abstraction vs repetition, etc. This is a chance to dig into how the candidate thinks about these things and how they navigate the often nebulous waters around this kind of decision making.
-    3. **Follow Up Questions**: if you have anything you want to expand on based on your conversation with the candidate so far, this is the time for that. Want to hear more about how they used AWS for a project? Did they mention navigating a rewrite at a large company and you want to hear more about the planning and execution? Dig in a little.
+        - A lot of what we do involves managing tradeoffs: performance vs readability, faster delivery vs future maintainability, abstraction vs repetition, etc. This is a chance to dig into how the candidate thinks about these things and how they navigate the often nebulous waters around this kind of decision-making.
+    3. **Follow-Up Questions**: if you have anything you want to expand on based on your conversation with the candidate so far, this is the time for that. Want to hear more about how they used AWS for a project? Did they mention navigating a rewrite at a large company and you want to hear more about the planning and execution? Dig in a little.
     
     4. **For Senior-ish Roles**: Pretend that I'm a junior developer without much context and explain `[insert topic here]` to me.
         - Some Example Topics (pick something relevant to the candidate's actual day-to-day work and previous experience, and, it should go without saying, but make sure you are comfortable with the topic):
@@ -135,6 +135,6 @@ Here are some articles about interviewing that I've found insightful and some th
 -   [Inclusive hiring: 5 best practices for software engineering leaders](https://karat.com/blog/post/inclusive-hiring-best-practices-for-software-engineering-leaders/)
 -   [Hiring is Broken: What Do Developers Say About Technical Interviews?](https://par.nsf.gov/servlets/purl/10139106)
 -   [Senior Developers are Getting Rejected for Jobs](https://glenmccallum.com/2019/05/14/senior-developers-rejected-jobs/)
--   [In defence of the technical interview](https://blog.plan99.net/in-defence-of-the-technical-interview-966f54a58927)
+-   [In defense of the technical interview](https://blog.plan99.net/in-defence-of-the-technical-interview-966f54a58927)
 -   [Coding interviews suck. Can we make them better?](https://www.techrepublic.com/article/coding-interviews-are-terrible-can-we-make-them-better/)
 -   [Rethinking how we interview in Microsoft’s Developer Division](https://medium.com/@Johnmont_67962/rethinking-how-we-interview-in-microsofts-developer-division-8f404cfd075a)
