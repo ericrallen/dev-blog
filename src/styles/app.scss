@@ -9,6 +9,9 @@ body {
 
 html {
   background-color: #f7f7f7;
+  // an older version of sanitize has this set to default, which is weird
+  // TODO: update sanitize.css version
+  cursor: inherit;
 }
 
 body {
