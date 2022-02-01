@@ -14,5 +14,9 @@ export default [
   {
     label: 'About',
     url: '/about'
+  },
+  {
+    label: 'RSS',
+    url: '/rss'
   }
 ];
