@@ -89,22 +89,23 @@ I break a basic interview into roughly 6 parts:
 4. **Interviewer Questions Round 2** (*10-15 minutes*): this section gets into some more technical interview questions and also allows you a chance to dig deeper into any followup questions you want to ask based anything that's been talked about so far.
     1. Tell me about an interesting or particularly challenging problem you solved in the last 3-6 months. What made this problem interesting? How did you approach solving it?
         - This gives the candidate another chance to showoff their skill set and talk about it passionately. You can probe deeper into any specifics around this and just sort of talk about it with them a bit.
-    2. **Follow Up Questions**: if you have anything you want to expand on based on your conversation with the candidate so far, this is the time for that.
-    3. Tell me about a tradeoff you had to make in the last 6-12 months. What were the options? How did you choose between them?
+    2. Tell me about a tradeoff you had to make in the last 6-12 months. What were the options? How did you choose between them?
         - A lot of what we do involves managing tradeoffs: performance vs readability, faster delivery vs future maintainability, abstraction vs repetition, etc. This is a chance to dig into how the candidate thinks about these things and how they navigate the often nebulous waters around this kind of decision making.
+    3. **Follow Up Questions**: if you have anything you want to expand on based on your conversation with the candidate so far, this is the time for that. Want to hear more about how they used AWS for a project? Did they mention navigating a rewrite at a large company and you want to hear more about the planning and execution? Dig in a little.
+    
     4. **For Senior-ish Roles**: Pretend that I'm a junior developer without much context and explain `[insert topic here]` to me.
         - Some Example Topics (pick something relevant to the candidate's actual day-to-day work and previous experience, and, it should go without saying, but make sure you are comfortable with the topic):
-          - Feature Flags
-          - Green/Blue Deployments
-          - A/B/N Testing
-          - CSS Specificity
-          - Scope in JavaScript
-          - Model-View-Controller (MVC) or Model-View-ViewModel (MVVM) pattern
-          - Functional Programming vs Object-Oriented Programming (or any other programming paradigm that might be relevant to their past work or your codebase)
-          - Continuous Integration / Continuous Deployment (CI/CD)
-          - Serverless Functions (AWS Lambda, Azure Functions, Google Cloud Functions, etc.)
-          - Caching
-          - Docker / Containers
+          - [Feature Flags](https://launchdarkly.com/blog/what-are-feature-flags/)
+          - [Blue/Green Deployments](https://www.redhat.com/en/topics/devops/what-is-blue-green-deployment)
+          - [A/B/N Testing](https://www.optimizely.com/optimization-glossary/abn-testing/)
+          - [CSS Specificity](https://css-tricks.com/specifics-on-css-specificity/)
+          - [Scope in JavaScript](https://developer.mozilla.org/en-US/docs/Glossary/Scope)
+          - [Model-View-Controller (MVC)](https://www.freecodecamp.org/news/the-model-view-controller-pattern-mvc-architecture-and-frameworks-explained/), [Model-View-ViewModel (MVVM)](https://www.raywenderlich.com/34-design-patterns-by-tutorials-mvvm), or some other pattern relevant to their past work or your codebase
+          - [Functional Programming](https://en.wikipedia.org/wiki/Functional_programming), [Object-Oriented Programming](https://en.wikipedia.org/wiki/Object-oriented_programming), or any other programming paradigm that might be relevant to their past work or your codebase
+          - [Continuous Integration / Continuous Deployment (CI/CD)](https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment)
+          - [Serverless Functions](https://www.splunk.com/en_us/data-insider/what-are-serverless-functions.html) ([AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html), [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/), [Google Cloud Functions](https://cloud.google.com/functions/docs), etc.)
+          - [Caching](https://www.cloudflare.com/learning/cdn/what-is-caching/)
+          - [Containers](https://www.docker.com/resources/what-container)
 	5. **For Junior-ish Roles**: What language, library, framework, etc. are you looking forward to learning and working with in the near future? What tech is exciting to you right now?
 
 5. **Candidate Questions Round 2** (*remaining time minus 30 seconds to a minute*)
