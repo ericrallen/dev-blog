@@ -3,7 +3,7 @@ path: /introducing-rss-bot
 title: Introducing @RSS bot
 date: 2019-05-25T12:50:06.783Z
 postType: blogPost
-featured: true
+featured: false
 ---
 We have a lot of developers working in different places at different times at [Skookum](https://skookum.com/). People are sharing interesting, useful, and/or important articles at various times throughout the day. Unfortunately a lot of that content is missed by the majority of developers.
 
