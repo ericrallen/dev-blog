@@ -111,10 +111,10 @@ I break a basic interview into roughly 6 parts:
 5. **Candidate Questions Round 2** (*remaining time minus 30 seconds to a minute*)
 
 6. **Wrap Up** (*30 seconds-1 minute*)
-	1. Inform the candidate of the process from here and about how long they should expect to wait before hearing back. I also always let them know that if there is a bottleneck in the process, it is almost certainly my fault and not the fault of our internal recruiters.
-	2. Let them know that they can email you (or their recruiting contact) if they think of any more questions.
-	3. Thank them for their time.
-
+    1. Inform the candidate of the process from here and about how long they should expect to wait before hearing back. I also always let them know that if there is a bottleneck in the process, it is almost certainly my fault and not the fault of our internal recruiters.
+    2. Let them know that they can email you (or their recruiting contact) if they think of any more questions.
+    3. Thank them for their time.
+    4. **Protip**: Take a few minutes after the interview to compile your initial thoughts and shoot them over to your recruiting partner. If you need to think on it a little more, save that email as a Draft and set a reminder for a couple of hours - hiring is crazy right now, if you wait too long, you could easily lose that candidate.
 
 ## Further Reading
 <a id="further-reading"></a>
