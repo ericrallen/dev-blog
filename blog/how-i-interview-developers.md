@@ -88,7 +88,7 @@ I break a basic interview into roughly 6 parts:
 
 3. **Candidate Questions Round 1** (*5-10 minutes*): This is a good time to shift gears and let the candidate ask some questions - remember this is as much a chance for them to interview the company as it is for the company to interview them.
     - Engage as openly and honestly with the candidate as you can. Try not to ramble and to answer questions concisely. After you've done a lot of interviews, you'll start to refine the answers to certain questions and find that you've got certain responses ready.
-    - **Protip**: To avoid rambling, sometimes I start a stopwatch and glance at it every so often while answering a question so I know how long I've been talking. Remember, this is the candidate's time to learn about the company and the longer you spend answering one question the less time they have to ask other questions.
+    - **Protip**: To avoid rambling, sometimes I start a stopwatch and glance at it every so often while answering a question so I know how long I've been talking. Remember, this is the candidate's time to learn about the company, and the longer you spend answering one question the less time they have to ask other questions.
 
 4. **Interviewer Questions Round 2** (*10-15 minutes*): This section gets into some more technical interview questions and also allows you a chance to dig deeper into any follow-up questions you want to ask based on anything that's been talked about so far.
     1. Tell me about an interesting or particularly challenging problem you solved in the last 3-6 months. What made this problem interesting? How did you approach solving it?
@@ -119,6 +119,19 @@ I break a basic interview into roughly 6 parts:
     2. Let them know that they can email you (or their recruiting contact) if they think of any more questions.
     3. Thank them for their time.
     4. **Protip**: Take a few minutes after the interview to compile your initial thoughts and shoot them over to your recruiting partner. If you need to think on it a little more, save that email as a Draft and set a reminder for a couple of hours - hiring is crazy right now, if you wait too long, you could easily lose that candidate.
+
+## Why This Approach
+
+There are several benefits to this approach:
+
+- **Human-Centered**: It treats candidates as humans, and as equal participants in a conversation.
+- **Hard to Game**: There isn't really any coaching that can prepare someone for this interview. I've worked with a lot of recruiters and consulting firms over the years and sharing knowledge about interview questions always comes up when you're the interviewee. With these questions, you could do something like publish them on the Internet for everyone to see, and it would have no effect on the efficacy of the interview.
+- **Enjoyable**: I might be personally biased on this one, but as the interviewer, I enjoy this kind of conversation a lot more than pop quiz style interviews I've been asked to conduct in the past. As I mentioned already, candidates seem to enjoy this interview process, too.
+
+There are some possible drawbacks, too:
+
+- **Time-Consuming**: If you are in a high-throughput recruiting situation (at one point I was reviewing 30-40 resumes a day for dozens of open positions), you won't have the time to engage with each person at this level and might need to introduce something that creates a quicker filter before this kind of interview. You might also want to work on improving the quality of your filter at the application stage, resume review stage, and any initial recruiter call that might happen after a resume has been reviewed.
+- **Not Directly Technical**: You only learn as much about a candidate's technical ability as you are comfortable digging into during the discussion. Some people will maintain that you need to put a candidate through some kind of whiteboard question where they are put on the spot to write code in a context that is entirely unlike their normal work, and they *could* be right.
 
 ## Further Reading
 <a id="further-reading"></a>
