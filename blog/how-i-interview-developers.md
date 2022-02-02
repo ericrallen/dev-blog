@@ -3,6 +3,10 @@ path: /blog/how-i-interview-developers/
 title: How I Interview Developers
 date: 2022-01-29T21:15:07.866Z
 postType: blogPost
+blurb: >-
+  I get asked about interviewing a lot, and I've interviewed a ton of
+  developers, so in this post, I'll be sharing my interview questions and how I
+  approach the process in one centralized location.
 featured: true
 ---
 I'd like to talk about interviewing.
