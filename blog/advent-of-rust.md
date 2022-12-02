@@ -18,6 +18,8 @@ Rust always [sounded](https://stackoverflow.blog/2020/01/20/what-is-rust-and-why
 
 This post will attempt to document my trials, tribulations, successes, failures, and ["Eureka!" moments](https://en.wikipedia.org/wiki/Eureka_(word)#Archimedes) in hopes that you may gain some insight into this journey if you decide to follow a similar path.
 
+For each puzzle that I attempt to solve, I'll provide you with my current thoughts on learning the language, the actual search terms I used while going through it, and whatever I think I should learn more about next.
+
 <a id="table-of-contents"></a>
 
 ## Table of Contents
@@ -32,6 +34,7 @@ Sections of this post not dedicated to specific Advent of Code [Challenges](#cha
 
 - [GitHub Repository](#github-repository)
 - [Getting Started](#getting-started)
+- [Resources](#resources)
 - [Conclusion](#conclusion)
 
 <a id="challenges"></a>
@@ -62,6 +65,20 @@ As I was searching for the right [package to install from Homebrew for this](htt
 Rust's default, recommended installation method, `rustup` [handles this for you](https://rust-lang.github.io/rustup/concepts/index.html) so that you don't need to figure out whether you should be using `nvm` or `volta` or `pyenv` or `poetry`.
 
 This instantly made the languages I have been using for years feel very outdated.
+
+<a id="resources"></a>
+
+## Resources
+
+Here are some of the resources that I found particularly helpful throughout this exercise
+
+### Videos
+
+There's a theme here: _short and sweet_.
+
+- [Rust for the Impatient](https://youtu.be/br3GIIQeefY)
+- [Rust in 100 Seconds](https://youtu.be/5C_HPTJg5ek)
+- [Rust is Boring](https://youtu.be/oY0XwMOSzq4)
 
 <a id="day-one"></a>
 
@@ -131,8 +148,6 @@ rust sort descending
 
 You can pretty much reconstruct how I arrived at [my solution for Day One](https://github.com/ericrallen/advent-of-code/blob/main/2022/advent/src/days/day_one.rs) by following that trail of search strings.
 
-[Back to List of Challenges](#challenges).
-
 <a id="day-one-next-steps"></a>
 
 #### Next Steps
@@ -142,6 +157,8 @@ I still had lots of things to figure out, like:
 1. How to implement verbose debugging messages without needing to manually flip a Boolean in the code
 2. How to pass named parameters to the executable
 3. How to actually test the output of the executable against the example solution when providing the example input
+
+[Back to List of Challenges](#challenges).
 
 <a id="day-two"></a>
 
