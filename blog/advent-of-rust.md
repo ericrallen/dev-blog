@@ -20,12 +20,18 @@ featured: true
 
 Due to the ongoing nature of this posts updates, here are some quick links to relevant top-level sections in case you want to skip straight to a specific day.
 
+<a id="sections"></a>
+
 ### Sections
+
+Sections of this post not dedicated to specific Advent of Code [Challenges](#challenges).
 
 - [Background](#background)
 - [GitHub Repository](#github-repository)
 - [Getting Started](#getting-started)
 - [Conclusion](#conclusion)
+
+<a id="challenges"></a>
 
 ### Challenges
 
@@ -130,6 +136,8 @@ rust sort descending
 
 You can pretty much reconstruct how I arrived at [my solution for Day One](https://github.com/ericrallen/advent-of-code/blob/main/2022/advent/src/days/day_one.rs) by following that trail of search strings.
 
+[Back to List of Challenges](#challenges).
+
 <a id="day-one-next-steps"></a>
 
 #### Next Steps
@@ -196,9 +204,11 @@ rust remove empty elements from vector
 2. I need to take some time to learn about the differences with `struct`s and `enum`s
 3. Am I overusing `.collect()` and `.iter()`? Do I need them as often as I have been using them? When should I chain methods and when should I not?
 
+[Back to List of Challenges](#challenges).
+
 <a id="conclusions"></a>
 
-### Conclusions
+## Conclusions
 
 Below are some conclusions I've come to during this journey (along with the date that I came to that conclusion just in case my thoughts change over time).
 
