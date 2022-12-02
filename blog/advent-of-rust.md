@@ -1,5 +1,5 @@
 ---
-path: advent-of-rust-2022
+path: /blog/advent-of-rust-2022
 title: Advent of Rust
 date: 2022-12-02T20:26:39.664Z
 postType: blogPost
