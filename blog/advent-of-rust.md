@@ -14,6 +14,10 @@ blurb: >-
   unsuccessfully) tackle the various challenges throughout the month.
 featured: true
 ---
+Rust always [sounded](https://stackoverflow.blog/2020/01/20/what-is-rust-and-why-is-it-so-popular/) [pretty](https://blog.logrocket.com/why-is-rust-popular/) [cool](https://www.sheshbabu.com/posts/rust-wasm-yew-single-page-application/), but then I always heard you had to read this book to actually learn it. I like reading, but I don't learn that way. I'm an [experiential learner](https://www.niu.edu/citl/resources/guides/instructional-guide/experiential-learning.shtml#:~:text=%E2%80%9CExperiential%20%5Blearning%5D%20is%20a,Association%20for%20Experiential%20Education%2C%20para). So, I decided to just dive in and tackle [2022's Advent of Code](https://adventofcode.com/2022).
+
+This post will attempt to document my trials, tribulations, successes, failures, and ["Eureka!" moments](https://en.wikipedia.org/wiki/Eureka_(word)#Archimedes) in hopes that you may gain some insight into this journey if you decide to follow a similar path.
+
 <a id="table-of-contents"></a>
 
 ## Table of Contents
@@ -26,7 +30,6 @@ Due to the ongoing nature of this posts updates, here are some quick links to re
 
 Sections of this post not dedicated to specific Advent of Code [Challenges](#challenges).
 
-- [Background](#background)
 - [GitHub Repository](#github-repository)
 - [Getting Started](#getting-started)
 - [Conclusion](#conclusion)
@@ -39,14 +42,6 @@ _In descending order to make it easier to jump to the most recent day_.
 
 - [Day Two](#day-two)
 - [Day One](#day-one)
-
-<a id="background"></a>
-
-## Background
-
-Rust always [sounded](https://stackoverflow.blog/2020/01/20/what-is-rust-and-why-is-it-so-popular/) [pretty](https://blog.logrocket.com/why-is-rust-popular/) [cool](https://www.sheshbabu.com/posts/rust-wasm-yew-single-page-application/), but then I always heard you had to read this book to actually learn it. I like reading, but I don't learn that way. I'm an [experiential learner](https://www.niu.edu/citl/resources/guides/instructional-guide/experiential-learning.shtml#:~:text=%E2%80%9CExperiential%20%5Blearning%5D%20is%20a,Association%20for%20Experiential%20Education%2C%20para). So, I decided to just dive in and tackle [2022's Advent of Code](https://adventofcode.com/2022).
-
-This post will attempt to document my trials, tribulations, successes, failures, and ["Eureka!" moments](https://en.wikipedia.org/wiki/Eureka_(word)#Archimedes) in hopes that you may gain some insight into this journey if you decide to follow a similar path.
 
 <a id="github-repository"></a>
 
