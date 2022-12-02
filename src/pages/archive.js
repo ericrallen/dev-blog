@@ -16,7 +16,7 @@ export default function Index({ data }) {
       <Helmet title="Archived Posts | Eric Allen" />
       <header>
         <h1>Archived Posts</h1>
-        <p>This page contains posts from various past incarnations of my blogging saved here for posterity.</p>
+        <p>This page contains some posts from various past incarnations of my blog saved here for posterity because they seemed worth preserving.</p>
       </header>
       <PostListing posts={posts} />
       <footer>

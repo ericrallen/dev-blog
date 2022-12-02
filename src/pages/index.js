@@ -48,8 +48,9 @@ const professionalList = [
 
 const personalList = [
   'Dungeon Master',
+  'Beer Lover',
   'Internet Alchemist',
-  'Bike Commuter',
+  'Developer Advocate',
   'Runner',
 ];
 

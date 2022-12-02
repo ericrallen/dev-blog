@@ -19,22 +19,13 @@ export default ({ data }) => {
     <main className={styles.container}>
       <Helmet title={siteMetadata.title} />
       <Intro>
-        <PhotoBlurb />
-      </Intro>
-      <aside className={styles.aside}>
-        <h3>About</h3>
         <p>
-          I'm a Senior Full Stack Developer with over a decade of professional experience,
+          I'm a Developer Advocate with over a decade of professional experience,
           very strong Front End skills, and a love for TypeScript, CSS, a11y, and good automation.
         </p>
         <p>
           I care about Developer Experience almost as much as User Experience and
-          am hoping to eventually combine my love of writing code with my love for
-          teaching and mentoring and move into a Developer Advocate or Developer
-          Evangelist role.
-        </p>
-        <p>
-          I have experience leading teams, steering initiatives, implementing standards,
+          have experience leading teams, steering initiatives, implementing standards,
           and mentoring junior talent at a diverse group of companies that includes tiny
           (~5 people) design firms, fast-growing startups, mid-size consulting firms
           (150-500 people) and massive (100k+ people) Fortune 50 financial institutions.
@@ -66,6 +57,9 @@ export default ({ data }) => {
           </a>
           &nbsp;license.
         </p>
+      </Intro>
+      <aside className={styles.aside}>
+        <PhotoBlurb />
       </aside>
       <footer>
         <Nav items={navItems} />
