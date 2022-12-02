@@ -19,6 +19,7 @@ export default function Index({ data }) {
       <header>
         <h1>Projects</h1>
         <p>A small assortment of things I've worked on that aren't under NDA. You can find more on <a href="https://github.com/ericrallen/">my GitHub profile</a>.</p>
+        <p>I also maintain some projects as the following organizations <a href="https://github.com/dvdagames/">Dead Village Dead Adventurer Games</a> and <a href="https://github.com/InterwebAlchemy/">Interweb Alchemy</a>.</p>
       </header>
       <section className={styles.projectGrid}>
         <ProjectListing posts={posts} />
