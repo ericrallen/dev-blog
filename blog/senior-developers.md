@@ -7,7 +7,7 @@ blurb: >-
   This seems like a rant about titles, but it's really about the Core Principle
   of being a "Senior" Developer/Engineer/Rockstar/Unicorn/etc. that I think we
   should all be following.
-featured: true
+featured: false
 ---
 While I don't care about title inflation or title absurdity, I do care about what the people doling out and receiving some of these titles assume that they mean.
 
