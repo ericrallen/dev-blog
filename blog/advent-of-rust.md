@@ -12,11 +12,25 @@ blurb: >-
 
   This post will be updated throughout Advent of Code as I successfully (or
   unsuccessfully) tackle the various challenges throughout the month.
+
+
+  **Updated**: 2022-12-02
 featured: true
 ---
 Rust always [sounded](https://stackoverflow.blog/2020/01/20/what-is-rust-and-why-is-it-so-popular/) [pretty](https://blog.logrocket.com/why-is-rust-popular/) [cool](https://www.sheshbabu.com/posts/rust-wasm-yew-single-page-application/), but then I always heard you had to read this book to actually learn it. I like reading, but I don't learn that way. I'm an [experiential learner](https://www.niu.edu/citl/resources/guides/instructional-guide/experiential-learning.shtml#:~:text=%E2%80%9CExperiential%20%5Blearning%5D%20is%20a,Association%20for%20Experiential%20Education%2C%20para). So, I decided to just dive in and tackle [2022's Advent of Code](https://adventofcode.com/2022).
 
 This post will attempt to document my trials, tribulations, successes, failures, and ["Eureka!" moments](https://en.wikipedia.org/wiki/Eureka_(word)#Archimedes) in hopes that you may gain some insight into this journey if you decide to follow a similar path.
+
+The goal here is to stay in the [Zone of Proximal Development](https://www.simplypsychology.org/Zone-of-Proximal-Development.html) long enough to grok the language well enough to start digging into slightly more advanced topics and [reinforce all of the learning](https://hamre-erik.medium.com/desirable-difficulty-why-you-should-make-learning-more-difficult-on-purpose-c65223046d6b) with spaced repetition (daily coding challenges) and increasing complexity.
+
+**Full Disclosure**: There is a strong chance that I will not make it to Day 25 Part 2 - I have never completed a full Advent of Code calendar.
+
+For some context about me to help you understand how I'm approaching this and if this approach might work for you, too:
+
+- I'm a developer (currently working as a Developer Advocate) with just over a decade of professional experience and I've been programming as a hobby for a little over 20 years.
+- In the past I've played around with all sorts of languages (_roughly in order: HTML, CSS, Visual Basic, Java, ActionScript, PHP, Ruby, Objective-C, Swift, JavaScript, Bash, TypeScript, and Python_), but my primary focus has been JavaScript (and more recently TypeScript).
+- I've liked a few things about a lot of languages, but haven't found one that resonates with me like TypeScript does.
+- I don't remember much about most of the languages I've explored in the past because I always ended up returning to something I was more comfortable with. I've rarely felt that the investment in learning an entirely new toolchain and ecosystem is worth the pain and time investment.
 
 <a id="table-of-contents"></a>
 
@@ -32,16 +46,9 @@ Sections of this post not dedicated to specific Advent of Code [Challenges](#cha
 
 - [GitHub Repository](#github-repository)
 - [Getting Started](#getting-started)
+- [Resources](#resources)
 - [Conclusion](#conclusion)
-
-<a id="challenges"></a>
-
-### Challenges
-
-_In descending order to make it easier to jump to the most recent day_.
-
-- [Day Two](#day-two)
-- [Day One](#day-one)
+- [Challenges](#challenges)
 
 <a id="github-repository"></a>
 
@@ -63,23 +70,93 @@ Rust's default, recommended installation method, `rustup` [handles this for you]
 
 This instantly made the languages I have been using for years feel very outdated.
 
+<a id="resources"></a>
+
+## Resources
+
+Here are some resources that I've found particularly enlightening throughout this journey (in roughly the order that I found them in):
+
+- [Rust for the Impatient](https://youtu.be/br3GIIQeefY)
+- [Rust in 100 Seconds](https://youtu.be/5C_HPTJg5ek)
+- [Rust is Boring](https://youtu.be/oY0XwMOSzq4)
+- [Rust Demystified](https://youtu.be/TJTDTyNdJdY): _this one is amazing_
+
+<a id="conclusions"></a>
+
+## Conclusions
+
+Below are some conclusions I've come to during this journey (along with the date that I came to that conclusion just in case my thoughts change over time).
+
+- **2022-12-02**: Rust is pretty neat. I might actually like it.
+
+<a id="challenges"></a>
+
+### Challenges
+
+Now that we've got rust up and running, it's time to see what [@ericwastl](https://twitter.com/ericwastl) has in store for us with Advent of Code this year.
+
+_Listed here in descending order to make it easier to jump to the most recent day_.
+
+- [Day Two](#day-two)
+- [Day One](#day-one)
+
+**Note**: Each challenge has a **Real Talk** section where I share some **Takeaways** about what I learned during that challenge and how it contributed to my overall goal of learning Rust, various **Notes** I wrote down while going through the challenge, all of the **Searches** I made while working through the challenge, and what my key **Next Steps** were so you can see how I broke down trying to learn these concepts by doing.
+
 <a id="day-one"></a>
 
 ## Day One
 
-Now that we've got rust up and running, it's time to see what [@ericwastl](https://twitter.com/ericwastl) has in store for us with Advent of Code this year.
-
 Luckily [Day One](https://adventofcode.com/2022/day/1) eases us into things with iterating through some collections of numbers and adding them together.
 
-As is [tradition](https://github.com/ericrallen/advent-of-code/blob/main/2018/utils/solution.class.js), I first needed to over-engineer a way to test the example inputs against the example solutions and run code for the various parts of each day.
+As is [tradition](https://github.com/ericrallen/advent-of-code/blob/main/2018/utils/solution.class.js), I first needed to [over-engineer](https://github.com/ericrallen/advent-of-code/tree/main/2022) a way to test the example inputs against the example solutions and run code for the various parts of each day.
 
 > Before we can solve Advent of Code, we must [first invent](https://www.phy.cam.ac.uk/blog/how-make-apple-pie-scratch#:~:text=In%20the%201980s%20blockbuster%20science,must%20first%20invent%20the%20universe'.) an [Advent of Code helper](https://github.com/Bogdanp/awesome-advent-of-code#project-templates).
 
 **Note**: I first actually needed to figure out how to get the [`rust-analyzer` VSCode Extension](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer) to cooperate with the subdirectory I used for my crate.
 
+**Another Note**: I'll also probably streamline the input gathering at some point so that my inputs are pulled down from the Advent of Code site automatically and cached, but we need to [walk before we can run](https://idioms.thefreedictionary.com/walk+before+you+run) and we're taking baby steps here.
+
 ### Real Talk
 
-Here are the things I searched for and some notes I wrote down while working through Day One.
+We're given an example input:
+
+```
+1000
+2000
+3000
+
+4000
+
+5000
+6000
+
+7000
+8000
+9000
+
+10000
+```
+
+And told that each collection of numbers represents some collection and we want to sum those collections and find the biggest one.
+
+Breaking this problem down into logical steps (assuming we've already solved the problem of getting the input into our program):
+
+1. split the input on double line breaks to get each collection
+2. iterate through the collections
+    1. split them on line breaks to get each value
+3. iterate through the values
+    1. parse them as numbers
+    2. add them together
+    3. return the sum
+4. find the maximum value among the totals for each collection
+
+Part Two sees us taking the same logic, but sorting the collection and adding the top 3 totals together.
+
+#### Takeaways
+
+What's great about a simple challenge like this one for learning a new language is that it lets you play around with concepts that you are likely already familiar with and just sort of familiarize yourself with the syntax and how you execute programs in this new language.
+
+Things [may not have been perfect](https://github.com/ericrallen/advent-of-code/commit/859cd5ed6114adfcd958c6db6980aaae8e224116), but this felt like a very successful start with the language.
 
 #### Notes
 
@@ -131,8 +208,6 @@ rust sort descending
 
 You can pretty much reconstruct how I arrived at [my solution for Day One](https://github.com/ericrallen/advent-of-code/blob/main/2022/advent/src/days/day_one.rs) by following that trail of search strings.
 
-[Back to List of Challenges](#challenges).
-
 <a id="day-one-next-steps"></a>
 
 #### Next Steps
@@ -142,6 +217,8 @@ I still had lots of things to figure out, like:
 1. How to implement verbose debugging messages without needing to manually flip a Boolean in the code
 2. How to pass named parameters to the executable
 3. How to actually test the output of the executable against the example solution when providing the example input
+
+[Back to List of Challenges](#challenges)
 
 <a id="day-two"></a>
 
@@ -159,11 +236,40 @@ There are certainly ways to achieve this in every language, but this might be th
 
 ### Real Talk
 
-Here are the things I searched for and some notes I wrote down while working through Day Two.
+Once again, we're given an example input:
+
+```
+A Y
+B X
+C Z
+```
+
+And told that each line represents a round of Rock, Paper, Scissors and that we need to model the outcomes and provide the relevant total score based on the game's outcome and our chosen weapon.
+
+Breaking this problem down into logical steps:
+
+1. iterate through each line
+    1. get the other player's choice (first column)
+    2. get our choice (second column) and its associated point value
+    3. execute the game's rules to decide who won
+    4. get the value of the round for us (based on win, loss, or draw)
+    5. add the value of the outcome and the value of our choice
+    6. return that sum
+2. add up all the individual round sums to get our final score
+
+Day 2's puzzle is the first to introduce the Advent of Code trope of Part Two changing how you interpret the input, and asks us to figure out what choice we should make in each round to achieve a desired outcome and then provide the final total score based on those choices.
+
+It requires us to change things a little bit, but most of the logic is still there.
+
+#### Takeaways
+
+This one was also great to start groking the ins and outs of Rust because it takes a [game](https://en.wikipedia.org/wiki/Rock_paper_scissors) we're likely already familiar with, adjusts it minimally, and makes us think about how to model those rules programmatically.
+
+There are many approaches to the problem that give us a chance to explore [control flow](https://en.wikipedia.org/wiki/Control_flow) and [logic](https://woz-u.com/blog/how-to-get-programming-logic/) in our chosen language while maybe also exploring some of its more complex [data structures](https://www.geeksforgeeks.org/data-structures/)
 
 #### Notes
 
-> Rock, paper, scissors is actually a little harder than I thought
+> Rock, paper, scissors is actually a little harder than I thought; the point system here makes it a little more complicated, too
 
 > I know there has to be a better way than [all these ifs](https://github.com/ericrallen/advent-of-code/blob/main/2022/advent/src/days/day_two.rs#L20-L50), but I guess I'll learn that later
 
@@ -199,12 +305,10 @@ rust remove empty elements from vector
 2. I need to take some time to learn about the differences with `struct`s and `enum`s
 3. Am I overusing `.collect()` and `.iter()`? Do I need them as often as I have been using them? When should I chain methods and when should I not?
 
-[Back to List of Challenges](#challenges).
+[Back to List of Challenges](#challenges)
 
-<a id="conclusions"></a>
+<a id="day-three"></a>
 
-## Conclusions
+### Day Three
 
-Below are some conclusions I've come to during this journey (along with the date that I came to that conclusion just in case my thoughts change over time).
-
-- **2022-12-02**: Rust is pretty neat. I might actually like it.
+_Coming Soon..._
