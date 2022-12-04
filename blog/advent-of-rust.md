@@ -97,6 +97,7 @@ Now that we've got rust up and running, it's time to see what [@ericwastl](https
 
 _Listed here in descending order to make it easier to jump to the most recent day_.
 
+- [Day Three](#day-three)
 - [Day Two](#day-two)
 - [Day One](#day-one)
 
@@ -309,6 +310,53 @@ rust remove empty elements from vector
 
 <a id="day-three"></a>
 
-### Day Three
+## Day Three
 
-_Coming Soon..._
+[Day Three](https://adventofcode.com/2022/day/3)
+
+### Real Talk
+
+Input:
+
+```
+vJrwpWtwJgWrhcsFMMfFFhFp
+jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+PmmdzqPrVvPwwTWBwg
+wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+ttgJtRGJQctTZtZT
+CrZsJsPPZsGzwwsLwLmpwMDw
+```
+
+#### Takeaways
+
+_Coming Soon._
+
+#### Notes
+
+> Okay, we're doing another reduce/sum of an Array
+
+> That [Rust Demystified](https://youtu.be/TJTDTyNdJdY) video sort of actually helped me understand the `&` and I kind of get some of the lifecycle stuff now, too - I definitely need to watch it a couple more times over the rest of the month to come back and pick up more
+
+> I cannot figure out why it seems so hard to map stuff in Rust; I must be doing something really wrong
+
+#### Searches
+
+The search strings are getting a little more complex - not sure what the takeaway from that is just yet.
+
+```
+a value of type `&str` cannot be built from an iterator over elements of type `&str`
+
+consider introducing a named lifetime parameter: `<'a>`, `'a `, `'a `, `'a `, `'a `
+
+this function's return type contains a borrowed value, but the signature does not say which one of `pockets`'s 3 lifetimes it is borrowed from
+
+a value of type `Vec<&str>` cannot be built from an iterator over elements of type `Vec<&str>`
+
+the trait `FromIterator<T>` is implemented for `Vec<T>`
+```
+
+#### Next Steps
+
+1. Figure out if Vectors are even the right approach for this kind of thing; I think I'm doing it wrong
+
+[Back to List of Challenges](#challenges)
