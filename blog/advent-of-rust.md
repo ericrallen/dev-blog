@@ -389,7 +389,7 @@ cannot return value referencing local variable
 
 [Day Four](https://adventofcode.com/2022/day/4) has us converting some strings into number ranges and seeing if they overlap completely.
 
-I started off the day by trying to clean up [my very naive approach](https://github.com/ericrallen/advent-of-code/blob/main/2022/advent/src/main.rs) to the [two parts of a puzzle per day](https://github.com/ericrallen/advent-of-code/blob/main/2022/advent/src/days/day_one.rs#L41-L46) pattern and think about [a more Object-oriented approach to setting up each day's solution](https://github.com/ericrallen/advent-of-code/blob/main/2022/advent/src/lib.rs), but ended up deciding I didn't quite grok enough of the language's idioms yet and decided to keep pushing forward with the current status quo for now.
+I started off the day by trying to clean up [my very naive approach](https://github.com/ericrallen/advent-of-code/blob/main/2022/advent/src/main.rs) to the [two parts of a puzzle per day](https://github.com/ericrallen/advent-of-code/blob/main/2022/advent/src/days/day_one.rs#L41-L46) pattern and think about [a more Object-oriented approach to setting up each day's solution](https://github.com/ericrallen/advent-of-code/blob/main/2022/advent/src/lib.rs#L26-L63), but ended up deciding I didn't quite grok enough of the language's idioms yet and decided to keep pushing forward with the current status quo for now.
 
 I also wanted to switch from the `cargo run --features test` approach that I took and use the built-in [`#[cfg(test)]`](https://doc.rust-lang.org/book/ch11-01-writing-tests.html) functionality so that I can just run `cargo test`, but will tackle that another day.
 
