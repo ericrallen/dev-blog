@@ -4,17 +4,13 @@ title: Advent of Rust
 date: 2022-12-02T20:26:39.664Z
 postType: blogPost
 blurb: >-
-  I love to learn by breaking things, so every year the magnificent [Advent of
-  Code](https://adventofcode.com/) provides the perfect chance to break all
-  kinds of stuff in a new language or framework. This year I decided to finally
-  take a look at [Rust](https://www.rust-lang.org/).
+  This post will be updated throughout [Advent of
+  Code](https://adventofcode.com/) as I successfully (or unsuccessfully) tackle
+  the various challenges throughout the month trying to teach myself
+  [Rust](https://www.rust-lang.org/).
 
 
-  This post will be updated throughout Advent of Code as I successfully (or
-  unsuccessfully) tackle the various challenges throughout the month.
-
-
-  **Updated**: 2022-12-04
+  **Last Updated**: 2022-12-04
 featured: true
 ---
 Rust always [sounded](https://stackoverflow.blog/2020/01/20/what-is-rust-and-why-is-it-so-popular/) [pretty](https://blog.logrocket.com/why-is-rust-popular/) [cool](https://www.sheshbabu.com/posts/rust-wasm-yew-single-page-application/), but then I always heard you had to read this book to actually learn it. I like reading, but I don't learn that way. I'm an [experiential learner](https://www.niu.edu/citl/resources/guides/instructional-guide/experiential-learning.shtml#:~:text=%E2%80%9CExperiential%20%5Blearning%5D%20is%20a,Association%20for%20Experiential%20Education%2C%20para). So, I decided to just dive in and tackle [2022's Advent of Code](https://adventofcode.com/2022).
@@ -28,15 +24,21 @@ The goal here is to stay in the [Zone of Proximal Development](https://www.simpl
 For some context about me to help you understand how I'm approaching this and if this approach might work for you, too:
 
 - I'm a developer (currently working as a Developer Advocate) with just over a decade of professional experience and I've been programming as a hobby for a little over 20 years.
-- In the past I've played around with all sorts of languages (_roughly in order: HTML, CSS, Visual Basic, Java, ActionScript, PHP, Ruby, Objective-C, Swift, JavaScript, Bash, TypeScript, and Python_), but my primary focus has been JavaScript (and more recently TypeScript).
-- I've liked a few things about a lot of languages, but haven't found one that resonates with me like TypeScript does.
-- I don't remember much about most of the languages I've explored in the past because I always ended up returning to something I was more comfortable with. I've rarely felt that the investment in learning an entirely new toolchain and ecosystem is worth the pain and time investment.
+- In the past I've played around with all sorts of languages (_roughly in order: HTML, CSS, Visual Basic, Java, ActionScript, PHP, Ruby, Objective-C, Swift, JavaScript, Bash, TypeScript, Solidity, and Python_), but my primary focus has been JavaScript/Typescript.
+- I've liked a few things about a lot of languages, but haven't found one that resonates with me like TypeScript has.
+- I don't remember much about most of the languages I've explored in the past because I always ended up returning to something more comfortable. 
+
+Much like suddenly [switching from QWERTY to Colemark](https://www.daskeyboard.com/blog/qwerty-vs-dvorak-vs-colemak-keyboard-layouts/) or [VS Code to Vim](https://betterprogramming.pub/should-you-learn-vim-as-a-developer-in-2020-75fde02c5443), I've rarely felt that the investment in learning an entirely new language, toolchain, and ecosystem is worth the time and effort.
+
+So, why am I interested in learning Rust then? It seems to be the next thing for Web Assembly and has an interesting programming model that I think will really challenge my understanding of programming and programming ability.
+
+So, why should you care? You probably shouldn't, but if you're interested in how to use coding challenges as a springboard for learning, getting some insight into how an experienced developer tackles learning a new language, or just want to see that a senior developer also searches for a lot of the same things that a junior developer does then you might find this post interesting.
 
 <a id="table-of-contents"></a>
 
 ## Table of Contents
 
-Due to the ongoing nature of this posts updates, here are some quick links to relevant top-level sections in case you want to skip straight to a specific day.
+Due to the ongoing nature of this post's updates, here are some quick links to relevant top-level sections in case you want to skip straight to a specific day.
 
 <a id="sections"></a>
 
@@ -49,6 +51,18 @@ Sections of this post not dedicated to specific Advent of Code [Challenges](#cha
 - [Resources](#resources)
 - [Conclusion](#conclusion)
 - [Challenges](#challenges)
+
+<a id="challenges"></a>
+
+#### Challenges
+
+_Listed here in descending order to make it easier to jump to the most recent day_.
+
+- [Day Three](#day-three)
+- [Day Two](#day-two)
+- [Day One](#day-one)
+
+**Note**: Each challenge has a **Real Talk** section where I share some **Takeaways** about what I learned during that challenge and how it contributed to my overall goal of learning Rust, various **Notes** I wrote down while going through the challenge, all of the **Searches** I made while working through the challenge, and what my key **Next Steps** were so you can see how I broke down trying to learn these concepts by doing.
 
 <a id="github-repository"></a>
 
@@ -88,24 +102,13 @@ Here are some resources that I've found particularly enlightening throughout thi
 Below are some conclusions I've come to during this journey (along with the date that I came to that conclusion just in case my thoughts change over time).
 
 - **2022-12-02**: Rust is pretty neat. I might actually like it.
-
-<a id="challenges"></a>
-
-### Challenges
-
-Now that we've got rust up and running, it's time to see what [@ericwastl](https://twitter.com/ericwastl) has in store for us with Advent of Code this year.
-
-_Listed here in descending order to make it easier to jump to the most recent day_.
-
-- [Day Three](#day-three)
-- [Day Two](#day-two)
-- [Day One](#day-one)
-
-**Note**: Each challenge has a **Real Talk** section where I share some **Takeaways** about what I learned during that challenge and how it contributed to my overall goal of learning Rust, various **Notes** I wrote down while going through the challenge, all of the **Searches** I made while working through the challenge, and what my key **Next Steps** were so you can see how I broke down trying to learn these concepts by doing.
+- **2022-12-04**: Fighting to get the right types (like `&str`, `String`, `char`, `&&str`, etc.) more than I am actually programming. Hoping this is just like the initial hurdles I encountered switching from JavaScript to TypeScript.
 
 <a id="day-one"></a>
 
 ## Day One
+
+Now that we've got rust up and running, it's time to see what [@ericwastl](https://twitter.com/ericwastl) has in store for us with Advent of Code this year.
 
 Luckily [Day One](https://adventofcode.com/2022/day/1) eases us into things with iterating through some collections of numbers and adding them together.
 
