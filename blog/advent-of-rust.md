@@ -443,5 +443,6 @@ rust create array from range
 
 1. Should really be using `cargo test` instead of the `cargo run --features test` approach
 2. Would love to use more of the language's features (`struct`s, `enum`s, `trait`s, etc.)
+3. Need to learn more about handling `Option<T>` types and best practices for when and how to `unwrap()` them idiomatically
 
 [Back to List of Challenges](#challenges)
