@@ -104,6 +104,7 @@ Below are some conclusions I've come to during this journey (along with the date
 
 - **2022-12-02**: Rust is pretty neat. I might actually like it.
 - **2022-12-04**: Fighting to get the right types (like `&str`, `String`, `char`, `&&str`, etc.) more than I am actually programming. Hoping this is just like the initial hurdles I encountered switching from JavaScript to TypeScript.
+- **2022-12-05**: Like any language, it seems like it is not hard to write mediocre, naive implementations in Rust.
 
 <a id="day-one"></a>
 
@@ -418,7 +419,7 @@ The second part introduces another common Advent of Code puzzle trope:  Switchin
 
 #### Takeaways
 
-The first part of this one gave me a chance to try to apply what I have learned so far and the second part gave me an opportunity to refactor and make my code more reusable, but I was lazy and just duplicated it instead of trying to follow the [<abbr title="Don't Repeat Yourself">DRY</abbr>](https://www.digitalocean.com/community/tutorials/what-is-dry-development) things up.
+The first part of this one gave me a chance to try to apply what I have learned so far and the second part gave me an opportunity to refactor and make my code more reusable, but I was lazy and just duplicated it instead of trying to follow the Don't Repeat Yourself ([DRY](https://www.digitalocean.com/community/tutorials/what-is-dry-development)) principle and clean things up.
 
 #### Notes
 
