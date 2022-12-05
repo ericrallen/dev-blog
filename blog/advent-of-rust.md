@@ -10,7 +10,7 @@ blurb: >-
   [Rust](https://www.rust-lang.org/).
 
 
-  **Last Updated**: 2022-12-04
+  **Last Updated**: 2022-12-05
 featured: true
 ---
 Rust always [sounded](https://stackoverflow.blog/2020/01/20/what-is-rust-and-why-is-it-so-popular/) [pretty](https://blog.logrocket.com/why-is-rust-popular/) [cool](https://www.sheshbabu.com/posts/rust-wasm-yew-single-page-application/), but then I always heard you had to read this book to actually learn it. I like reading, but I don't learn that way. I'm an [experiential learner](https://www.niu.edu/citl/resources/guides/instructional-guide/experiential-learning.shtml#:~:text=%E2%80%9CExperiential%20%5Blearning%5D%20is%20a,Association%20for%20Experiential%20Education%2C%20para). So, I decided to just dive in and tackle [2022's Advent of Code](https://adventofcode.com/2022).
@@ -58,6 +58,7 @@ Sections of this post not dedicated to specific Advent of Code [Challenges](#cha
 
 _Listed here in descending order to make it easier to jump to the most recent day_.
 
+- [Day Four](#day-four)
 - [Day Three](#day-three)
 - [Day Two](#day-two)
 - [Day One](#day-one)
@@ -103,6 +104,7 @@ Below are some conclusions I've come to during this journey (along with the date
 
 - **2022-12-02**: Rust is pretty neat. I might actually like it.
 - **2022-12-04**: Fighting to get the right types (like `&str`, `String`, `char`, `&&str`, etc.) more than I am actually programming. Hoping this is just like the initial hurdles I encountered switching from JavaScript to TypeScript.
+- **2022-12-05**: Like any language, it seems like it is not hard to write mediocre, naive implementations in Rust.
 
 <a id="day-one"></a>
 
@@ -379,5 +381,69 @@ cannot return value referencing local variable
 1. Figure out if Vectors are even the right approach for this kind of thing; I think I'm doing it wrong
 2. Revisit the ownership thing again - it still hasn't sunk in yet
 3. Look into lifetimes more, I sort of understand why I needed to add a named lifetime (like `<'a>`) but it's still kind of unclear, too
+
+[Back to List of Challenges](#challenges)
+
+<a id="day-four"></a>
+
+## Day Four
+
+[Day Four](https://adventofcode.com/2022/day/4) has us converting some strings into number ranges and seeing if they overlap completely.
+
+I started off the day by trying to clean up [my very naive approach](https://github.com/ericrallen/advent-of-code/blob/main/2022/advent/src/main.rs) to the [two parts of a puzzle per day](https://github.com/ericrallen/advent-of-code/blob/main/2022/advent/src/days/day_one.rs#L41-L46) pattern and think about [a more Object-oriented approach to setting up each day's solution](https://github.com/ericrallen/advent-of-code/blob/main/2022/advent/src/lib.rs#L26-L63), but ended up deciding I didn't quite grok enough of the language's idioms yet and decided to keep pushing forward with the current status quo for now.
+
+I also wanted to switch from the `cargo run --features test` approach that I took and use the built-in [`#[cfg(test)]`](https://doc.rust-lang.org/book/ch11-01-writing-tests.html) functionality so that I can just run `cargo test`, but will tackle that another day.
+
+### Real Talk
+
+Example Input:
+
+```
+2-4,6-8
+2-3,4-5
+5-7,7-9
+2-8,3-7
+6-6,4-6
+2-6,4-8
+```
+
+Once again we're doing a lot of splitting of strings here. We could probably do something with a Regular Expression if we wanted to, but I'm not ready to dig into if/how RegEx is handled in Rust just yet, so we'll probably naively:
+
+1. Split on `"\n"`
+2. Split on `","`
+3. Split on `"-"`
+4. Create a range for each number sequence
+5. Check both ranges to see if either fully contains the other
+
+The second part introduces another common Advent of Code puzzle trope:  Switching between a complete and partial match. So we just need to flip our `.all()` to a `.any()` and we're good to go.
+
+#### Takeaways
+
+The first part of this one gave me a chance to try to apply what I have learned so far and the second part gave me an opportunity to refactor and make my code more reusable, but I was lazy and just duplicated it instead of trying to follow the Don't Repeat Yourself ([DRY](https://www.digitalocean.com/community/tutorials/what-is-dry-development)) principle and clean things up.
+
+#### Notes
+
+> I was able to do this all without too much trouble, but the code is definitely not what I would like it to be.
+
+> I actually felt like I kind of knew what I was doing this time. That might be some progress.
+
+#### Searches
+
+```
+rust struct
+
+// still haven't mentally accepted this one, I guess
+rust default function argument value
+
+rust check if two vectors contain same elements
+
+rust create array from range
+```
+
+#### Next Steps
+
+1. Should really be using `cargo test` instead of the `cargo run --features test` approach
+2. Would love to use more of the language's features (`struct`s, `enum`s, `trait`s, etc.)
+3. Need to learn more about handling `Option<T>` types and best practices for when and how to `unwrap()` them idiomatically
 
 [Back to List of Challenges](#challenges)
