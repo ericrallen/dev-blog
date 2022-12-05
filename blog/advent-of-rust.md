@@ -14,7 +14,7 @@ blurb: >-
   unsuccessfully) tackle the various challenges throughout the month.
 
 
-  **Updated**: 2022-12-02
+  **Updated**: 2022-12-04
 featured: true
 ---
 Rust always [sounded](https://stackoverflow.blog/2020/01/20/what-is-rust-and-why-is-it-so-popular/) [pretty](https://blog.logrocket.com/why-is-rust-popular/) [cool](https://www.sheshbabu.com/posts/rust-wasm-yew-single-page-application/), but then I always heard you had to read this book to actually learn it. I like reading, but I don't learn that way. I'm an [experiential learner](https://www.niu.edu/citl/resources/guides/instructional-guide/experiential-learning.shtml#:~:text=%E2%80%9CExperiential%20%5Blearning%5D%20is%20a,Association%20for%20Experiential%20Education%2C%20para). So, I decided to just dive in and tackle [2022's Advent of Code](https://adventofcode.com/2022).
@@ -312,11 +312,13 @@ rust remove empty elements from vector
 
 ## Day Three
 
-[Day Three](https://adventofcode.com/2022/day/3)
+[Day Three](https://adventofcode.com/2022/day/3) has us comparing parts of a string and looking for duplicates.
+
+This time I decided to try to make myself to explore the available functions in my IDE's Intellisense suggestions before searching for a solution to something. I think it worked out okay, and as a result you'll see that there are a lot less search strings focused on a specific task - and a lot more focused on a specifc error message I received while working in this way.
 
 ### Real Talk
 
-Input:
+Example Input:
 
 ```
 vJrwpWtwJgWrhcsFMMfFFhFp
@@ -327,21 +329,25 @@ ttgJtRGJQctTZtZT
 CrZsJsPPZsGzwwsLwLmpwMDw
 ```
 
+We're supposed to split these strings in half and find the character that appears in both halves, then convert that character to a numerical value and add them all together.
+
 #### Takeaways
 
-_Coming Soon._
+This one sort of reinforces what we've already started learning and gives us a chance to explore those concepts a little further.
+
+So far, using Advent of Code to learn a new programming language seems like a good idea, but I worry when the difficulty really increases it will result in a wall of frustration.
 
 #### Notes
 
-> Okay, we're doing another reduce/sum of an Array
+> Okay, we're doing another reduce/sum of an Array; hopefully I get the hang of the language before we get into more complex structures
 
 > That [Rust Demystified](https://youtu.be/TJTDTyNdJdY) video sort of actually helped me understand the `&` and I kind of get some of the lifecycle stuff now, too - I definitely need to watch it a couple more times over the rest of the month to come back and pick up more
 
-> I cannot figure out why it seems so hard to map stuff in Rust; I must be doing something really wrong
+> I cannot figure out why it seems so hard to map through stuff in Rust; I must be doing something really wrong or doing things in a way that isn't idiomatic
 
 #### Searches
 
-The search strings are getting a little more complex - not sure what the takeaway from that is just yet.
+You may notice that many of the search strings are mostly error messages that are getting a little more complex - not sure what the takeaway from that is just yet.
 
 ```
 a value of type `&str` cannot be built from an iterator over elements of type `&str`
@@ -353,10 +359,22 @@ this function's return type contains a borrowed value, but the signature does no
 a value of type `Vec<&str>` cannot be built from an iterator over elements of type `Vec<&str>`
 
 the trait `FromIterator<T>` is implemented for `Vec<T>`
+
+rust vector remove duplicates
+
+rust usize to i32
+
+rust expected slice `[&str]` found tuple `(_, _, _)`
+
+refutable pattern in function argument
+
+cannot return value referencing local variable
 ```
 
 #### Next Steps
 
 1. Figure out if Vectors are even the right approach for this kind of thing; I think I'm doing it wrong
+2. Revisit the ownership thing again - it still hasn't sunk in yet
+3. Look into lifetimes more, I sort of understand why I needed to add a named lifetime (like `<'a>`) but it's still kind of unclear, too
 
 [Back to List of Challenges](#challenges)
