@@ -414,13 +414,17 @@ Once again we're doing a lot of splitting of strings here. We could probably do 
 4. Create a range for each number sequence
 5. Check both ranges to see if either fully contains the other
 
+The second part introduces another common Advent of Code puzzle trope:  Switching between a complete and partial match. So we just need to flip our `.all()` to a `.any()` and we're good to go.
+
 #### Takeaways
 
-The first part of this one gave me a chance to try to apply what I have learned so far.
+The first part of this one gave me a chance to try to apply what I have learned so far and the second part gave me an opportunity to refactor and make my code more reusable, but I was lazy and just duplicated it instead of trying to follow the [<abbr title="Don't Repeat Yourself">DRY</abbr>](https://www.digitalocean.com/community/tutorials/what-is-dry-development) things up.
 
 #### Notes
 
 > I was able to do this all without too much trouble, but the code is definitely not what I would like it to be.
+
+> I actually felt like I kind of knew what I was doing this time. That might be some progress.
 
 #### Searches
 
