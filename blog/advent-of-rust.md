@@ -10,7 +10,7 @@ blurb: >-
   [Rust](https://www.rust-lang.org/).
 
 
-  **Last Updated**: 2022-12-05
+  **Last Updated**: 2022-12-06
 featured: true
 ---
 Rust always [sounded](https://stackoverflow.blog/2020/01/20/what-is-rust-and-why-is-it-so-popular/) [pretty](https://blog.logrocket.com/why-is-rust-popular/) [cool](https://www.sheshbabu.com/posts/rust-wasm-yew-single-page-application/), but then I always heard you had to read this book to actually learn it. I like reading, but I don't learn that way. I'm an [experiential learner](https://www.niu.edu/citl/resources/guides/instructional-guide/experiential-learning.shtml#:~:text=%E2%80%9CExperiential%20%5Blearning%5D%20is%20a,Association%20for%20Experiential%20Education%2C%20para). So, I decided to just dive in and tackle [2022's Advent of Code](https://adventofcode.com/2022).
@@ -58,6 +58,7 @@ Sections of this post not dedicated to specific Advent of Code [Challenges](#cha
 
 _Listed here in descending order to make it easier to jump to the most recent day_.
 
+- [Day Five](#day-five)
 - [Day Four](#day-four)
 - [Day Three](#day-three)
 - [Day Two](#day-two)
@@ -105,6 +106,7 @@ Below are some conclusions I've come to during this journey (along with the date
 - **2022-12-02**: Rust is pretty neat. I might actually like it.
 - **2022-12-04**: Fighting to get the right types (like `&str`, `String`, `char`, `&&str`, etc.) more than I am actually programming. Hoping this is just like the initial hurdles I encountered switching from JavaScript to TypeScript.
 - **2022-12-05**: Like any language, it seems like it is not hard to write mediocre, naive implementations in Rust.
+- **2022-12-06**: Feeling a bit more comfortable.
 
 <a id="day-one"></a>
 
@@ -445,5 +447,65 @@ rust create array from range
 1. Should really be using `cargo test` instead of the `cargo run --features test` approach
 2. Would love to use more of the language's features (`struct`s, `enum`s, `trait`s, etc.)
 3. Need to learn more about handling `Option<T>` types and best practices for when and how to `unwrap()` them idiomatically
+
+[Back to List of Challenges](#challenges)
+
+<a id="day-five"></a>
+
+## Day Five
+
+Well, that escalated quickly. [Day Five](https://adventofcode.com/2022/day/5) introduces another Advent of Code trope:  data visualization.
+
+I started off thinking about making one of those fancy data viz solutions you see on the [subreddit](https://www.reddit.com/r/adventofcode/), but decided that I should probably just catch up to the current day first instead.
+
+### Real Talk
+
+Example Input:
+
+```
+    [D]    
+[N] [C]    
+[Z] [M] [P]
+ 1   2   3 
+
+move 1 from 2 to 1
+move 3 from 1 to 3
+move 2 from 2 to 1
+move 1 from 1 to 2
+```
+
+This one is a bit more challenging because we have to parse the input in multiple different ways. We need to understand the total number of stacks we are dealing with and which item is in which stack while also parsing the instructions for moving items from one stack to another.
+
+Breaking this down we're going to want to:
+
+1. Split on `"\n\n"` to separate the stack visualization from the instructions
+2. Pop the stack numbers from the stack visualization so we know how many stacks we need to keep track of
+3. Parse the crates in each stack
+4. Parse each instruction and manipulate our stacks
+
+**Note**: One thing I've learned over the years with Advent of Code is that you can simplify and reduce your chance of bugs by just inserting an empty item in your Arrays when you are dealing with things indexed at `1` like these stacks of crates.
+
+#### Takeaways
+
+I think the most challenging part of this one is getting the right crates into the right stack.
+
+#### Notes
+
+> This one ramped up the difficulty a good bit
+
+#### Searches
+
+```
+// I ended up not using these
+rust update output in console
+rust regular expressions
+
+// stuff I actually used
+rust for in get index
+```
+
+#### Next Steps
+
+1. Should really be using `cargo test` instead of the `cargo run --features test` approach
 
 [Back to List of Challenges](#challenges)
