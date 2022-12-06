@@ -10,7 +10,7 @@ blurb: >-
   [Rust](https://www.rust-lang.org/).
 
 
-  **Last Updated**: 2022-12-07
+  **Last Updated**: 2022-12-06
 featured: true
 ---
 Rust always [sounded](https://stackoverflow.blog/2020/01/20/what-is-rust-and-why-is-it-so-popular/) [pretty](https://blog.logrocket.com/why-is-rust-popular/) [cool](https://www.sheshbabu.com/posts/rust-wasm-yew-single-page-application/), but then I always heard you had to read this book to actually learn it. I like reading, but I don't learn that way. I'm an [experiential learner](https://www.niu.edu/citl/resources/guides/instructional-guide/experiential-learning.shtml#:~:text=%E2%80%9CExperiential%20%5Blearning%5D%20is%20a,Association%20for%20Experiential%20Education%2C%20para). So, I decided to just dive in and tackle [2022's Advent of Code](https://adventofcode.com/2022).
@@ -92,12 +92,6 @@ This instantly made the languages I have been using for years feel very outdated
 
 Here are some resources that I've found particularly enlightening throughout this journey (in roughly the order that I found them in):
 
-### Documentation
-
-- [Rust Cookbook](https://rust-lang-nursery.github.io/rust-cookbook/intro.html): _there are a lot of helpful examples in here_
-
-### Videos
-
 - [Rust for the Impatient](https://youtu.be/br3GIIQeefY)
 - [Rust in 100 Seconds](https://youtu.be/5C_HPTJg5ek)
 - [Rust is Boring](https://youtu.be/oY0XwMOSzq4)
@@ -113,7 +107,6 @@ Below are some conclusions I've come to during this journey (along with the date
 - **2022-12-04**: Fighting to get the right types (like `&str`, `String`, `char`, `&&str`, etc.) more than I am actually programming. Hoping this is just like the initial hurdles I encountered switching from JavaScript to TypeScript.
 - **2022-12-05**: Like any language, it seems like it is not hard to write mediocre, naive implementations in Rust.
 - **2022-12-06**: Feeling a bit more comfortable.
-- **2022-12-07**: What a roller coaster of emotion.
 
 <a id="day-one"></a>
 
@@ -490,45 +483,29 @@ Breaking this down we're going to want to:
 3. Parse the crates in each stack
 4. Parse each instruction and manipulate our stacks
 
-**Note**: One thing I've learned over the years with Advent of Code is that you can simplify and reduce your chance of bugs by just inserting an empty item as the first element in your Arrays when you are dealing with things indexed at `1` like these stacks of crates. Rather than having to constantly convert indices, you can just go with what's written and then filter out the empty item at the end if necessary.
-
-And part two has us pulling multiple containers off the stack instead of doing them one by one, which is similar to the Advent of Code trope from [Day Four](#day-four), except this one has to do with moving from processing a stack as individual items to processing it as groups of items. Luckily most of the logic is still the same.
+**Note**: One thing I've learned over the years with Advent of Code is that you can simplify and reduce your chance of bugs by just inserting an empty item in your Arrays when you are dealing with things indexed at `1` like these stacks of crates.
 
 #### Takeaways
 
-The most challenging part of this one was actually parsing the initial stack state correctly. It also introduced another Advent of Code trope:  the reduced example case doesn't have edge cases that your real input might have (like multiple empty spots in a row so it isn't quite as easy to make sure you put the right crate on top of the right stack).
+I think the most challenging part of this one is getting the right crates into the right stack.
 
 #### Notes
 
-> This one ramped up the complexity a good bit; there usually seems to be a bit of a hockey stick in terms of the difficulty scaling - and that's often reflected in the decreasing number of stars awarded.
-
-> Let myself get too behind by overthinking and messing this one up at first
+> This one ramped up the difficulty a good bit
 
 #### Searches
 
 ```
-// I ended up not using this one
+// I ended up not using these
 rust update output in console
-
-// stuff I actually used
 rust regular expressions
 
+// stuff I actually used
 rust for in get index
-
-rust iterate n times
-
-rust remove first item from array
-
-rust can't compare `&str` with `str`
-
-rust borrowed value does not live long enough
-
-rust compar char to str
 ```
 
 #### Next Steps
 
-1. Should **really** switch to using `cargo test` instead of the `cargo run --features test` approach I ended up with
-2. Get better at making reusable functions for this stuff (I've been avoiding it due to some lifetime and ownership issues) so that these kind of day two slight tweaks can just be a new function or parameter to an existing function instead of repeating so much code
+1. Should really be using `cargo test` instead of the `cargo run --features test` approach
 
 [Back to List of Challenges](#challenges)
