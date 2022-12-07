@@ -483,29 +483,45 @@ Breaking this down we're going to want to:
 3. Parse the crates in each stack
 4. Parse each instruction and manipulate our stacks
 
-**Note**: One thing I've learned over the years with Advent of Code is that you can simplify and reduce your chance of bugs by just inserting an empty item in your Arrays when you are dealing with things indexed at `1` like these stacks of crates.
+**Note**: One thing I've learned over the years with Advent of Code is that you can simplify and reduce your chance of bugs by just inserting an empty item as the first element in your Arrays when you are dealing with things indexed at `1` like these stacks of crates. Rather than having to constantly convert indices, you can just go with what's written and then filter out the empty item at the end if necessary.
+
+And part two has us pulling multiple containers off the stack instead of doing them one by one, which is similar to the Advent of Code trope from [Day Four](#day-four), except this one has to do with moving from processing a stack as individual items to processing it as groups of items. Luckily most of the logic is still the same.
 
 #### Takeaways
 
-I think the most challenging part of this one is getting the right crates into the right stack.
+The most challenging part of this one was actually parsing the initial stack state correctly. It also introduced another Advent of Code trope:  the reduced example case doesn't have edge cases that your real input might have (like multiple empty spots in a row so it isn't quite as easy to make sure you put the right crate on top of the right stack).
 
 #### Notes
 
-> This one ramped up the difficulty a good bit
+> This one ramped up the complexity a good bit; there usually seems to be a bit of a hockey stick in terms of the difficulty scaling - and that's often reflected in the decreasing number of stars awarded.
+
+> Let myself get too behind by overthinking and messing this one up at first
 
 #### Searches
 
 ```
-// I ended up not using these
+// I ended up not using this one
 rust update output in console
-rust regular expressions
 
 // stuff I actually used
+rust regular expressions
+
 rust for in get index
+
+rust iterate n times
+
+rust remove first item from array
+
+rust can't compare `&str` with `str`
+
+rust borrowed value does not live long enough
+
+rust compar char to str
 ```
 
 #### Next Steps
 
-1. Should really be using `cargo test` instead of the `cargo run --features test` approach
+1. Should **really** switch to using `cargo test` instead of the `cargo run --features test` approach I ended up with
+2. Get better at making reusable functions for this stuff (I've been avoiding it due to some lifetime and ownership issues) so that these kind of day two slight tweaks can just be a new function or parameter to an existing function instead of repeating so much code
 
 [Back to List of Challenges](#challenges)
