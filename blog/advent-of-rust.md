@@ -10,7 +10,7 @@ blurb: >-
   [Rust](https://www.rust-lang.org/).
 
 
-  **Last Updated**: 2022-12-06
+  **Last Updated**: 2022-12-07
 featured: true
 ---
 Rust always [sounded](https://stackoverflow.blog/2020/01/20/what-is-rust-and-why-is-it-so-popular/) [pretty](https://blog.logrocket.com/why-is-rust-popular/) [cool](https://www.sheshbabu.com/posts/rust-wasm-yew-single-page-application/), but then I always heard you had to read this book to actually learn it. I like reading, but I don't learn that way. I'm an [experiential learner](https://www.niu.edu/citl/resources/guides/instructional-guide/experiential-learning.shtml#:~:text=%E2%80%9CExperiential%20%5Blearning%5D%20is%20a,Association%20for%20Experiential%20Education%2C%20para). So, I decided to just dive in and tackle [2022's Advent of Code](https://adventofcode.com/2022).
@@ -92,6 +92,12 @@ This instantly made the languages I have been using for years feel very outdated
 
 Here are some resources that I've found particularly enlightening throughout this journey (in roughly the order that I found them in):
 
+### Documentation
+
+- [Rust Cookbook](https://rust-lang-nursery.github.io/rust-cookbook/intro.html): _there are a lot of helpful examples in here_
+
+### Videos
+
 - [Rust for the Impatient](https://youtu.be/br3GIIQeefY)
 - [Rust in 100 Seconds](https://youtu.be/5C_HPTJg5ek)
 - [Rust is Boring](https://youtu.be/oY0XwMOSzq4)
@@ -107,6 +113,7 @@ Below are some conclusions I've come to during this journey (along with the date
 - **2022-12-04**: Fighting to get the right types (like `&str`, `String`, `char`, `&&str`, etc.) more than I am actually programming. Hoping this is just like the initial hurdles I encountered switching from JavaScript to TypeScript.
 - **2022-12-05**: Like any language, it seems like it is not hard to write mediocre, naive implementations in Rust.
 - **2022-12-06**: Feeling a bit more comfortable.
+- **2022-12-07**: What a roller coaster of emotion.
 
 <a id="day-one"></a>
 
