@@ -32,6 +32,8 @@ In Part 1 of my [Advent of Rust series](https://ericrallen.dev/blog/advent-of-ru
 
 **Note**: Each challenge has a **Real Talk** section where I share some **Takeaways** about what I learned during that challenge and how it contributed to my overall goal of learning Rust, various **Notes** I wrote down while going through the challenge, all of the **Searches** I made while working through the challenge, and what my key **Next Steps** were so you can see how I broke down trying to learn these concepts by doing.
 
+<a id="getting-started"></a>
+
 ## Getting Started
 
 Anyone who has dealt with Python, Node, or Ruby versions knows that you probably shouldn't just install whatever language you wnat to work with without first researching the ecosystem and figuring out how people really manage versions, packages, etc. You _can_ just install the default toolchain and go for it, but you'll eventually regret it.
