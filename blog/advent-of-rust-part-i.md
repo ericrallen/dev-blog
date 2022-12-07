@@ -4,7 +4,7 @@ title: 'Advent of Rust: Part I'
 date: 2022-12-07T23:17:04.332Z
 postType: blogPost
 blurb: >-
-  This post chronicles the first 5 days of my journey of learning Rust via
+  This post chronicles the first 5 days of my journey through learning Rust via
   Advent of Code.
 featured: false
 ---
