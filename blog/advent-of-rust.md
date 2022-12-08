@@ -47,8 +47,8 @@ This post serves as a hub with links to the rest of the posts in the series, som
 
 **Posts**:
 
-- [Part I: Days 1-5](https://ericrallen.dev/blog/advent-of-code-2022-pt-i)
-- [Part II: Days 6-10](https://ericrallen.dev/blog/advent-of-code-2022-pt-ii)
+- [Part I: Days 1-5](https://ericrallen.dev/blog/advent-of-rust-2022-pt-i)
+- [Part II: Days 6-10](https://ericrallen.dev/blog/advent-of-rust-2022-pt-ii)
 - Part III: Days 11-15: _Coming Soon._
 - Part IV: Days 16-20: _Coming Soon._
 - Part V: Days 21-25: _Coming Soon._
