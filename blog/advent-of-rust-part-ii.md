@@ -81,13 +81,144 @@ Breaking this one down into some logical steps:
 
 Part Two introduces another Advent of Code trope:  Adjusting the count of items you need to consider from your input. In this case we're going to start looking for a sequence with 14 unique characters instead of only 4.
 
-**My Solution**: [https://github.com/ericrallen/advent-of-code/blob/main/2022/advent/src/days/day_six.rs](https://github.com/ericrallen/advent-of-code/blob/main/2022/advent/src/days/day_six.rs)
+**Note**: Another, potentially better approach might maintain a single stack of `N` characters and just keep removing the first character and appending the next character in the larger sequence.
+
+#### My Solution
+
+The first thing we'll need is a way to check if a given set of characters is unique. Rust's [`.dedup()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.dedup) method removes consecutive duplicate items in a [Vector](https://doc.rust-lang.org/std/vec/struct.Vec.html), so we can [`.collect()`](https://doc.rust-lang.org/core/iter/trait.Iterator.html#method.collect) our string's characters into a Vector and then [`.sort()`](https://doc.rust-lang.org/std/vec/struct.Vec.html#method.sort) and `.dedup()` them.
+
+```rust
+fn check_for_unique_sequence(sequence: &str, size: usize) -> bool {
+  let mut sequence_array: Vec<char> = sequence.chars().collect();
+
+  // `.dedup()` only removes consecutive duplicates
+  // so it needs a sorted Vector for our use case
+  sequence_array.sort();
+  sequence_array.dedup();
+
+  sequence_array.len() == size
+}
+```
+
+**Note**: It probably would have been more efficient to just compare the size of the deduplicated sequence to the size of the original sequence instead of passing the size in, too.
+
+
+This utility method is technically extraneous, but it made the code feel a bit cleaner without the [Range]() (`start..end`) needing to include the math for calculating the correct indices. It also gave me a chance to play around with returning and working more with [`Option` types](https://doc.rust-lang.org/std/option/enum.Option.html).
+
+```rust
+fn get_sequence(stream: &String, start: usize, end: usize) -> Option<&str> {
+  // this could have just been a regular `.get()` call in the code below
+  // but having the index math in the Range was hard to read
+  stream.get(start..end)
+}
+```
+
+Finally, we need to actually check our string for a unique sequence of some defined length.
+
+**Note**: Initially the length was hardcoded to a specific [constant](https://doc.rust-lang.org/std/keyword.const.html), but it was easy to just make the length a function argument and pass in the relevant constant for each part of the puzzle.
+
+```rust
+fn find_end_of_sequence(stream: &String, length: usize) -> usize {
+  // check the first N characters before we start iterating
+  let first_sequence = get_sequence(stream, 0, length).unwrap();
+
+  if check_for_unique_sequence(first_sequence, length) {
+    length
+  } else {
+    // we'll update this once we find the right ending index
+    // TODO: find a pattern that can make this `panic!()` if we
+    // never find a unique sequence
+    let mut sequence_end_index: usize = 0;
+
+    for (index, _) in stream.chars().enumerate() {
+      // skip first character since we already checked the first sequence
+      if index > 0 {
+        // get the next sequence to check
+        let test_sequence = get_sequence(stream, index, index + length).unwrap();
+
+        if check_for_unique_sequence(test_sequence, length) {
+          sequence_end_index = index + length;
+
+          break;
+        }
+      }
+    }
+
+    sequence_end_index
+  }
+}
+```
+
+Now all we have to do is call `find_end_of_sequence()` with our input string and the desired length of the unique sequence.
+
+[View on GitHub](https://github.com/ericrallen/advent-of-code/blob/main/2022/advent/src/days/day_six.rs)
+
+##### Testing
+
+Adding unit tests to the solution was really easy, although I'm still not sure if I put them in the right place. I think I'm a fan of the simplicity of Rust's built-in testing.
+
+```rust
+#[cfg(test)]
+mod test {
+  use crate::{read_input, read_solution, days};
+
+  #[test]
+  fn day_six_part_one() {
+    // I put the first example for day 6 part 1 into a file
+    // like I have used for testing the previous puzzles
+    let input = read_input("6", true);
+    let output = read_solution("6", "1");
+
+    let result = days::day_six::part_one(input);
+
+    assert_eq!(result, output)
+  }
+
+  #[test]
+  fn day_six_part_one_extra() {
+    // the other examples inputs and solutions
+    let inputs = [
+      "bvwbjplbgvbhsrlpgdmjqwftvncz",
+      "nppdvjthqldpwncqszvftbrmjlhg",
+      "nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg",
+      "zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw"
+    ];
+
+    let outputs = ["5", "6", "10", "11"];
+
+    for (index, input) in inputs.iter().enumerate() {
+      let result = days::day_six::part_one(input.to_string());
+
+      assert_eq!(result, outputs[index]);
+    }
+  }
+
+  #[test]
+  fn day_six_part_two() {
+    let inputs = [
+      "mjqjpqmgbljsphdztnvjfqwrcgsmlb",
+      "bvwbjplbgvbhsrlpgdmjqwftvncz",
+      "nppdvjthqldpwncqszvftbrmjlhg",
+      "nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg",
+      "zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw"
+    ];
+
+    let outputs = ["19", "23", "23", "29", "26"];
+
+    for (index, input) in inputs.iter().enumerate() {
+      let result = days::day_six::part_two(input.to_string());
+
+      assert_eq!(result, outputs[index]);
+    }
+  }
+}
+```
 
 #### Takeaways
 
-This is the fist challenge where I really felt like I understood what I was doing and wrote code that wasn't pretty bad.
+This is the fist challenge where I really felt like I understood what I was doing and wrote code that I didn't feel bad about. It was really helpful to have another slightly easier puzzle as a way to try putting together everything I've learned about the language so far.
 
-I'm also glad I took the time to abstract some of it so that I could easily reuse everything in Part Two by just adding a second parameter that would accpet the desired length of the sequence we wanted to check.
+I'm also glad I took the time to abstract some of it so that I could easily reuse everything in Part Two by just adding a second parameter that would accept the desired length of the sequence we wanted to check.
 
 #### Notes
 
