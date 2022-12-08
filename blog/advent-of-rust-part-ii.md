@@ -8,7 +8,7 @@ blurb: >-
   of Code.
 featured: false
 ---
-**Last Updated**: 2022-12-07
+**Last Updated**: 2022-12-08
 
 In Part 2 of my [Advent of Rust series](https://ericrallen.dev/blog/advent-of-rust-2022/) we'll explore the puzzles 6 through 10 of [2022's Advent of Code challenge](https://adventofcode.com/2022).
 
