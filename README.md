@@ -1,7 +1,3 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/0f847f26-18c1-4c86-b590-bf0f87a06b8f/deploy-status)](https://app.netlify.com/sites/boring-euler-e38c5e/deploys)
+# Blog
 
-# Dev Blog
-
-Simple Developer Blog built with Gatsby and Netlify CMS.
-
-**NOTE**: This is still a work in progress, but it should be available at [ericrallen.dev](https://ericrallen.dev/).
+A statically generated blog using Next.js and Markdown.
