@@ -3,6 +3,7 @@ import { join } from "path";
 import matter from "gray-matter";
 
 import { Post } from "@/interfaces/post";
+import { POSTS_PER_PAGE } from "@/lib/constants";
 
 const postsDirectory = join(process.cwd(), "_posts");
 
@@ -28,4 +29,20 @@ export function getAllPosts(): Post[] {
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
 
   return posts;
+}
+
+export function getPagePosts(pageNumber = 0): Post[] {
+  const allPosts = getAllPosts();
+
+  const pagePosts = allPosts.slice(pageNumber * POSTS_PER_PAGE, (pageNumber + 1) * POSTS_PER_PAGE);
+
+  return pagePosts;
+}
+
+export function getTotalPosts(): number {
+  return getAllPosts().length;
+}
+
+export function getTotalPages(): number {
+  return Math.ceil(getTotalPosts() / POSTS_PER_PAGE);
 }
