@@ -3,7 +3,7 @@ import { IBM_Plex_Mono } from "next/font/google";
 import cn from "classnames";
 
 import Footer from "@/app/_components/footer";
-import { HOME_OG_IMAGE_URL } from "@/lib/constants";
+import { BASE_URL, HOME_OG_IMAGE_URL } from "@/lib/constants";
 
 import "./globals.css";
 
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [HOME_OG_IMAGE_URL],
   },
-  metadataBase: new URL("https://interwebalchemy.com"),
+  metadataBase: new URL(BASE_URL),
 };
 
 export default function RootLayout({
