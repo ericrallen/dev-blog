@@ -12,7 +12,7 @@ ogImage:
 
 In Part 2 of my [Advent of Rust series](https://ericrallen.dev/blog/advent-of-rust-2022/) we'll explore the puzzles 6 through 10 of [2022's Advent of Code challenge](https://adventofcode.com/2022).
 
-**GitHub Repository**: [https://github.com/ericrallen/advent-of-code/blob/main/2022/advent/src/days/day_six.rs](https://github.com/ericrallen/advent-of-code/blob/main/2022/advent/src/days/day_six.rs)
+[GitHub Repository](https://github.com/ericrallen/advent-of-code/tree/main/2022)
 
 <a id="table-of-contents"></a>
 

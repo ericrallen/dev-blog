@@ -19,7 +19,7 @@
 
 .markdown ul,
 .markdown ol {
-  @apply ml-4;
+  @apply ml-6 pl-4;
 }
 
 .markdown ul {
