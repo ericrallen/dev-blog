@@ -20,7 +20,7 @@ export default function Index() {
           coverImage={heroPost.coverImage}
           date={heroPost.date}
           slug={heroPost.slug}
-          content={heroPost.content}
+          excerpt={heroPost.excerpt}
         />
         {morePosts.length > 0 && <MoreStories posts={morePosts} />}
         {pages > 1 && <Pagination currentPage={0} totalPages={pages} />}

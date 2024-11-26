@@ -17,6 +17,40 @@
   @apply text-2xl mt-8 mb-4 leading-snug;
 }
 
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+}
+
+.markdown h1 > a,
+.markdown h2 > a,
+.markdown h3 > a,
+.markdown h4 > a {
+  display: none;
+  position: absolute;
+  right: 100%;
+  cursor: pointer;
+}
+
+.markdown h1:hover > a,
+.markdown h2:hover > a,
+.markdown h3:hover > a
+.markdown h4:hover > a {
+  display: flex;
+}
+
+.markdown h1 > a::before,
+.markdown h2 > a::before,
+.markdown h3 > a::before,
+.markdown h4 > a::before {
+  content: '#';
+}
+
 .markdown ul,
 .markdown ol {
   @apply ml-6 pl-4;

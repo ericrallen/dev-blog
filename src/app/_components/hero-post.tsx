@@ -7,30 +7,28 @@ import markdownToHtml from "@/lib/markdownToHtml";
 
 import { type Post } from "@/interfaces/post";
 
-type Props = Pick<Post, "title" | "coverImage" | "date" | "content" | "slug">;
+type Props = Pick<Post, "title" | "coverImage" | "date" | "excerpt" | "slug">;
 
-export async function HeroPost({ title, coverImage, date, content, slug }: Props) {
-  const renderedContent = await markdownToHtml(content || "");
+export async function HeroPost({ title, coverImage, date, excerpt, slug }: Props) {
+  const renderedContent = await markdownToHtml(excerpt || "");
 
   return (
     <section>
-      {coverImage && (
+      {/* {coverImage && (
         <div className="mb-8 md:mb-16">
           <CoverImage title={title} src={coverImage} slug={slug} />
         </div>
-      )}
+      )} */}
       <div className="">
-        <div>
-          <h3 className="mb-4 text-4xl lg:text-5xl leading-tight">
-            <Link href={`/posts/${slug}`} className="hover:underline">
-              {title}
-            </Link>
-          </h3>
-          <div className="mb-4 md:mb-0 text-lg">
-            <DateFormatter dateString={date} />
-          </div>
+        <div className="mb-1">
+          <DateFormatter dateString={date} />
         </div>
-        <PostBody content={renderedContent} />
+        <h3 className="mb-2 text-4xl lg:text-5xl leading-tight">
+          <Link href={`/posts/${slug}`} className="hover:underline">
+            {title}
+          </Link>
+        </h3>
+        <p className="text-lg leading-relaxed">{excerpt}</p>
       </div>
     </section>
   );
