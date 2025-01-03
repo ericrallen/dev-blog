@@ -10,15 +10,15 @@ ogImage:
   url: /assets/blog/chess-tutoring/chess-tutor-eval.png
 ---
 
-As part of a recent interview process, I had to build an [LLM-powered Chess app](https://github.com/dvdagames/chess-tutor), and I'm not one to let a good project go to waste, especially when it combines two domains that interest me: Chess and Generative AI.
+As part of a recent interview process, I had to build an [LLM-powered Chess app](https://github.com/dvdagames/chess-tutor) using [Next.js](https://nextjs.org/), [chess.js](https://github.com/jhlywa/chess.js), and [react-chessboard](https://github.com/Clariity/react-chessboard). I'm not one to let a good project go to waste, especially when it combines two domains that interest me: Chess and Generative AI.
 
-It's never been easier to learn new things and to augment your existing knowledge in almost any area, and the ["King's Game"](https://en.wikipedia.org/wiki/Chess_or_the_King%27s_Game), Chess, is no different. There are nearly limitless possibilities from [books](https://www.gothamchess.com/my-book) to [tutorials](https://youtu.be/Ao9iOeK_jvU) to [puzzles](https://lichess.org/training) and [courses](https://chessly.com/).
+It's never been easier to learn new skills and to augment your existing knowledge in almost any area, and the ["King's Game"](https://en.wikipedia.org/wiki/Chess_or_the_King%27s_Game), Chess, is no different. There are nearly limitless possibilities from [books](https://www.gothamchess.com/my-book) to [tutorials](https://youtu.be/Ao9iOeK_jvU) to [puzzles](https://lichess.org/training) and [courses](https://chessly.com/).
 
-But, in our [post-ChatGPT world](https://danielmiessler.com/blog/6-phases-post-gpt-world), I wonder if we can leverage [the chess capabilities of Generative AI](https://youtu.be/wJzSHRNyspg) to improve at chess?
+But, in our [post-ChatGPT world](https://danielmiessler.com/blog/6-phases-post-gpt-world), can we leverage [the chess capabilities of Generative AI](https://youtu.be/wJzSHRNyspg) to improve at chess?
 
 If you already have a higher-than-average [Elo](https://en.wikipedia.org/wiki/Elo_rating_system)? Maybe not. But if you're a beginner stuck in the 500s like me? Maybe.
 
-## Tutoring Features
+## LLM-Powered Chess Tutoring
 
 The goal of this tutor is to help players analyze and understand the impact of each move they make by combining features from the post-game analysis of tools like [chess.com](https://www.chess.com/analysis?tab=analysis) or [lichess](https://lichess.org/analysis) into the real-time play of a game of chess against a bot.
 
@@ -35,9 +35,11 @@ If you find yourself missing an attack from an opponent's knight after you move,
 
 In a somewhat-related upcoming project, I want to explore Generative AI's ability to play chess, so instead of playing against a standard engine, like [Stockfish](https://stockfishchess.org/), I originally integrated [OpenAI's](https://platform.openai.com/docs/models#gpt-3-5-turbo) previous-generation [`gpt-3.5-turbo-instruct`](https://www.clarifai.com/blog/gpt-3.5-turbo-instruct-model-from-openai) model, because allegedly [GPT-3.5 Turbo Instruct is pretty good at chess](https://dynomight.net/chess/).
 
-Unfortunately, despite my best efforts to follow and improve upon the existing [chess prompt engineering](https://dynomight.net/more-chess/), it continued to frequently suggest illegal moves. So, I switched to [`gpt-4o-mini`](https://platform.openai.com/docs/models#gpt-4o-mini) and included a list of the legal moves from [chess.js](https://github.com/jhlywa/chess.js) in the user's messages. In my experience, the model almost always chooses a legal move and often plays like an opponent I would expect to encounter on chess.com.
+Unfortunately, despite my best efforts to follow and improve upon the existing [chess prompt engineering](https://dynomight.net/more-chess/), it continued to frequently suggest illegal moves. So, I switched to [`gpt-4o-mini`](https://platform.openai.com/docs/models#gpt-4o-mini) and included a list of the legal moves from [chess.js](https://github.com/jhlywa/chess.js) in the user's messages. In my experience, the model almost always chooses a legal move and often plays like an opponent I would expect to encounter on chess.com. **Update 2025-01-03**: After more experimentation, it appears that `gpt-4o-mini` frequently plays the same game, and that game often involves risky early queen moves that lead to unlikely positions, so it has been replaced with `gpt-4o` for the time being while other models are investigated.
 
-**Note**: There are ongoing experiments to test other models, like [`o1-mini`](https://platform.openai.com/docs/models#o1), [`mistral-large`](https://mistral.ai/news/mistral-large-2407/), [`ministral-8b`](https://mistral.ai/news/ministraux/), [`claude-3-5-sonnet`](https://www.anthropic.com/news/3-5-models-and-computer-use), and [`claude-3-5-haiku`](https://www.anthropic.com/news/3-5-models-and-computer-use) with some tweaked prompt engineering to find an [optimal opponent](https://blog.mathieuacher.com/GPTsChessEloRatingLegalMoves/) for the chess tutoring app. We don't want a perfect player, but we do want a reasonable player.
+There are ongoing experiments to test other models, like [`o1-mini`](https://platform.openai.com/docs/models#o1), [`mistral-large`](https://mistral.ai/news/mistral-large-2407/), [`ministral-8b`](https://mistral.ai/news/ministraux/), [`claude-3-5-sonnet`](https://www.anthropic.com/news/3-5-models-and-computer-use), and [`claude-3-5-haiku`](https://www.anthropic.com/news/3-5-models-and-computer-use) with some tweaked prompt engineering to find an [optimal opponent](https://blog.mathieuacher.com/GPTsChessEloRatingLegalMoves/) for the chess tutoring app.
+
+We don't want a perfect player, but we do want a reasonable approximation of a real player.
 
 ## Conclusions
 
