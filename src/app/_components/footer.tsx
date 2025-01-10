@@ -18,6 +18,9 @@ export function Footer() {
             &nbsp;license unless otherwise stated directly.
           </p>
         </div>
+        <div className="flex flex-col items-center pb-4">
+          <div className="rc-scout"></div>
+        </div>
       </Container>
     </footer>
   );

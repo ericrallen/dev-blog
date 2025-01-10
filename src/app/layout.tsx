@@ -45,6 +45,7 @@ export default function RootLayout({
         <div className="min-h-screen">{children}</div>
         <Footer />
       </body>
+      <script async defer src="https://www.recurse-scout.com/loader.js?t=1b9ee5f39bb35af1073bda78cf4cabdf"></script>
     </html>
   );
 }
