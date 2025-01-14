@@ -1,7 +1,7 @@
 ---
 title: Chess Tutoring in the Age of ChatGPT
 date: 2024-12-30
-excerpt: Let's leveraging Generative AI to improve a beginner chess player's skills.
+excerpt: Overview of an Large Language Model powered, real-time chess tutoring app that combines features from post-game analysis tools with the real-time play of a game of chess against an agent.
 author:
   name: Eric Allen
   picture: /assets/blog/authors/avatar-eric.jpg
