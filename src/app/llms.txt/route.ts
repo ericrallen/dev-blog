@@ -23,7 +23,7 @@ There are ${getTotalPosts()} posts in total.
 
 ## Latest Posts
 
-${getPagePosts(0)
+${(await getPagePosts(0))
   .map((post) => {
     return `- [${post.title}](${BASE_URL}/posts/${post.slug}): ${post.excerpt}`;
   })
@@ -33,7 +33,7 @@ ${getPagePosts(0)
 
 > Full list of posts on this blog.
 
-${getAllPosts()
+${(await getAllPosts())
   .map((post) => {
     return `- [${post.title}](${BASE_URL}/posts/${post.slug}): ${post.excerpt}`;
   })

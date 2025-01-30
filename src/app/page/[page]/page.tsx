@@ -17,8 +17,8 @@ type Params = {
 export default async function Page(props: Params) {
   const params = await props.params;
   const page = parseInt(params.page, 10);
-  const posts = getPagePosts(page);
-  const pages = getTotalPages();
+  const posts = await getPagePosts(page);
+  const pages = await getTotalPages();
 
   if (!page) {
     return notFound();
@@ -38,7 +38,7 @@ export default async function Page(props: Params) {
 export async function generateMetadata(props: Params): Promise<Metadata> {
   const params = await props.params;
   const page = parseInt(params.page, 10);
-  const posts = getPagePosts(page);
+  const posts = await getPagePosts(page);
 
   if (!page) {
     return notFound();
@@ -56,7 +56,7 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
 }
 
 export async function generateStaticParams(props: Params) {
-  const totalPages = getTotalPages();
+  const totalPages = await getTotalPages();
 
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => ({
     page: page.toString(),
