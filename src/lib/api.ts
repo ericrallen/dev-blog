@@ -20,29 +20,29 @@ export function getPostBySlug(slug: string): Post {
   return { ...data, slug: realSlug, content } as Post;
 }
 
-export function getAllPosts(): Post[] {
+export async function getAllPosts(): Promise<Post[]> {
   const slugs = getPostSlugs();
 
-  const posts = slugs
-    .map((slug) => getPostBySlug(slug))
-    // sort posts by date in descending order
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
+  const posts = await Promise.all(slugs.map(async (slug) => await getPostBySlug(slug)));
 
-  return posts;
+  // sort posts by date in descending order
+  const sortedPosts = posts.sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
+
+  return sortedPosts;
 }
 
-export function getPagePosts(pageNumber = 0): Post[] {
-  const allPosts = getAllPosts();
+export async function getPagePosts(pageNumber = 0): Promise<Post[]> {
+  const allPosts = await getAllPosts();
 
   const pagePosts = allPosts.slice(pageNumber * POSTS_PER_PAGE, (pageNumber + 1) * POSTS_PER_PAGE);
 
   return pagePosts;
 }
 
-export function getTotalPosts(): number {
-  return getAllPosts().length;
+export async function getTotalPosts(): Promise<number> {
+  return (await getAllPosts()).length;
 }
 
-export function getTotalPages(): number {
-  return Math.ceil(getTotalPosts() / POSTS_PER_PAGE);
+export async function getTotalPages(): Promise<number> {
+  return Math.ceil((await getTotalPosts()) / POSTS_PER_PAGE);
 }

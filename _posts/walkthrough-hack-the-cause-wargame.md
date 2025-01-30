@@ -8,6 +8,7 @@ author:
 ogImage:
   url: /assets/images/blog-hero.jpg
 ---
+
 This post is a walkthrough of a short, fun wargame I found.
 
 A few months ago, [someone posted a link to a CTF that they had created in a few different InfoSec-related subreddits](https://www.reddit.com/r/hacking/comments/39yq4v/want_to_be_a_hacker/).
@@ -33,7 +34,7 @@ Take a moment and look around on your own. If you absolutely can't do this one, 
 
 If you haven't figured this one out, Right-click the page and choose `Inspect` from the menu.
 
-If you look through the various tags inside the <body> tag, you should see a few with inline styles like this: `style="display:none;"`.
+If you look through the various tags inside the `<body>` tag, you should see a few with inline styles like this: `style="display:none;"`.
 
 If you take a peek at the one after the `hint-wrapper` and before the `success-wrapper`, you should find the password in plain text.
 
@@ -101,8 +102,7 @@ Don't encode or encrypt passwords; **ALWAYS hash them**. Beyond just hashing a p
 
 ## Level Four
 
-**Vulnerability**: SQL Injection (SQLi) via Not Sanitizing User Input
-**Level Hint*: `SELECT * FROM users WHERE username="$user" AND password="$pass"`
+**Vulnerability**: SQL Injection (SQLi) via Not Sanitizing User Input \*_Level Hint_: `SELECT * FROM users WHERE username="$user" AND password="$pass"`
 
 It's worth mentioning that SQL Injection examples in CTF/Wargame challenges can often be somewhat frustrating due to the fact that most of them are simulated and therefore just look for a matching regex instead of actually running the query. Most of these regexes are very rigid and only accept very specific entries.
 

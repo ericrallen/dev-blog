@@ -3,20 +3,22 @@ import html from "remark-html";
 import gfm from "remark-gfm";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
-import rehypeHighlight from "rehype-highlight";
+import remarkFrontmatter from "remark-frontmatter";
+import rehypeShiki from "@shikijs/rehype";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import rehypeStringify from "rehype-stringify";
 
 export default async function markdownToHtml(markdown: string) {
-  const result = await unified()
+  let result = await unified()
     .use(remarkParse)
+    .use(remarkFrontmatter)
     .use(gfm)
     .use(html, { sanitize: false })
     .use(remarkRehype)
     .use(rehypeSlug)
     .use(rehypeAutolinkHeadings)
-    .use(rehypeHighlight)
+    .use(rehypeShiki, { theme: "tokyo-night" })
     .use(rehypeStringify)
     .process(markdown);
 

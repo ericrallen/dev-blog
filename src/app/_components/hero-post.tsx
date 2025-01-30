@@ -20,15 +20,15 @@ export async function HeroPost({ title, coverImage, date, excerpt, slug }: Props
         </div>
       )} */}
       <div className="">
-        <div className="mb-1">
-          <DateFormatter dateString={date} />
-        </div>
         <h3 className="mb-2 text-4xl lg:text-5xl leading-tight">
           <Link href={`/posts/${slug}`} className="hover:underline">
             {title}
           </Link>
         </h3>
-        <p className="text-lg leading-relaxed">{excerpt}</p>
+        <p className="text-lg mb-3 leading-relaxed">{excerpt}</p>
+      </div>
+      <div className="text-sm">
+        <DateFormatter dateString={date} />
       </div>
     </section>
   );

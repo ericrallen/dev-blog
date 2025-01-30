@@ -5,13 +5,13 @@ import { BASE_URL } from "@/lib/constants";
 
 export const dynamic = "force-static";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const home = {
     url: BASE_URL,
     lastModified: new Date().toString(),
   };
 
-  const posts = getAllPosts();
+  const posts = await getAllPosts();
 
   // Base routes
   const routes: MetadataRoute.Sitemap = [
@@ -32,18 +32,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  Array.from({ length: getTotalPages() }, (_, i) => i)
-    .filter((i) => i !== 0)
-    .forEach((i) => {
-      const posts = getPagePosts(i);
+  const postPages = Array.from({ length: await getTotalPages() }, (_, i) => i).filter((i) => i !== 0);
 
-      routes.push({
-        url: `${BASE_URL}/page/${i}`,
-        lastModified: new Date(posts[0].date).toString(),
-        changeFrequency: "weekly",
-        priority: 0.5,
-      });
+  for (const pageNumber of postPages) {
+    const posts = await getPagePosts(pageNumber);
+
+    routes.push({
+      url: `${BASE_URL}/page/${pageNumber}`,
+      lastModified: new Date(posts[0].date).toString(),
+      changeFrequency: "weekly",
+      priority: 0.5,
     });
+  }
 
   return routes;
 }

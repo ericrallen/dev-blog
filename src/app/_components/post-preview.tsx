@@ -20,15 +20,15 @@ export function PostPreview({ title, coverImage, date, excerpt, author, slug }: 
           <CoverImage slug={slug} title={title} src={coverImage} />
         </div>
       )} */}
-      <div className="text-lg mb-1">
-        <DateFormatter dateString={date} />
-      </div>
       <h3 className="text-3xl mb-2 leading-snug">
         <Link href={`/posts/${slug}`} className="hover:underline">
           {title}
         </Link>
       </h3>
-      <p className="text-lg leading-relaxed">{excerpt}</p>
+      <p className="text-lg mb-3 leading-relaxed">{excerpt}</p>
+      <div className="text-sm">
+        <DateFormatter dateString={date} />
+      </div>
     </div>
   );
 }

@@ -28,7 +28,7 @@ export function PostHeader({ title, coverImage, date, author }: Props) {
           <Avatar name={author.name} picture={author.picture} />
         </div>
         <div className="mb-6 text-lg">
-          <DateFormatter dateString={date} />
+          <strong>Published</strong>: <DateFormatter dateString={date} />
         </div>
       </div>
     </>

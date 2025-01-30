@@ -6,7 +6,8 @@ import { NextResponse } from "next/server";
 export const dynamic = "force-static";
 
 export async function GET() {
-  const posts = getAllPosts();
+  const posts = await getAllPosts();
+
   const feed = new Feed({
     title: "Interweb Alchemy",
     description: "Transmuting the Web",
