@@ -2,9 +2,9 @@ import Container from "@/app/_components/container";
 
 export function Footer() {
   return (
-    <footer className="bg-neutral-50 border-t border-neutral-200 dark:bg-slate-800">
+    <footer className="bg-neutral-900 border-t border-neutral-700">
       <Container>
-        <div className="py-28 flex flex-col lg:flex-row items-center">
+        <div className="py-10 flex flex-col items-center text-xs">
           <p>
             The content of this website is licensed under the&nbsp;
             <a href="https://creativecommons.org/licenses/by-nc/4.0/">
@@ -18,7 +18,7 @@ export function Footer() {
             &nbsp;license unless otherwise stated directly.
           </p>
         </div>
-        <div className="flex flex-col items-center pb-4">
+        <div className="flex flex-col items-center pb-4 text-xs">
           <div className="rc-scout"></div>
         </div>
       </Container>
