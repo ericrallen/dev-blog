@@ -28,7 +28,7 @@ While these demos are fun (I even added an [audio spectrum analyzer to the URL B
 
 I'm imagining a CLI in the URL bar - similar to an API but without API Keys, Bearer Tokens, and client Software Development Kits ([SDKs](https://www.ibm.com/think/topics/api-vs-sdk)).
 
-**Note**: Please share any practical examples of an application using the URL Bar for clever feedback or interaction. I'd love to see some real-world use cases.
+**Note**: Please [share](https://github.com/ericrallen/dev-blog/discussions/82) any practical examples of an application using the URL Bar for clever feedback or interaction. I'd love to see some real-world use cases.
 
 Even though [URLs are complicated](https://www.netmeister.org/blog/urls.html), if your user base is technical, they're familiar with how URL paths represent directories and may have some expectations around what should happen when they manipulate those paths.
 
