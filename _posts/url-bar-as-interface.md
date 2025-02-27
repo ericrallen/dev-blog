@@ -34,7 +34,7 @@ Even though [URLs are complicated](https://www.netmeister.org/blog/urls.html), i
 
 I've been exploring URL-based interfaces while building a privacy-focused, user-centered [URL shortener](https://en.wikipedia.org/wiki/URL_shortening) for the modern web: [Interweb.WTF](https://www.interweb.wtf/).
 
-![Screenshot of Interweb.WTF homepage](interweb-wtf.png)
+![Screenshot of Interweb.WTF homepage](/assets/blog/url-bar-as-interface/interweb-wtf.png)
 
 **Note**: Interweb.WTF is still in private beta; only [invited users](https://github.com/InterwebAlchemy/interweb-wtf/discussions/1) can use the URL-shortening functionality.
 
