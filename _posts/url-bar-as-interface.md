@@ -53,7 +53,7 @@ The WTF Link Inspector gives end users some assurances about the legitimacy of a
 - **Redirect Alerts**: warn the user if the full URL tries to redirect to some other URL
 - **Screenshot**: show a screenshot of the content of the full URL when the WTF Link was created
 - **Summary**: show a summary of the full URL's content when the WTF Link was created, powered by the [Kagi Universal Summarizer](https://help.kagi.com/kagi/api/summarizer.html)
-- **Metadata**: display relevant metadata, like `Content-Type` and language (currently, we check if the `lang` attribute is present on the page's `<html>` tag, but support for better language detection methods is on the roadmap)
+- **Metadata**: display relevant metadata, like `Content-Type` and language (currently, the inspector checks if the `lang` attribute is present on the page's `<html>` tag, but support for better language detection methods is on the roadmap)
 
 ## Shortlink Expander
 
@@ -63,7 +63,7 @@ If you encounter a shortlink from another provider, you probably don't know wher
 
 Other services exist for expanding shortened URLs, and URL Shorteners like Bitly provide a [link checker](https://support.bitly.com/hc/en-us/p/link-checker) for `bit.ly` links. Bitly also allows you to append a + to any Bit.ly link to see its destination.
 
-We wanted to make it easy for anyone to expand any shortlink they find. You can prefix any shortink with`interweb.wtf/is/` to pull up the Short Link Expander. For example, if you copied this Bitly URL [https://bit.ly/1sNZMwL](https://bit.ly/1sNZMwL), you could type `interweb.wtf/is/` into your URL Bar and then paste the Bitly link to head to [interweb.wtf/is/https:/bit.ly/1sNZMwL](https://www.interweb.wtf/is/https://bit.ly/1sNZMwL) and pull up the [Shortlink Expander](https://www.interweb.wtf/docs/expand).
+I wanted to make it easy for anyone to expand any shortlink they find. You can prefix any shortink with`interweb.wtf/is/` to pull up the Short Link Expander. For example, if you copied this Bitly URL [https://bit.ly/1sNZMwL](https://bit.ly/1sNZMwL), you could type `interweb.wtf/is/` into your URL Bar and then paste the Bitly link to head to [interweb.wtf/is/https://bit.ly/1sNZMwL](https://www.interweb.wtf/is/https://bit.ly/1sNZMwL) and pull up the [Shortlink Expander](https://www.interweb.wtf/docs/expand).
 
 The Expander includes most of the features of the WTF Link Inspector, except for summaries, and it cleans the full URL of any tracking parameters:
 
@@ -73,7 +73,7 @@ The Expander includes most of the features of the WTF Link Inspector, except for
 - **Redirect Alerts**: warn the user if the full URL tries to redirect to some other URL
 - **Screenshot**: show a screenshot of the content of the full URL when the WTF Link was created
 - **Summary**: show a summary of the full URL's content when the WTF Link was created, powered by the [Kagi Universal Summarizer](https://help.kagi.com/kagi/api/summarizer.html)
-- **Metadata**: display relevant metadata, like `Content-Type` and language (currently, we check if the `lang` attribute is present on the page's `<html>` tag, but support for better language detection methods is on the roadmap)
+- **Metadata**: display relevant metadata, like `Content-Type` and language (currently, the expander checks if the `lang` attribute is present on the page's `<html>` tag, but support for better language detection methods is on the roadmap)
 
 ## Link Cleaner
 
@@ -81,7 +81,7 @@ The Expander includes most of the features of the WTF Link Inspector, except for
 
 A common use case for shortlinks is to include a bunch of tracking parameters in a URL that will be shared on social media, in a presentation, or in printed advertising. [We don't like tracking parameters](https://nordvpn.com/blog/how-to-remove-tracking-parameters-from-url/).
 
-There are other [link cleaners](https://linkcleaner.app/), but Interweb.WTF aggressively removes any tracking parameters when shortening a URL into a WTF Link or expanding a shortlink from another URL shortener, so we also exposed that [URL Cleaner](https://www.interweb.wtf/docs/clean) to users.
+There are other [link cleaners](https://linkcleaner.app/), but Interweb.WTF aggressively removes any tracking parameters when shortening a URL into a WTF Link or expanding a shortlink from another URL shortener, so I also exposed that same [URL Cleaner](https://www.interweb.wtf/docs/clean) to users.
 
 You can prefix any unshortened URL with `interweb.wtf/clean/` and we'll clean any tracking parameters and give you back a nice, clean URL with a visualization of which known tracking parameters were embedded in the query string.
 
@@ -97,9 +97,9 @@ For a URL Interface to work, an application needs short, simple URL paths that a
 
 `interweb.wtf` redirects to https://www.interweb.wtf/, so end users only need to remember `interweb.wtf/is/` or `interweb.wtf/clean/`. WTF Links can be shared as `interweb.wtf/go/[slug]` (where `[slug]` is the auto-generated, human-readable identifier). Having to [faff](https://dictionary.cambridge.org/dictionary/english/faff) about with subdomains, protocols, and complicated paths ruins the simplicity of the URL as an interface for the end user.
 
-Because we believe users should feel safe when using our shortlinks, we also allow anyone to set a browser cookie (the only cookie we use) that indicates they always want to be redirected to the WTF Link Inspector instead of the resolved URL when accessing a WTF Link.
+Because I believe users should feel safe when using our shortlinks, Interweb.WTF also allow anyone to set a browser cookie (the only cookie I use) that indicates they always want to be redirected to the WTF Link Inspector instead of the resolved URL when accessing a WTF Link.
 
-Taking this one step further, the QR Codes we automatically generate for each WTF Link **always** redirect to the WTF Link Inspector because [QR Codes are dangerous](https://theconversation.com/how-qr-codes-work-and-what-makes-them-dangerous-a-computer-scientist-explains-177217).
+Taking this one step further, the QR Codes that are automatically generated for each WTF Link **always** redirect to the WTF Link Inspector because [QR Codes are dangerous](https://theconversation.com/how-qr-codes-work-and-what-makes-them-dangerous-a-computer-scientist-explains-177217).
 
 ![Screenshot of Interweb.WTF API Docs](/assets/blog/url-bar-as-interface/interweb-wtf-api.png)
 
