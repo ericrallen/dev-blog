@@ -10,7 +10,7 @@ ogImage:
   url: /assets/blog/url-bar-as-interface/interweb-wtf.png
 ---
 
-Interfaces are abstractions that facilitate [exchanging information across a boundary](https://en.wikipedia.org/wiki/Interface_(computing). That "boundary" might be between:
+Interfaces are abstractions that facilitate [exchanging information across a boundary](<https://en.wikipedia.org/wiki/Interface_(computing)>). That "boundary" might be between:
 
 - Between two classes in the same codebase, a programmatic interface, like using [TypeScript's `interface`](https://www.typescriptlang.org/docs/handbook/interfaces.html) to define the shape of the parameters that some component expects as arguments or the shape of the data that some function returns
 - Between your application and a third-party application (or your server) via an Application Programming Interface (API), like using [Open Weather Map](https://openweathermap.org/api) to display the current weather for a specific location
