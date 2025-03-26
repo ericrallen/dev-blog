@@ -1,14 +1,14 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { MDXRemote } from "next-mdx-remote";
 
 import { getAllPosts, getPostBySlug, getPostContent } from "@/lib/api";
 import Container from "@/app/_components/container";
 import Header from "@/app/_components/header";
 import { PostHeader } from "@/app/_components/post-header";
 import { PostBody } from "@/app/_components/post-body";
-
-import markdownStyles from "@/app/_components/markdown-styles.module.css";
+import { PostBodyMDX } from "@/app/_components/post-body-mdx";
+import markdownToHtml from "@/lib/markdownToHtml";
+import type { MDXRemoteProps } from "next-mdx-remote";
 
 type Params = {
   params: Promise<{
@@ -19,7 +19,14 @@ type Params = {
 export default async function Post(props: Params) {
   const params = await props.params;
   const post = await getPostBySlug(params.slug);
-  const content = await getPostContent(params.slug);
+
+  let content;
+
+  if (post.isMdx) {
+    content = await getPostContent(params.slug);
+  } else {
+    content = await markdownToHtml(post.content);
+  }
 
   if (!post) {
     return notFound();
@@ -36,7 +43,11 @@ export default async function Post(props: Params) {
             date={post.date}
             author={post.author}
           />
-          <PostBody content={content} />
+          {post.isMdx ? (
+            <PostBodyMDX content={content as MDXRemoteProps} />
+          ) : (
+            <PostBody content={content as string} />
+          )}
         </article>
       </Container>
     </main>

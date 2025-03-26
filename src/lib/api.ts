@@ -24,12 +24,14 @@ export function getPostSlugs(): string[] {
 
 export function getPostBySlug(slug: string): Post {
   const realSlug = slug.replace(/\.mdx?$/, "");
+  let isMdx = true;
 
   // check for mdx vs md extension
   let fullPath = join(postsDirectory, `${realSlug}.mdx`);
 
   if (!fs.existsSync(fullPath)) {
     fullPath = join(postsDirectory, `${realSlug}.md`);
+    isMdx = false;
   }
 
   if (!fs.existsSync(fullPath)) {
@@ -39,7 +41,7 @@ export function getPostBySlug(slug: string): Post {
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
-  return { ...data, slug: realSlug, content } as Post;
+  return { ...data, slug: realSlug, content, isMdx } as Post;
 }
 
 export async function getPostContent(slug: string): Promise<MDXRemoteProps> {
