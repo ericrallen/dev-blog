@@ -8,7 +8,7 @@ import { PostHeader } from "@/app/_components/post-header";
 import { PostBody } from "@/app/_components/post-body";
 import { PostBodyMDX } from "@/app/_components/post-body-mdx";
 import markdownToHtml from "@/lib/markdownToHtml";
-import type { MDXRemoteProps } from "next-mdx-remote";
+import type { MDXRemoteProps } from "next-mdx-remote/rsc";
 
 type Params = {
   params: Promise<{
@@ -23,7 +23,7 @@ export default async function Post(props: Params) {
   let content;
 
   if (post.isMdx) {
-    content = await getPostContent(params.slug);
+    content = post.content;
   } else {
     content = await markdownToHtml(post.content);
   }
@@ -44,9 +44,9 @@ export default async function Post(props: Params) {
             author={post.author}
           />
           {post.isMdx ? (
-            <PostBodyMDX content={content as MDXRemoteProps} />
+            <PostBodyMDX content={content} />
           ) : (
-            <PostBody content={content as string} />
+            <PostBody content={content} />
           )}
         </article>
       </Container>
@@ -68,7 +68,7 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
     title,
     openGraph: {
       title,
-      images: [post.ogImage.url],
+      images: [post?.ogImage?.url],
     },
   };
 }
@@ -80,3 +80,5 @@ export async function generateStaticParams() {
     slug: post.slug,
   }));
 }
+
+export const dynamicParams = false;
