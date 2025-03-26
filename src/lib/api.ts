@@ -1,20 +1,9 @@
 import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
-import { serialize } from "next-mdx-remote/serialize";
 
 import { Post } from "@/interfaces/post";
 import { POSTS_PER_PAGE } from "@/lib/constants";
-import rehypeShiki from "@shikijs/rehype";
-import rehypeSlug from "rehype-slug";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import remarkFrontmatter from "remark-frontmatter";
-import remarkGfm from "remark-gfm";
-import remarkDirective from "remark-directive";
-import remarkVideo from "remark-video";
-import remarkMdxFrontmatter from "remark-mdx-frontmatter";
-
-import type { MDXRemoteProps } from "next-mdx-remote";
 
 const postsDirectory = join(process.cwd(), "_posts");
 
@@ -42,28 +31,6 @@ export function getPostBySlug(slug: string): Post {
   const { data, content } = matter(fileContents);
 
   return { ...data, slug: realSlug, content, isMdx } as Post;
-}
-
-export async function getPostContent(slug: string): Promise<MDXRemoteProps> {
-  const post = await getPostBySlug(slug);
-
-  return await serialize(post.content, {
-    mdxOptions: {
-      remarkPlugins: [
-        remarkFrontmatter,
-        remarkMdxFrontmatter,
-        remarkGfm,
-        remarkDirective,
-        [remarkVideo, { publicDir: "./assets" }],
-      ],
-      rehypePlugins: [
-        rehypeAutolinkHeadings,
-        rehypeSlug,
-        [rehypeShiki, { theme: "tokyo-night" }],
-      ],
-    },
-    parseFrontmatter: true,
-  });
 }
 
 export async function getAllPosts(): Promise<Post[]> {
