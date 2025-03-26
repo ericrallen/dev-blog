@@ -1,12 +1,14 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { MDXRemote } from "next-mdx-remote";
 
-import { getAllPosts, getPostBySlug } from "@/lib/api";
-import markdownToHtml from "@/lib/markdownToHtml";
+import { getAllPosts, getPostBySlug, getPostContent } from "@/lib/api";
 import Container from "@/app/_components/container";
 import Header from "@/app/_components/header";
-import { PostBody } from "@/app/_components/post-body";
 import { PostHeader } from "@/app/_components/post-header";
+import { PostBody } from "@/app/_components/post-body";
+
+import markdownStyles from "@/app/_components/markdown-styles.module.css";
 
 type Params = {
   params: Promise<{
@@ -17,19 +19,23 @@ type Params = {
 export default async function Post(props: Params) {
   const params = await props.params;
   const post = await getPostBySlug(params.slug);
+  const content = await getPostContent(params.slug);
 
   if (!post) {
     return notFound();
   }
-
-  const content = await markdownToHtml(post.content || "");
 
   return (
     <main>
       <Container>
         <Header />
         <article className="mb-32">
-          <PostHeader title={post.title} coverImage={post.coverImage} date={post.date} author={post.author} />
+          <PostHeader
+            title={post.title}
+            coverImage={post.coverImage}
+            date={post.date}
+            author={post.author}
+          />
           <PostBody content={content} />
         </article>
       </Container>

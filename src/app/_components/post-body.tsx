@@ -1,12 +1,18 @@
-import { Post } from "@/interfaces/post";
+"use client";
+
+import { MDXRemote, type MDXRemoteProps } from "next-mdx-remote";
+import components from "@/app/_components/posts";
+
 import markdownStyles from "./markdown-styles.module.css";
 
-type Props = Pick<Post, "content">;
+type Props = {
+  content: MDXRemoteProps;
+};
 
 export function PostBody({ content }: Props) {
   return (
-    <div className="max-w-2xl mx-auto">
-      <div className={markdownStyles["markdown"]} dangerouslySetInnerHTML={{ __html: content }} />
+    <div className={`${markdownStyles["markdown"]} max-w-2xl mx-auto`}>
+      <MDXRemote {...content} components={components} />
     </div>
   );
 }
