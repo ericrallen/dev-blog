@@ -1,0 +1,72 @@
+---
+title: Modern BERT Gambit
+date: 2025-03-27
+excerpt: An exploration of chess, Portable Game Notation (PGN), language models, and tokens.
+author:
+  name: Eric Allen
+  picture: /assets/blog/authors/avatar-eric.jpg
+coverImage: ""
+ogImage:
+  url: ""
+---
+
+import Tokenizer from "@/app/_components/posts/Tokenizer";
+
+> **Them:** So, you really like chess, huh?
+
+> **Me:** Not nearly as much as my projects would have you believe. I mean, I dabble and its fun and all, but I'm not that good and I don't play that often.
+
+It's my own fault that I've had some version of this exchange so many times during my batch at the [Recurse Center](https://www.recurse.com). I came into the Winter 2025 Batch in January working on a [chess tutor for beginner players](https://interwebalchemy.com/posts/building-a-chess-tutor/) and then:
+
+- catalogued a [dataset of chess games in Portable Game Notation (PGN) format](https://huggingface.co/datasets/InterwebAlchemy/pgn-dataset) after getting frustrated that other datasets were either far too large to use for a simple hobby project or improperly formatted
+- built a [PGN tokenizer](https://github.com/DVDAGames/pgn-tokenizer)
+- stared training a [PGN-focused language model](https://github.com/DVDAGames/kn1ght)
+
+That list reads like the actions of a chess fanatic. Especially once you remember that when you start a batch at the Recurse Center, you're pretty much encouraged to follow what you're most passionate about. It's a chance to dig into the ["ikigai"](https://positivepsychology.com/ikigai/) of your programming.
+
+While [chess isn't solved](https://en.wikipedia.org/wiki/Solving_chess) yet ([Stockfish](https://stockfishchess.org/) is very impressive, though), I don't think my purpose is to build half-realized chess tools. There are smarter, more passionate, and more qualified people out there who will make better contributions than I can, but I am passionate about learning new things and understanding how the tools I use work.
+
+With the UI and architecture of the [chess tutor](https://github.com/DVDAGames/chess-tutor) already worked out, I wondered how hard it could be to train a model to play chess as the computer opponent.
+
+In this case, playing chess was a problem that could serve as an anchor point to explore how language models actually work under the hood. I already had a basic understanding of how inference and tokenization work, but model training and the underlying principles of how and why things are tokenized the way they are was mostly opaque to me.
+
+## Opening
+
+I knew the first thing I needed was data. [Lots](https://www.educatingsilicon.com/2024/05/09/how-much-llm-training-data-is-there-in-the-limit/) and [lots](https://towardsdatascience.com/how-to-build-an-llm-from-scratch-8c477768f1f9/) of data. Luckily, there is no shortage of [chess data](https://huggingface.co/datasets/Lichess/standard-chess-games) in the world. Unluckily, there seem to be two classes of chess dataset:
+
+1. Massive datasets that take up terabytes (TB) of space
+2. Smaller datasets that don't include a PGN string or use non-standard formatting
+
+It also seemed like I might end up needing a lot of time and a lot of money. Neither of which I was eager to give up just to tinker with this stuff. So, I'd need to build something that could run on my recently purchased MacBook Pro M4 Pro (it isn't [as bad as OpenAI's model names](https://smartbranding.com/whats-in-a-name-tackling-ais-identity-crisis-in-openais-o1-era/), but there's gotta be a better naming convention for this stuff) using a dataset that could reasonably fit on my hard drive.
+
+## The Kaggle Gambit
+
+I discovered a (now unpublished) dataset on Kaggle, adapted from [the chess research project](https://chess-research-project.readthedocs.io/en/latest/) that included ~3 million games from ChessDB dating back to 1783. Which felt like a pretty neat representative sample of the game. Unfortunately, the data stops about 9 years ago, so there's a lot more data that could be included now that chess has experienced its [renaissance post _the Queen's Gambit_.](https://www.theguardian.com/sport/2020/nov/29/chess-world-hails-queens-gambit-fuelled-boom) - I'm one of those folks who discovered chess during the pandemic after watching Beth Harmon stick it to the chess patriarchy.
+
+This dataset fell into that second category I mentioned earlier, using [some truly bizarre formatting](https://chess-research-project.readthedocs.io/en/latest/#description-of-the-simplified-format). Maybe it was less bizarre almost a decade ago when the research was originally published? It is nice that the older games were normalized to use [Algebraic Notation](<https://en.wikipedia.org/wiki/Algebraic_notation_(chess)>) instead of the [Descriptive Notation](https://en.wikipedia.org/wiki/Descriptive_notation) that was common until the '80s - that little wrinkle gave me pause when I was considering integrating more datasources, like public domain chess books.
+
+After scripting out downloading, cleaning, and publishing the dataset to have nice, clean PGN strings, the original dataset I was building on top of vanished. Luckily I still had it cached locally and could actually publish my cleaned [PGN dataset](https://huggingface.co/datasets/InterwebAlchemy/pgn-dataset) to Hugging Face.
+
+## Middlegame
+
+Much has been written about [which Large Language Models (LLMs) are good at chess](https://interwebalchemy.com/posts/building-a-chess-tutor/#generative-chess), but I wasn't really interested in making the best chess opponent. I just wanted to see if a language model could reliably work with PGN strings.
+
+As I tested various models, I developed a hypothesis: **Something prevents the models from attaching appropriate semantic meaning to individual moves PGN strings.**
+
+Looking at how the tokenizers for popular model architectures break a PGN string down into tokens really illustrates what could be the issue:
+
+<Tokenizer
+  defaultValue="1.e4 e5 2.Nf3 Nc6 3.Bb5"
+  canChangeEncoder
+  excludeEncoders={["pgn"]}
+/>
+
+I could be wrong, but my hypothesis is that `e4` is probably a lot more valuable to making decisions about chess than `e` and `4` are separatley, but I'm not a Machine Learning (ML) expert. I wanted to put on my researcher hat and try to see what would happen if I could tokenize these more semantically.
+
+So, I took all that data that I cleaned, put on [Andrej Karpathy](https://karpathy.ai/)'s fantastic [Let's build the GPT Tokenizer](https://youtu.be/zduSFxRajkE) video, and started hacking away at the problem.
+
+Here's where I ended up:
+
+<Tokenizer defaultValue="1.e4 e5 2.Nf3 Nc6 3.Bb5" defaultEncoder="pgn" />
+
+## Endgame

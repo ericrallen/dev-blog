@@ -1,4 +1,4 @@
 // import all sub components and export their defaults
-import TokenizerViz from "./tokenizer-viz";
+import Tokenizer from "./Tokenizer";
 
-export default { TokenizerViz };
+export default { Tokenizer };
