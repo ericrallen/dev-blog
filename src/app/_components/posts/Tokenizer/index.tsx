@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   encode as gpt4oEncode,
   decode as gpt4oDecode,
@@ -31,26 +31,36 @@ import type { TokenizerEncoderType } from "./types";
 
 interface TokenizerProps {
   defaultValue?: string;
+  value?: string;
   includeCharacters?: boolean;
   includeWords?: boolean;
   defaultEncoder?: TokenizerEncoderType;
   canChangeEncoder?: boolean;
   excludeEncoders?: TokenizerEncoderType[];
+  disabled?: boolean;
 }
 
 const mistralTokenizer = new MistralTokenizer();
 
 export default function Tokenizer({
   defaultValue = "",
+  value,
   includeCharacters = false,
   includeWords = false,
   defaultEncoder = "gpt-4o",
   canChangeEncoder = false,
   excludeEncoders = [],
+  disabled = false,
 }: TokenizerProps) {
-  const [text, setText] = useState<string>(defaultValue);
+  const [text, setText] = useState<string>(value ?? defaultValue);
   const [encoderType, setEncoderType] =
     useState<TokenizerEncoderType>(defaultEncoder);
+
+  useEffect(() => {
+    if (value) {
+      setText(value);
+    }
+  }, [value]);
 
   const encoder = (text: string): number[] => {
     switch (encoderType) {
@@ -111,7 +121,7 @@ export default function Tokenizer({
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full justify-center items-start">
       {canChangeEncoder && (
         <TokenizerEncoder
           type={encoderType}
@@ -119,7 +129,7 @@ export default function Tokenizer({
           excludeEncoders={excludeEncoders}
         />
       )}
-      <TokenizerInput value={text} onChange={setText} />
+      <TokenizerInput value={text} onChange={setText} disabled={disabled} />
       <TokenizerCounter
         value={text}
         tokenCounter={tokenCounter}

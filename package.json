@@ -11,6 +11,7 @@
   "dependencies": {
     "@dvdagames/pgn-tokenizer": "^0.1.6",
     "@shikijs/rehype": "^2.2.0",
+    "chess.js": "^1.1.0",
     "classnames": "^2.5.1",
     "date-fns": "^3.6.0",
     "feed": "^4.2.2",
@@ -22,6 +23,7 @@
     "next": "^15.1.6",
     "next-mdx-remote": "^5.0.0",
     "react": "^19.0.0",
+    "react-chessboard": "^4.7.2",
     "react-dom": "^19.0.0",
     "rehype": "^13.0.2",
     "rehype-autolink-headings": "^7.1.0",
