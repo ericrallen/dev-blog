@@ -1,13 +1,13 @@
 ---
 title: "Computer Chess: The ModernBERT Variation"
 date: 2025-03-27
-excerpt: An exploration of chess, Portable Game Notation (PGN), language models, and tokens.
+excerpt: Can we teach a language model how to understand chess through Portable Game Notation (PGN)?
 author:
   name: Eric Allen
   picture: /assets/blog/authors/avatar-eric.jpg
-coverImage: ""
+coverImage: "/assets/blog/modern-bert-variation/bert-chess.png"
 ogImage:
-  url: ""
+  url: "/assets/blog/modern-bert-variation/bert-chess.png"
 ---
 
 import {
@@ -28,28 +28,28 @@ Just look at how the tokenizers for popular model architectures break a PGN stri
   excludeEncoders={["pgn"]}
 />
 
-So, I decided to learn how tokenizers work, and build a new one that understands chess.
+So, I decided to learn how tokenizers work and build a new one that understands chess.
 
 Here's where I ended up:
 
 <Tokenizer defaultValue="1.e4 e5 2.Nf3 Nc6 3.Bb5" defaultEncoder="pgn" />
 
-If you just want to play around with the tokenizer, [all of the code is open-source](https://github.com/DVDAGames/pgn-tokenizer), the Python library is published to PyPI as [`pgn-tokenizer`](https://pypi.org/project/pgn-tokenizer/), and a beta version of the TypeScript library is published to npm as [`@dvdagames/pgn-tokenizer`](https://www.npmjs.com/package/@dvdagames/pgn-tokenizer).
+If you want to play around with the tokenizer, [all of the code is open-source](https://github.com/DVDAGames/pgn-tokenizer)[, the Python library is published to PyPI as [`pgn-tokenizer`](https://pypi.org/project/pgn-tokenizer/), and a beta version of the TypeScript library is published to npm as [`@dvdagames/pgn-tokenizer](<. The Python library is published to PyPI as [`pgn-tokenizer`](https://pypi.org/project/pgn-tokenizer/). A beta version of the TypeScript library is published to npm as [`@dvdagames/png>)`](https://www.npmjs.com/package/@dvdagames/pgn-tokenizer).
 
 ## The Dataset Defense
 
-I knew the first thing I needed was data. [Lots](https://www.educatingsilicon.com/2024/05/09/how-much-llm-training-data-is-there-in-the-limit/) and [lots](https://towardsdatascience.com/how-to-build-an-llm-from-scratch-8c477768f1f9/) of data. Luckily, there is no shortage of [chess data](https://huggingface.co/datasets/Lichess/standard-chess-games) in the world. Unluckily, there seem to be two classes of chess dataset:
+I knew the first thing I needed was data. [Lots](https://www.educatingsilicon.com/2024/05/09/how-much-llm-training-data-is-there-in-the-limit/) and [lots](https://towardsdatascience.com/how-to-build-an-llm-from-scratch-8c477768f1f9/) of data. Luckily, the world has no shortage of [chess data](https://huggingface.co/datasets/Lichess/standard-chess-games)>). Unluckily, there seem to be two classes of chess datasets:
 
 1. Massive datasets that take up terabytes (TB) of space
 2. Smaller datasets that don't include a PGN string or use non-standard formatting
 
-It also seemed like I could end up needing a lot of time and a lot of money to process all the data and train a model, neither of which I was eager to give up just to tinker for fun. So, I'd need to build something that could run on my recently purchased MacBook M4 Pro using a dataset that could reasonably fit on my hard drive.
+It also seemed like I could need a lot of time and money to process all the data and train a model, neither of which I was eager to give up just to tinker for fun. So, I'd need to build something that could run on my recently purchased MacBook M4 Pro using a dataset that could reasonably fit on my hard drive.
 
 ## The Kaggle Gambit
 
-I discovered a (now unpublished) dataset on Kaggle, adapted from [the chess research project](https://chess-research-project.readthedocs.io/en/latest/) that included ~3 million games from ChessDB dating back to 1783. Which felt like a pretty neat representative sample of the game. Unfortunately, the data stops about 9 years ago, so there's a lot more data that could be included now that chess has experienced its [renaissance post _the Queen's Gambit_.](https://www.theguardian.com/sport/2020/nov/29/chess-world-hails-queens-gambit-fuelled-boom) - I'm one of those folks who discovered chess during the pandemic after watching Beth Harmon stick it to the chess patriarchy.
+I discovered a (now unpublished) dataset on Kaggle, adapted from [the chess research project](https://chess-research-project.readthedocs.io/en/latest/) that included ~3 million games from ChessDB dating back to 1783, which felt like a pretty neat representative sample of the game. Unfortunately, the data stopped about 9 years ago, so there's a lot more data that could be included now that chess has experienced its [renaissance post _the Queen's Gambit_.](https://www.theguardian.com/sport/2020/nov/29/chess-world-hails-queens-gambit-fuelled-boom) - I'm one of those folks who discovered chess during the pandemic after watching Beth Harmon stick it to the chess patriarchy.
 
-This dataset didn't fall into either category that I mentioned earlier, despite the underlying source using [some truly bizarre formatting](https://chess-research-project.readthedocs.io/en/latest/#description-of-the-simplified-format). Maybe it was less bizarre almost a decade ago when the research was originally published? I'm sure the labeling was in service of some research goal, but it means the dataset isn't as valuable for general purposes.
+This dataset didn't fall into either category that I mentioned earlier, despite the underlying source using [some truly bizarre formatting](https://chess-research-project.readthedocs.io/en/latest/#description-of-the-simplified-format). Maybe it was less bizarre almost a decade ago when the research was originally published? I'm sure the labeling served some research goals, but it means the dataset isn't as valuable for general purposes.
 
 Here's an example of the data:
 
@@ -67,7 +67,7 @@ This Kaggle user had already done most of the hard work of cleaning the Chess Re
   title="Sample of the Kaggle PGN Dataset"
 />
 
-After scripting out downloading and some more cleaning to remove games without moves or games with unexpected formatting, I had nice, simple PGN strings to work with. The next day, the original dataset I was building on top of vanished from Kaggle. Luckily, I still had it cached locally and was able to publish my cleaned [PGN dataset](https://huggingface.co/datasets/InterwebAlchemy/pgn-dataset) to Hugging Face.
+After scripting out downloading and some more cleaning to remove games without moves or games with unexpected formatting, I had nice, simple PGN strings to work with. The next day, the original dataset I was building on top of vanished from Kaggle. Luckily, I still had it cached locally and could publish my cleaned [PGN dataset](https://huggingface.co/datasets/InterwebAlchemy/pgn-dataset) to Hugging Face.
 
 Here's a sample of the dataset:
 
@@ -78,7 +78,7 @@ Here's a sample of the dataset:
 
 Just some boring PGN strings without any weird formatting or metadata.
 
-And here are some statistics about this dataset:
+And, here are some statistics about this dataset:
 
 <DatasetBreakdown breakdownType="elo" />
 
@@ -86,13 +86,13 @@ And here are some statistics about this dataset:
 
 ## Middlegame
 
-Much has been written about [which Large Language Models (LLMs) are good at chess](https://interwebalchemy.com/posts/building-a-chess-tutor/#generative-chess), but I wasn't really interested in making the best chess opponent. While [chess isn't solved](https://en.wikipedia.org/wiki/Solving_chess) yet, [Stockfish](https://stockfishchess.org/) has basically won as far as computers playing chess goes, and there are more passionate, and more qualified people out there who will make better contributions to the field than I could.
+Much has been written about [which Large Language Models (LLMs) are good at chess](https://interwebalchemy.com/posts/building-a-chess-tutor/#generative-chess), but I wasn't interested in making the best chess opponent. While [chess isn't solved](https://en.wikipedia.org/wiki/Solving_chess) yet, [Stockfish](https://stockfishchess.org/) has basically won as far as computers playing chess goes, and there are more passionate, and more qualified people out there who will make better contributions to the field than I could.
 
 I just wanted to see if a language model could reliably work with PGN strings, learn some new things, and try to understand more about how these tools work under the hood.
 
-As I tested various models, I started to think that something prevents the models from attaching appropriate semantic meaning to individual moves PGN strings.
+As I tested various models, I thought something prevents the models from attaching appropriate semantic meaning to individual moves PGN strings.
 
-Looking at how the tokenizers for popular model architectures break a PGN string down into tokens really illustrates how that could be an issue:
+Looking at how the tokenizers for popular model architectures break a PGN string down into tokens illustrates how that could be an issue:
 
 <Tokenizer
   defaultValue="1.e4 e5 2.Nf3 Nc6 3.Bb5"
@@ -110,7 +110,7 @@ It didn't take long to synthesize the crash course in ML that Karpathy was givin
 
 ## Blunders
 
-Emboldened by success with the tokenizer, I decided it was time to push things a bit further and train a language model.
+Emboldened by the tokenizer's success, I decided it was time to push things a bit further and train a language model.
 
 I started by pulling up another Karpathy video: [Let's build GPT: from scratch, in code, spelled out.](https://youtu.be/kCc8FmEb1nY)
 
@@ -122,37 +122,37 @@ Unfortunately, I made many blunders in this part of the process:
 4. Jumping straight to training a model without going through the rest of Karpathy's [Neural Networks: Zero to Hero](https://youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ&si=tmlJlwStYeFvKZCR) series.
 5. Trying to use Large Language Models (LLMs) to jumpstart my understanding of training a model and getting stuck in debugging loops with code that I didn't fully understand
 
-There are probably so many more, but these were the big ones that stand out in hindsight.
+There are probably many more, but these were the big ones that stand out in hindsight.
 
-I hit a wall pretty quickly, and ended up setting this project aside for a bit so that I could fully immerse myself in my RC batch.
+I hit a wall pretty quickly and ended up setting this project aside to fully immerse myself in my RC batch.
 
 ## Endgame
 
-I've recently picked the model training back up, and I'm excited to say that there has been a lot of progress on training a language model that only understands PGN strings.
+I recently picked up the model training again, and I'm excited to say that there has been a lot of progress on training a language model that only understands PGN strings.
 
 I've switched to the [ModernBERT](https://github.com/AnswerDotAI/ModernBERT) architecture as the base and have been carefully integrating help from my Generative AI-powered copilot (Claude 3.7 Sonnet in Cursor) to help me craft small sections of the training code.
 
-It would be simple to just have it spit out PGN-like tokens - and that's what my first iteration did, but I'm trying to see if there's a way to encode an understanding of the game by only using the tokens. This involves weighting the tokens based on their position in the PGN string, and reducing the weight of tokens like the turn number because they are more prevalent in the training data, but only valid in specific token positions.
+It would be simple to have it spit out PGN-like tokens - and that's what my first iteration did, but I'm trying to see if there's a way to encode an understanding of the game by only using the tokens. This involves weighting the tokens based on their position in the PGN string and reducing the weight of tokens like the turn number because they are more prevalent in the training data but only valid in specific token positions.
 
 <TrainingVisualizer />
 
-It's also important to keep the context of the entire game in mind when making each move, so we aren't just training on a subset of PGN tokens at a time, but a progressively longer string of tokens as context for each move in each game of the training set.
+It's also important to consider the context of the entire game when making each move, so we aren't just training on a subset of PGN tokens at a time but a progressively longer string of tokens as context for each move in each game of the training set.
 
 In Chess, every previous move influences the future state of the game.
 
 The basic training implementation seeks to:
 
-1. Start wtih a baseline sample of short games as a warmup with a lower learning rate increasing gradually
-2. Move to a set of medium length games with a normal learning rate
-3. Move a set of common openings with a higher learning rate
-4. Finish with a set of longer games with a normal learning rate
+1. Start with a baseline sample of short games as a warmup with a lower learning rate increasing gradually
+2. Then use a set of medium-length games with a standard learning rate
+3. Then use a set of commonly played openings with a higher learning rate to improve performance at the start of the game - where I assume users of the Chess Tutor will benefit the most
+4. Finish with a set of longer games with a standard learning rate
 
 After this pre-training process has been refined, the goal will be to use a chess engine, like [Stockfish](https://stockfishchess.org/), to evaluate the quality of the model's moves and provide some reinforcement learning to improve the model's performance.
 
 ## Stalemate
 
-I'm still working through the training process, and working out the challenges of disparate environments. Training code that runs on my Macbook M4 Pro doesn't necessarily work when I'm loading it up on a cloud provider with a small GPU like a T4 - and the various PyTorch or CUDA error messages aren only debuggable in the cloud environment, which makes the debugging cycle and resolution time stretch out much longer than it should.
+I'm still navigating the training process and working out the challenges of disparate environments. Training code that runs on my Macbook M4 Pro doesn't necessarily work when I'm loading it up on a cloud provider with a small GPU like a T4 - and the various PyTorch or CUDA error messages are only debuggable in the cloud environment, which makes the debugging cycle and resolution time stretch out much longer than it should
 
-This is a work-in-progress, but I can't wait to share the model and the results of testing my hypothesis with you in the near future.
+This is a work in progress, but I can't wait to share the model and the results of testing my hypothesis with you soon.
 
 I have another hypothesis that trying to get LLMs to play chess isn't a valuable use of time or compute, but that's another post for another day.

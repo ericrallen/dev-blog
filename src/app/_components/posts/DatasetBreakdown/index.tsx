@@ -70,14 +70,14 @@ export default function DatasetBreakdown({
               if (selectedYear === year) {
                 opacity = "opacity-100";
               } else {
-                opacity = hoveredYear === year ? "opacity-75" : "opacity-50";
+                opacity = hoveredYear === year ? "opacity-100" : "opacity-25";
               }
             } else {
               if (isHovering) {
                 if (hoveredYear === year) {
-                  opacity = "opacity-75";
+                  opacity = "opacity-100";
                 } else {
-                  opacity = "opacity-50";
+                  opacity = "opacity-25";
                 }
               } else {
                 opacity = "opacity-100";
@@ -92,7 +92,7 @@ export default function DatasetBreakdown({
                   title={`${year}: ${count.toLocaleString()} games`}
                   onClick={() => onClickYear(year)}
                   style={{ width }}
-                  className={`w-full h-full cursor-pointer appearance-none hover:outline hover:outline-2 hover:outline-offset-2 hover:outline-neutral-500 ${bgColor} ${opacity}`}
+                  className={`min-w-[1px] h-full cursor-pointer appearance-none hover:outline hover:outline-2 hover:outline-offset-2 hover:outline-neutral-500 ${bgColor} ${opacity}`}
                 />
               </Fragment>
             );
