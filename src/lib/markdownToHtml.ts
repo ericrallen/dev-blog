@@ -10,14 +10,12 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import rehypeStringify from "rehype-stringify";
 import remarkVideo from "remark-video";
-import remarkYoutube from "remark-youtube";
 
 export default async function markdownToHtml(markdown: string) {
   let result = await unified()
     .use(remarkParse)
     .use(remarkFrontmatter)
     .use(remarkDirective)
-    .use(remarkYoutube)
     .use(remarkVideo, {
       publicDir: "./assets",
     })
