@@ -1,7 +1,8 @@
 "use client";
 
-import { encode, decode } from "@dvdagames/pgn-tokenizer";
 import { useState, useEffect } from "react";
+import { encode, decode } from "@dvdagames/pgn-tokenizer";
+import { IconArrowNarrowRightDashed, IconRotateRectangle } from "@tabler/icons-react";
 
 const PGN_STRING = "1.e4 e5 2.Nf3 Nc6 3.Bc4 Nf6";
 
@@ -11,9 +12,7 @@ export interface TrainingVisualizerProps {
   pgn: string;
 }
 
-export default function TrainingVisualizer({
-  pgn = PGN_STRING,
-}: TrainingVisualizerProps) {
+export default function TrainingVisualizer({ pgn = PGN_STRING }: TrainingVisualizerProps) {
   const [tokenIds, setTokenIds] = useState<number[]>(encode(pgn));
   const [tokens, setTokens] = useState<string[]>([]);
   const [inputTokenIndex, setInputTokenIndex] = useState<number>(0);
@@ -46,86 +45,95 @@ export default function TrainingVisualizer({
 
     return (
       <>
-        {inputTokens.map((token, index) => {
-          const isTurn = TURN_REGEX.test(token);
-          const isInput = index === inputTokenIndex;
+        <div className="flex flex-col">
+          <div className="text-xs text-neutral-600">In</div>
+          <div className="flex flex-row gap-0 items-center justify-start">
+            {inputTokens.map((token, index) => {
+              const isTurn = TURN_REGEX.test(token);
+              const isInput = index === inputTokenIndex;
 
-          const color = isTurn
-            ? isInput
-              ? "text-amber-500"
-              : "text-amber-800"
-            : isInput
-            ? "text-teal-500"
-            : "text-teal-800";
+              const color = isTurn
+                ? isInput
+                  ? "text-amber-500"
+                  : "text-amber-800"
+                : isInput
+                ? "text-teal-500"
+                : "text-teal-800";
 
-          const border = isTurn
-            ? isInput
-              ? "border-amber-500"
-              : "border-amber-800"
-            : isInput
-            ? "border-teal-500"
-            : "border-teal-800";
+              const border = isTurn
+                ? isInput
+                  ? "border-amber-500"
+                  : "border-amber-800"
+                : isInput
+                ? "border-teal-500"
+                : "border-teal-800";
 
-          const opacity = isInput ? "opacity-100" : "opacity-50";
+              const opacity = isInput ? "opacity-100" : "opacity-50";
 
-          const className = `${color} border ${border} rounded-sm ${opacity}`;
+              const className = `${color} border ${border} rounded-sm ${opacity}`;
 
-          return (
-            <div className={className} key={`${token}-${index}`}>
-              {token[0] === " " ? (
-                <>
-                  <span className="inline-block w-4">&nbsp;</span>
-                  {token.slice(1)}
-                </>
-              ) : (
-                token
-              )}
-            </div>
-          );
-        })}
-        {outputToken && (
-          <div
-            className={`text-${
-              TURN_REGEX.test(outputToken) ? "amber" : "teal"
-            }-600 border border-${
-              TURN_REGEX.test(outputToken) ? "amber" : "teal"
-            }-600 rounded-sm`}
-            key={`${outputToken}-${outputTokenIndex}`}
-          >
-            {outputToken[0] === " " ? (
-              <>
-                <span className="inline-block w-4">&nbsp;</span>
-                {outputToken.slice(1)}
-              </>
-            ) : (
-              outputToken
+              return (
+                <div className={className} key={`${token}-${index}`}>
+                  {token[0] === " " ? (
+                    <>
+                      <span className="inline-block w-4">&nbsp;</span>
+                      {token.slice(1)}
+                    </>
+                  ) : (
+                    token
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        <div className="flex flex-col ml-2">
+          <div className="text-xs text-neutral-600">Out</div>
+          <div className="flex flex-row gap-0 items-center justify-start">
+            {outputToken && (
+              <div
+                className={`text-neutral-300 border border-neutral-600 rounded-sm border-dashed`}
+                key={`${outputToken}-${outputTokenIndex}`}
+              >
+                {outputToken[0] === " " ? (
+                  <>
+                    <span className="inline-block w-4">&nbsp;</span>
+                    {outputToken.slice(1)}
+                  </>
+                ) : (
+                  outputToken
+                )}
+              </div>
             )}
           </div>
-        )}
+        </div>
       </>
     );
   };
 
   return (
-    <div className="flex flex-col items-start justify-center">
-      <div className="flex flex-row items-start justify-center">
+    <div className="w-full flex flex-col">
+      <div className="w-full flex flex-row items-end">
         {renderTokenVisualization()}
-      </div>
-      <div className="flex flex-row items-start justify-center mt-2">
         <button
-          className="bg-neutral-200 text-neutral-600 px-2 py-1 rounded-sm"
+          className="bg-transparent text-neutral-600 px-2 py-1 rounded-sm ml-2 border border-neutral-600 hover:text-neutral-100 hover:border-neutral-100"
           onClick={handleNext}
           disabled={outputTokenIndex >= tokens.length - 1}
+          aria-label="Next Step"
         >
-          Next
+          <IconArrowNarrowRightDashed />
         </button>
         <button
-          className="bg-neutral-200 text-neutral-600 px-2 py-1 rounded-sm ml-2"
+          className="bg-transparent text-neutral-600 px-2 py-1 rounded-sm ml-auto border border-neutral-600 hover:text-neutral-100 hover:border-neutral-100"
           onClick={handleReset}
           disabled={outputTokenIndex <= 1}
+          aria-label="Reset Progress"
         >
-          Reset
+          <IconRotateRectangle />
         </button>
+      </div>
+      <div className="text-sm text-neutral-600 mt-2">
+        Use the Arrow button to step through each iteration of the training loop.
       </div>
     </div>
   );
