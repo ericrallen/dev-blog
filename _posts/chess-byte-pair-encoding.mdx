@@ -106,7 +106,7 @@ So, I took all that data that I cleaned, put on [Andrej Karpathy](https://karpat
 
 <PGNChessVisualizer />
 
-It didn't take long to synthesize the crash course in ML that Karpathy was giving, and after testing the tokenizer on a few samples of the larger dataset, I was ready to train it on the entire corpus of just under 3 million games.
+It didn't take long to synthesize the crash course in ML that Karpathy was giving, and after testing the tokenizer on a few samples of the larger dataset, I was ready to train it on the entire corpus of ~3 million games.
 
 ## Blunders
 
@@ -116,27 +116,30 @@ I started by pulling up another Karpathy video: [Let's build GPT: from scratch, 
 
 Unfortunately, I made many blunders in this part of the process:
 
-1. Hubris because tokenizing is a much simpler process than training a model
-2. Not knowing which model architecture to use - I started with a GPT-2 model based on the Karpathy video, but it was not cooperating with the training process or environment that I was using
-3. Not fully understanding the semantic differences between language and structured data like PGN strings
-4. Jumping straight to training a model without going through the rest of Karpathy's [Neural Networks: Zero to Hero](https://youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ&si=tmlJlwStYeFvKZCR) series.
-5. Trying to use Large Language Models (LLMs) to jumpstart my understanding of training a model and getting stuck in debugging loops with code that I didn't fully understand
+1. [Hubris](https://en.wikipedia.org/wiki/Hubris) because tokenizing is a much simpler process than training a model
+2. Not knowing which model architecture to use - I went through a few of them:
+   1. I started with [GPT-2](https://en.wikipedia.org/wiki/GPT-2) based on the Karpathy video
+   2. I switcehd to [BERT](<https://en.wikipedia.org/wiki/BERT_(language_model)>) based on some brief research
+   3. I finally decided on [ModernBERT](https://github.com/AnswerDotAI/ModernBERT) after some trial and error
+3. Not fully understanding the semantic differences between written language and structured data like PGN strings
+4. Jumping straight into training a model without going through the rest of Karpathy's [Neural Networks: Zero to Hero](https://youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ&si=tmlJlwStYeFvKZCR) series
+5. Trying to use LLMs and vibe coding to jumpstart my understanding of training a model and getting stuck in debugging loops with code that I didn't fully understand
 
-There are probably many more, but these were the big ones that stand out in hindsight.
+There are many more, but these were the big ones that stand out in hindsight.
 
-I hit a wall pretty quickly and ended up setting this project aside to fully immerse myself in my RC batch.
+I hit a wall pretty quickly, got frustrated, and ended up setting this project aside to fully immerse myself in my Recurse Center batch.
 
 ## Endgame
 
-I recently picked up the model training again, and I'm excited to say that there has been a lot of progress on training a language model that only understands PGN strings.
+As my 12 weeks at the Recurse Center were coming to an end, I picked up the model training again, and I'm excited to say that there has been a lot of progress on training a language model that not only understands PGN strings, but also seems to be capable of making a few legal, logical moves in a familiar game of chess
 
-I've switched to the [ModernBERT](https://github.com/AnswerDotAI/ModernBERT) architecture as the base and have been carefully integrating help from my Generative AI-powered copilot (Claude 3.7 Sonnet in Cursor) to help me craft small sections of the training code.
+I've learned more about the underlying architecture, and have been carefully integrating help from my Generative AI-powered copilot (Claude 3.7 Sonnet in Cursor) to help me refine smaller sections of the training code.
 
-It would be simple to have it spit out PGN-like tokens - and that's what my first iteration did, but I'm trying to see if there's a way to encode an understanding of the game by only using the tokens. This involves weighting the tokens based on their position in the PGN string and reducing the weight of tokens like the turn number because they are more prevalent in the training data but only valid in specific token positions.
+It would be simpler to have it just spit out PGN-like tokens - and that's all my first iteration did - but I'm trying to see if there's a way to encode an understanding of the game by only using the tokens. This involves weighting the tokens based on their position in the PGN string and reducing the weight of tokens like the turn number because they are more prevalent in the training data but only valid in specific token positions.
 
 <TrainingVisualizer />
 
-It's also important to consider the context of the entire game when making each move, so we aren't just training on a subset of PGN tokens at a time but a progressively longer string of tokens as context for each move in each game of the training set.
+It's also important to consider the context of the entire game when making each move, so I'm not just training on a randomly sampled subset of PGN tokens at a time but a progressively longer string of tokens as context for each move in each game of the training set.
 
 In Chess, every previous move influences the future state of the game.
 
@@ -147,11 +150,11 @@ The basic training implementation seeks to:
 3. Then use a set of commonly played openings with a higher learning rate to improve performance at the start of the game - where I assume users of the Chess Tutor will benefit the most
 4. Finish with a set of longer games with a standard learning rate
 
-After this pre-training process has been refined, the goal will be to use a chess engine, like [Stockfish](https://stockfishchess.org/), to evaluate the quality of the model's moves and provide some reinforcement learning to improve the model's performance.
+After this pre-training process has been refined, my goal will be to use a chess engine, like [Stockfish](https://stockfishchess.org/), to evaluate the quality of the model's moves and provide some reinforcement learning to improve the model's performance.
 
 ## Stalemate
 
-I'm still navigating the training process and working out the challenges of disparate environments. Training code that runs on my Macbook M4 Pro doesn't necessarily work when I'm loading it up on a cloud provider with a small GPU like a T4 - and the various PyTorch or CUDA error messages are only debuggable in the cloud environment, which makes the debugging cycle and resolution time stretch out much longer than it should
+I'm still navigating the training process and working out the challenges of disparate environments. Training code that runs on my Macbook doesn't necessarily work when I'm loading it up on a cloud provider with a small GPU like a T4 - and the various PyTorch or CUDA error messages are only debuggable in the cloud environment, which makes the debugging cycle and resolution time stretch out much longer than it should
 
 This is a work in progress, but I can't wait to share the model and the results of testing my hypothesis with you soon.
 
