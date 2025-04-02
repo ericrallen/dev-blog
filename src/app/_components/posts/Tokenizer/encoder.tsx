@@ -1,5 +1,4 @@
-import { useState } from "react";
-
+import Dropdown from "../VisualizationLibrary/Dropdown";
 import type { TokenizerEncoderType } from "./types";
 
 interface TokenizerEncoderProps {
@@ -13,12 +12,6 @@ export default function TokenizerEncoder({
   onChange,
   excludeEncoders = [],
 }: TokenizerEncoderProps) {
-  const [selectedType, setSelectedType] = useState<string>(type);
-
-  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    onChange(event.target.value);
-  };
-
   const options = [
     { label: "GPT-4o", value: "gpt-4o" },
     { label: "GPT-4", value: "gpt-4" },
@@ -41,12 +34,13 @@ export default function TokenizerEncoder({
   ));
 
   return (
-    <select
-      className="w-1/3 text-sm border border-gray-300 rounded-sm p-2 text-gray-700 ml-auto"
-      onChange={handleChange}
-      defaultValue={selectedType}
-    >
-      {renderOptions}
-    </select>
+    <div className="w-full flex flex-row items-center justify-end">
+      <Dropdown
+        options={filteredOptions}
+        onChange={onChange}
+        value={type}
+        label="Tokenizer"
+      />
+    </div>
   );
 }
