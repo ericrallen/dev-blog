@@ -1,0 +1,106 @@
+---
+title: "Encode the Matrix: Browser Text Effects for Fun and No Profit"
+date: 2025-04-02
+excerpt: An open-source React library for animating string transformations.
+author:
+  name: Eric Allen
+  picture: /assets/blog/authors/avatar-eric.jpg
+coverImage: ""
+ogImage:
+  url: ""
+---
+
+Sometimes, you want to build something for fun, but it turns out to be pretty useful. I've always wanted to build something like the [Matrix Effect](https://beforesandafters.com/2019/03/27/secrets-of-the-matrix-code/). There are plenty of examples out there already, but it felt like something a cyberpunk-obsessed '90s kid _should_ build.
+
+<Ciph3rTextDemo />
+
+**TODO**: Add more demo examples.
+
+An early prototype of how I wanted to approach the effect ended up a little different, but it turns out to be useful for all sorts of applications I never would have considered.
+
+::video{src=/assets/blog/encode-the-matrix/lost-signal.mp4}
+
+From interactive game interfaces to web applications, being able to easily apply transformations and animations to arbitrary strings is pretty great.
+
+::video{src=/assets/blog/encode-the-matrix/url-expander.mp4}
+
+I wrapped the code up into a [text transformation Component for React](https://www.npmjs.com/package/@interwebalchemy/ciph3r-text) and [open-sourced the code](https://github.com/InterwebAlchemy/ciph3r-text).
+
+It's as easy to use as:
+
+```bash
+npm add @interwebalchemy/ciph3r-text
+```
+
+**Note**: You can use `bun`, `yarn`, `pnpm`, etc., too.
+
+```tsx
+import Ciph3rText from "@interwebalchemy/ciph3r-text";
+
+export default function Component() {
+  return <Ciph3rText defaultText="Hello, world!" action="decode" />;
+}
+```
+
+**Note**: This is currently React-only because that's what I was working on at the time, but if there's interest, I can port it to other frameworks or release a framework-agnostic build via [Mitosis](https://mitosis.builder.io/) or vanilla JavaScript.
+
+By default, `Ciph3rText` uses a pretty standard set of alphanumeric characters and basic symbols, but [unicode can get pretty wild](<[https://fontgenerator.cool/](https://kermitproject.org/utf8.html)>). Like, [positively Lovecraftian](https://en.wikipedia.org/wiki/Zalgo_text).
+
+For the [tech demo I created for the Winter 2025 Recurse Center Game Jam](https://github.com/DVDAGames/lost-signal/) - that was the first video above - I had a lot of fun gathering unique characters to use with `Ciph3rText`:
+
+```ts
+// base matrix characters from:
+//    - https://github.com/sumitKcs/matrix-effect/blob/master/assets/js/symbol.js
+//    - https://scifi.stackexchange.com/a/137582/217400
+// Lots of characters taken from:
+//    - https://kermitproject.org/utf8.html
+// some from this:
+//    - https://en.wikipedia.org/wiki/Block_Elements
+export const ESOTERIC_CHARACTERS = {
+  matrix: {
+    kanji: "日二",
+    katakana: "ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹﾒｴｶｷﾑﾕﾗｾﾈｽﾀﾇﾍコソヤ",
+    numbers: "012345789",
+    roman: "ACDEFGHJKLMNPSTUVWX",
+    symbols: ':・."=*+-<>|$#&~?!^@¦',
+  },
+  cursed: "A̸̡̬̺͝B̶̨̬̟̉̈́C̸̪̙̣̒̎D̶͕̱̜̆͑̚͝E̶̜̞̳̽͐̔͜F̶̧̝̳̜̅̋͝Ģ̴̱͖͌H̴̻̩̪̰͆̒Ḯ̵̧̖̜͝J̴̗͚̝̈̓K̷̦͍͎̮̃͛͂͋L̶͙̦͉̉ͅM̶̢̀́͝N̶͕̣̕O̴̠̔͜Ṕ̶̘̱̀Q̷̡̻̼̩͗̌́R̴̞̼͑̅Ṡ̶̪̜T̵̳͎͑̅̀̿Ȕ̸̩͔̣͈̚V̸̩̹͝W̴̠͎̾̃Ẍ̵͓͙̯̱́Ÿ̶̗̼̙́͋̂Z̶̙̰̟̉͠",
+  runes: {
+    angloSaxon: `ᚳ᛫ᛗᚨᚷᛚᛋᛖᚩᛏᚪᚾᛞᚻᛁᚱᚧ᛬ᚠᛇᛒᛦᚦᚢᚹᚳᚫ`,
+    oldIrish: `᚛ᚉᚑᚅᚔᚋᚈᚍᚂᚐᚌᚓ᚜`,
+  },
+  blocks: "▒░█▚▞▜▝",
+  mathSymbols: "⏀⏁⏂⏃⏄⏅⏆⏇⏈⏉⏊⏋⏌⏍",
+  miscSymbols: "çﾘｸƵツᐊ╌¿£⭔",
+  lang: {
+    ru: "ЯУ",
+    si: "සිංහල",
+    zh: "中文",
+    ja: "日文",
+    ko: "한글",
+    ar: "العربية",
+    hi: "मैकाँखासता",
+  },
+};
+```
+
+The `<Ciph3rText />` component also has a number of configurable properties to control the effect's behavior:
+
+- `defaultText` (**required**): the text to display during server rendering, after decoding, or before encoding or transforming
+- `action`: controls whether the text transformation uses `encode`, `decode`, `transform`, or `scramble` logic; defaults to `encode`
+- `targetText`\*: the text to transform into when using `action="transform"`
+- `onFinish`\*\*: callback to execute when the `defaultText` has been fully `decode`d, `encode`d, or `transform`ed
+- `iterationSpeed`: how frequently the logic to change characters executes; `120` for `encode`/`decode`/`scramble` and `150` for `transform`
+- `maxIterations`\*\*: how many times the logic to change characters can run; `36` for `encode`/`decode` and `54` for `transform`
+- `characters`: a limited string of characters that you want to use in the effect; defaults to [alphanumeric English characters and basic symbols]([view source](https://github.com/InterwebAlchemy/ciph3r-text/blob/main/src/Ciph3rText/constants.ts#L2))
+- `additionalCharacters`: an optional string of characters that you want to use in addition to the `characters`; this provides an easy way to have a base character set and add specific characters for different effects
+
+\* _required if `action="transform"`_<br />
+\*\* _not applicable if `action="scramble"`_
+
+**Usage Tips**:
+
+- For more interesting effects, like the ones in the Lost Signal demo, you may want to break your string into chunks of random sizes and apply varying text colors, `iterationSpeed`s, etc., to each chunk.
+- Find some unique characters to use. Maybe get inspired by [the Matrix](https://scifi.stackexchange.com/a/182823/217400) or add some [cursed diacritics](https://lingojam.com/CursedText)?
+- You can leverage the `onFinish` callback to swap `defaultText` and `targetText` or change the `action` to create effects chains.
+- You can use the `characters` and `addtionalCharacters` properties to dynamically change the characters used in the effect.
