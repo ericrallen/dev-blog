@@ -14,8 +14,6 @@ Sometimes, you want to build something for fun, but it turns out to be pretty us
 
 <Ciph3rTextDemo />
 
-**TODO**: Add more demo examples.
-
 An early prototype of how I wanted to approach the effect ended up a little different, but it turns out to be useful for all sorts of applications I never would have considered.
 
 ::video{src=/assets/blog/encode-the-matrix/lost-signal.mp4}
@@ -32,7 +30,7 @@ It's as easy to use as:
 npm add @interwebalchemy/ciph3r-text
 ```
 
-**Note**: You can use `bun`, `yarn`, `pnpm`, etc., too.
+**Note**: You can use `bun`, `yarn`, `pnpm`, etc., too. [JavaScript Registry (`jsr`)](https://jsr.io/) support is coming soon.
 
 ```tsx
 import Ciph3rText from "@interwebalchemy/ciph3r-text";
@@ -85,6 +83,10 @@ export const ESOTERIC_CHARACTERS = {
 ```
 
 The `<Ciph3rText />` component also has a number of configurable properties to control the effect's behavior:
+
+<Ciph3rTextPlayground />
+
+**TODO**: finish the playground demo component.
 
 - `defaultText` (**required**): the text to display during server rendering, after decoding, or before encoding or transforming
 - `action`: controls whether the text transformation uses `encode`, `decode`, `transform`, or `scramble` logic; defaults to `encode`
