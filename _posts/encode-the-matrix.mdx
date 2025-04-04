@@ -44,47 +44,19 @@ export default function Component() {
 
 By default, `Ciph3rText` uses a pretty standard set of alphanumeric characters and basic symbols, but [unicode can get pretty wild](<[https://fontgenerator.cool/](https://kermitproject.org/utf8.html)>). Like, [positively Lovecraftian](https://en.wikipedia.org/wiki/Zalgo_text).
 
-For the [tech demo I created for the Winter 2025 Recurse Center Game Jam](https://github.com/DVDAGames/lost-signal/) - that was the first video above - I had a lot of fun gathering unique characters to use with `Ciph3rText`:
+For the [tech demo I created for the Winter 2025 Recurse Center Game Jam](https://github.com/DVDAGames/lost-signal/) - that was the first video above - I had a lot of fun gathering unique characters to use with `Ciph3rText`.
 
-```ts
-// base matrix characters from:
-//    - https://github.com/sumitKcs/matrix-effect/blob/master/assets/js/symbol.js
-//    - https://scifi.stackexchange.com/a/137582/217400
-// Lots of characters taken from:
-//    - https://kermitproject.org/utf8.html
-// some from this:
-//    - https://en.wikipedia.org/wiki/Block_Elements
-export const ESOTERIC_CHARACTERS = {
-  matrix: {
-    kanji: "日二",
-    katakana: "ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹﾒｴｶｷﾑﾕﾗｾﾈｽﾀﾇﾍコソヤ",
-    numbers: "012345789",
-    roman: "ACDEFGHJKLMNPSTUVWX",
-    symbols: ':・."=*+-<>|$#&~?!^@¦',
-  },
-  cursed: "A̸̡̬̺͝B̶̨̬̟̉̈́C̸̪̙̣̒̎D̶͕̱̜̆͑̚͝E̶̜̞̳̽͐̔͜F̶̧̝̳̜̅̋͝Ģ̴̱͖͌H̴̻̩̪̰͆̒Ḯ̵̧̖̜͝J̴̗͚̝̈̓K̷̦͍͎̮̃͛͂͋L̶͙̦͉̉ͅM̶̢̀́͝N̶͕̣̕O̴̠̔͜Ṕ̶̘̱̀Q̷̡̻̼̩͗̌́R̴̞̼͑̅Ṡ̶̪̜T̵̳͎͑̅̀̿Ȕ̸̩͔̣͈̚V̸̩̹͝W̴̠͎̾̃Ẍ̵͓͙̯̱́Ÿ̶̗̼̙́͋̂Z̶̙̰̟̉͠",
-  runes: {
-    angloSaxon: `ᚳ᛫ᛗᚨᚷᛚᛋᛖᚩᛏᚪᚾᛞᚻᛁᚱᚧ᛬ᚠᛇᛒᛦᚦᚢᚹᚳᚫ`,
-    oldIrish: `᚛ᚉᚑᚅᚔᚋᚈᚍᚂᚐᚌᚓ᚜`,
-  },
-  blocks: "▒░█▚▞▜▝",
-  mathSymbols: "⏀⏁⏂⏃⏄⏅⏆⏇⏈⏉⏊⏋⏌⏍",
-  miscSymbols: "çﾘｸƵツᐊ╌¿£⭔",
-  lang: {
-    ru: "ЯУ",
-    si: "සිංහල",
-    zh: "中文",
-    ja: "日文",
-    ko: "한글",
-    ar: "العربية",
-    hi: "मैकाँखासता",
-  },
-};
-```
+Here are some examples of just a few of the unique Unicode characters you can use:
+
+- **Anglo-Saxon Runes**: `ᚳ᛫ᛗᚨᚷᛚᛋᛖᚩᛏᚪᚾᛞᚻᛁᚱᚧ᛬ᚠᛇᛒᛦᚦᚢᚹᚳᚫ`
+- **Old Irish Runes**: `᚛ᚉᚑᚅᚔᚋᚈᚍᚂᚐᚌᚓ᚜`
+- **Math Symbols**: `⏀⏁⏂⏃⏄⏅⏆⏇⏈⏉⏊⏋⏌⏍`
+- **Miscellaneous Symbols**: `çﾘｸƵツᐊ╌¿£⭔`
+- **Blocks**: `▒ ░ █ ▚ ▞ ▜ ▝`
 
 The `<Ciph3rText />` component also has a number of configurable properties to control the effect's behavior:
 
-<Ciph3rTextPlayground />
+<Ciph3rTextPlayground defaultText="Enter the Matrix" action="decode" />
 
 **TODO**: finish the playground demo component.
 
