@@ -4,10 +4,10 @@ date: 2025-04-02
 excerpt: An open-source React library for animating string transformations.
 author:
   name: Eric Allen
-  picture: /assets/blog/authors/avatar-eric.jpg
-coverImage: ""
+  picture: "/assets/blog/authors/avatar-eric.jpg"
+coverImage: "/assets/blog/encode-the-matrix/code-rain.png"
 ogImage:
-  url: ""
+  url: "/assets/blog/encode-the-matrix/code-rain.png"
 ---
 
 Sometimes, you want to build something for fun, but it turns out to be pretty useful. I've always wanted to build something like the [Matrix Effect](https://beforesandafters.com/2019/03/27/secrets-of-the-matrix-code/). There are plenty of examples out there already, but it felt like something a cyberpunk-obsessed '90s kid _should_ build.
@@ -57,8 +57,6 @@ Here are some examples of just a few of the unique Unicode characters you can us
 The `<Ciph3rText />` component also has a number of configurable properties to control the effect's behavior:
 
 <Ciph3rTextPlayground defaultText="Enter the Matrix" action="decode" />
-
-**TODO**: finish the playground demo component.
 
 - `defaultText` (**required**): the text to display during server rendering, after decoding, or before encoding or transforming
 - `action`: controls whether the text transformation uses `encode`, `decode`, `transform`, or `scramble` logic; defaults to `encode`

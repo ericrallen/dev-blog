@@ -17,7 +17,7 @@ const characterSets: Record<
 > = {
   default: {
     charset: BASE_PRINTABLE_CHARACTERS,
-    label: "Default",
+    label: "Default Character Set",
     value: "default",
   },
   binary: {
@@ -46,7 +46,7 @@ const characterSets: Record<
     value: "irishRunes",
   },
   angloSaxonRunes: {
-    charset: `ᚳ᛫ᛗᚨᚷᛚᛋᛖᚩᛏᚪᚾᛞᚻᛁᚱᚧ᛬ᚠᛇᛒᛦᚦᚢᚹᚳᚫ`,
+    charset: `ᚳ᛫ᛗᚨᚷᛚᛋᛖᚩᛏᚪᚾᛞᚻᛁᚱᚧ᛬ᚠᛇᛒᛦᚦᚢᚹᚳᚫ᛭`,
     label: "Anglo-Saxon Runes",
     value: "angloSaxonRunes",
   },
@@ -76,36 +76,74 @@ export default function Ciph3rTextPlayground() {
   };
 
   return (
-    <div className="flex flex-col border border-neutral-600 rounded-sm p-4">
-      <Dropdown
-        options={Object.keys(characterSets).map((key) => ({
-          label: characterSets[key].label,
-          value: characterSets[key].value,
-        }))}
-        onChange={handleCharacterSetChange}
-        label="Character Set"
-      />
-      <Dropdown
-        options={actions.map((action) => ({
-          label: action,
-          value: action,
-        }))}
-        onChange={handleActionChange}
-        label="Action"
-      />
-      <input
-        type="text"
-        value={defaultText}
-        onChange={handleDefaultTextChange}
-      />
-      <input type="text" value={targetText} onChange={handleTargetTextChange} />
-      <Ciph3rText
-        defaultText={defaultText}
-        targetText={targetText}
-        // @ts-expect-error
-        action={action}
-        characters={characterSets[characterSet].charset}
-      />
+    <div className="flex flex-col border border-neutral-600 rounded-sm p-4 gap-2">
+      <div className="flex flex-col gap-2">
+        <label htmlFor="characterSet" className="text-neutral-600 text-sm">
+          Character Set
+        </label>
+        <Dropdown
+          id="characterSet"
+          options={Object.keys(characterSets).map((key) => ({
+            label: characterSets[key].label,
+            value: characterSets[key].value,
+          }))}
+          onChange={handleCharacterSetChange}
+          label="Character Set"
+        />
+      </div>
+      <div className="flex flex-col gap-4">
+        <div>
+          <label htmlFor="defaultText" className="text-neutral-600 text-sm">
+            Default Text
+          </label>
+          <input
+            id="defaultText"
+            className="text-neutral-800 w-full p-2 border rounded-sm resize-none h-10"
+            type="text"
+            value={defaultText}
+            onChange={handleDefaultTextChange}
+            placeholder="Your brain does the translating."
+          />
+        </div>
+        <div>
+          <label htmlFor="targetText" className="text-neutral-600 text-sm">
+            Target Text
+          </label>
+          <input
+            id="targetText"
+            className="text-neutral-800 w-full p-2 border rounded-sm resize-none h-10"
+            type="text"
+            value={targetText}
+            onChange={handleTargetTextChange}
+            placeholder="I don't even see the code."
+          />
+        </div>
+      </div>
+      <div className="flex flex-col gap-2">
+        <label htmlFor="action" className="text-neutral-600 text-sm">
+          Action
+        </label>
+        <Dropdown
+          id="action"
+          options={actions.map((a) => ({
+            label: a,
+            value: a,
+            disabled: a === "transform" && (!defaultText || !targetText),
+          }))}
+          onChange={handleActionChange}
+          label="Action"
+        />
+      </div>
+      <div className="flex flex-row gap-2 border border-neutral-600 rounded-sm p-2 h-10 mt-8 items-center">
+        <label className="text-neutral-600 text-sm">Ciph3r Text</label>
+        <Ciph3rText
+          defaultText={defaultText}
+          targetText={targetText}
+          // @ts-expect-error
+          action={action}
+          characters={characterSets[characterSet].charset}
+        />
+      </div>
     </div>
   );
 }
