@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@dvdagames/pgn-tokenizer": "^0.1.6",
+    "@interwebalchemy/ciph3r-text": "^1.2.0",
     "@shikijs/rehype": "^2.2.0",
     "@tabler/icons-react": "^3.31.0",
     "chess.js": "^1.1.0",

@@ -2,7 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { encode, decode } from "@dvdagames/pgn-tokenizer";
-import { IconArrowNarrowRightDashed, IconRotateRectangle } from "@tabler/icons-react";
+import {
+  IconArrowNarrowRightDashed,
+  IconRotateRectangle,
+} from "@tabler/icons-react";
+
+import IconButton from "../VisualizationLibrary/IconButton";
 
 const PGN_STRING = "1.e4 e5 2.Nf3 Nc6 3.Bc4 Nf6";
 
@@ -12,7 +17,9 @@ export interface TrainingVisualizerProps {
   pgn: string;
 }
 
-export default function TrainingVisualizer({ pgn = PGN_STRING }: TrainingVisualizerProps) {
+export default function TrainingVisualizer({
+  pgn = PGN_STRING,
+}: TrainingVisualizerProps) {
   const [tokenIds, setTokenIds] = useState<number[]>(encode(pgn));
   const [tokens, setTokens] = useState<string[]>([]);
   const [inputTokenIndex, setInputTokenIndex] = useState<number>(0);
@@ -115,25 +122,26 @@ export default function TrainingVisualizer({ pgn = PGN_STRING }: TrainingVisuali
     <div className="w-full flex flex-col">
       <div className="w-full flex flex-row items-end">
         {renderTokenVisualization()}
-        <button
-          className="bg-transparent text-neutral-600 px-2 py-1 rounded-sm ml-2 border border-neutral-600 hover:text-neutral-100 hover:border-neutral-100"
-          onClick={handleNext}
-          disabled={outputTokenIndex >= tokens.length - 1}
-          aria-label="Next Step"
-        >
-          <IconArrowNarrowRightDashed />
-        </button>
-        <button
-          className="bg-transparent text-neutral-600 px-2 py-1 rounded-sm ml-auto border border-neutral-600 hover:text-neutral-100 hover:border-neutral-100"
-          onClick={handleReset}
-          disabled={outputTokenIndex <= 1}
-          aria-label="Reset Progress"
-        >
-          <IconRotateRectangle />
-        </button>
+        <div className="flex flex-col items-center justify-center ml-2">
+          <IconButton
+            icon={<IconArrowNarrowRightDashed />}
+            onClick={handleNext}
+            label="Next Step"
+            disabled={outputTokenIndex >= tokens.length - 1}
+          />
+        </div>
+        <div className="flex flex-col items-center justify-center ml-auto">
+          <IconButton
+            icon={<IconRotateRectangle />}
+            onClick={handleReset}
+            label="Reset Progress"
+            disabled={outputTokenIndex <= 1}
+          />
+        </div>
       </div>
       <div className="text-sm text-neutral-600 mt-2">
-        Use the Arrow button to step through each iteration of the training loop.
+        Use the Arrow button to step through each iteration of the training
+        loop.
       </div>
     </div>
   );

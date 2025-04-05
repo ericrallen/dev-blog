@@ -7,7 +7,7 @@ import rehypeShiki from "@shikijs/rehype";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import remarkVideo from "remark-video";
-
+import remarkGfm from "remark-gfm";
 import markdownStyles from "./markdown-styles.module.css";
 
 type Props = {
@@ -23,6 +23,7 @@ export async function PostBodyMDX({ content }: Props) {
       mdxOptions: {
         remarkPlugins: [
           remarkFrontmatter,
+          remarkGfm,
           remarkDirective,
           [remarkVideo, { publicDir: "./assets" }],
         ],
