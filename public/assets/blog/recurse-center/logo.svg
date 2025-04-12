@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="900px" height="1125px" viewBox="0 0 900 1125" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><script xmlns=""/>
+    <!-- Generator: Sketch 3.7.2 (28276) - http://www.bohemiancoding.com/sketch -->
+    <title>Logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs/>
+    <g id="Logo---layers-(merged,-simplified)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Logo">
+            <path d="M-5.68434189e-14,0 L900,0 L900,750 L-5.68434189e-14,750 L-5.68434189e-14,0 Z M-1.13686838e-13,900 L900,900 L900,1125 L-1.13686838e-13,1125 L-1.13686838e-13,900 Z M75,825 L825,825 L825,900 L75,900 L75,825 Z M300,750 L600,750 L600,825 L300,825 L300,750 Z" id="Combined-Shape" fill="#231F20"/>
+            <path d="M450,975 L525,975 L525,1050 L450,1050 L450,975 Z M300,975 L375,975 L375,1050 L300,1050 L300,975 Z M150,975 L225,975 L225,1050 L150,1050 L150,975 Z M600,975 L675,975 L675,1050 L600,1050 L600,975 Z M375,900 L450,900 L450,975 L375,975 L375,900 Z M225,900 L300,900 L300,975 L225,975 L225,900 Z M675,900 L750,900 L750,975 L675,975 L675,900 Z M525,900 L600,900 L600,975 L525,975 L525,900 Z" id="Keyboard" fill="#FFFFFF"/>
+            <rect id="Screen---white" fill="#FFFFFF" x="75" y="75" width="750" height="600"/>
+            <rect id="Screen---black" fill="#231F20" x="150" y="150" width="600" height="450"/>
+            <path d="M450,225 L525,225 L525,300 L450,300 L450,225 Z M300,225 L375,225 L375,300 L300,300 L300,225 Z M150,225 L225,225 L225,300 L150,300 L150,225 Z M450,375 L600,375 L600,450 L450,450 L450,375 Z M225,375 L375,375 L375,450 L225,450 L225,375 Z" id="Screen---green" fill="#5ABA47"/>
+        </g>
+    </g>
+</svg>
