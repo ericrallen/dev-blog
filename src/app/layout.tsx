@@ -14,7 +14,7 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: `Interweb Alchemy`,
-  description: `Transmuting the Web.`,
+  description: `Human-centered software for an AI-haunted world.`,
   openGraph: {
     images: [HOME_OG_IMAGE_URL],
   },
