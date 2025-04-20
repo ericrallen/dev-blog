@@ -44,7 +44,7 @@ In designing this application, I wanted power users to be able to interact with 
 
 ![Screenshot of WTF Link Inspector](/assets/blog/url-bar-as-interface/wtflink-inspector.png)
 
-Interweb.WTF allows anyone to preview where one of our shortlinks will take them by appending `/info` to any WTF Link. For example, if a user navigates to `interweb.wtf/go/patient-recipe` they'll be redirected to the [Chess Tutoring in the Age of ChatGPT](https://interwebalchemy.com/posts/building-a-chess-tutor/) blog post on this site. You may never know where a shortlink has come from, but with the [WTF Link Inspector](https://www.interweb.wtf/go/patient-recipe/info), you can always find out where it's going.
+Interweb.WTF allows anyone to preview where one of our shortlinks will take them by appending `/info` to any WTF Link. For example, if a user navigates to `interweb.wtf/go/patient-recipe` they'll be redirected to the [Chess Tutoring in the Age of ChatGPT](https://interwebalchemy.com/blog/post/building-a-chess-tutor/) blog post on this site. You may never know where a shortlink has come from, but with the [WTF Link Inspector](https://www.interweb.wtf/go/patient-recipe/info), you can always find out where it's going.
 
 The WTF Link Inspector gives end users some assurances about the legitimacy of a WTF Link:
 
@@ -85,7 +85,7 @@ There are other [link cleaners](https://linkcleaner.app/), but Interweb.WTF aggr
 
 You can prefix any unshortened URL with `interweb.wtf/clean/` and we'll clean any tracking parameters and give you back a nice, clean URL with a visualization of which known tracking parameters were embedded in the query string.
 
-For example, if you copy a URL like `https://interwebalchemy.com/posts/building-a-chess-tutor?utm_source=interweb.wtf&utm_campaign=docs&v=2025-01-17&share=true&mode=reader`, you might not want to keep all those `utm_` tracking tags when you share it with someone else. Just type `interweb.wtf/clean/` into your URL Bar and then paste in your link to use the [URL Cleaner](https://interweb.wtf/clean/https://www.interweb.wtf/clean/https://interwebalchemy.com/posts/building-a-chess-tutor?utm_source=interweb.wtf&utm_campaign=docs). You can copy and paste the clean URL from the URL Cleaner or choose to be sent to the clean URL.
+For example, if you copy a URL like `https://interwebalchemy.com/blog/post/building-a-chess-tutor?utm_source=interweb.wtf&utm_campaign=docs&v=2025-01-17&share=true&mode=reader`, you might not want to keep all those `utm_` tracking tags when you share it with someone else. Just type `interweb.wtf/clean/` into your URL Bar and then paste in your link to use the [URL Cleaner](https://interweb.wtf/clean/https://www.interweb.wtf/clean/https://interwebalchemy.com/blog/post/building-a-chess-tutor?utm_source=interweb.wtf&utm_campaign=docs). You can copy and paste the clean URL from the URL Cleaner or choose to be sent to the clean URL.
 
 ## Beyond the URL Bar
 

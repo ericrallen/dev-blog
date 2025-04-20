@@ -10,7 +10,7 @@ import { type Post } from "@/interfaces/post";
 
 type Props = Pick<Post, "title" | "coverImage" | "date" | "excerpt" | "slug">;
 
-export async function HeroPost({
+export async function FeaturedPost({
   title,
   coverImage,
   date,
@@ -21,7 +21,7 @@ export async function HeroPost({
 
   return (
     <section className="flex flex-col gap-4">
-      <h4 className="text-xl font-bold text-gray-500">Latest Post</h4>
+      <h4 className="text-xl font-bold text-gray-500">Featured Post</h4>
       <article className="relative flex flex-col xl:flex-row items-end w-full h-full">
         {coverImage && (
           <div className="relative border border-gray-400 rounded-md">
@@ -49,4 +49,4 @@ export async function HeroPost({
   );
 }
 
-export default HeroPost;
+export default FeaturedPost;

@@ -55,7 +55,7 @@ Sometimes, the project you're working on might require performance tuning to "ma
 
 ### Automate all the things.
 
-I have a very low tolerance for poor [developer experience](https://interwebalchemy.com/posts/drift-compatibility/). I've spent countless hours eliminating minor inconveniences from workflows because I feel an almost physical aversion to them in my day-to-day work. Tedious, repetitive, boring tasks make me unhappy. Being unhappy makes me less useful.
+I have a very low tolerance for poor [developer experience](https://interwebalchemy.com/blog/post/drift-compatibility/). I've spent countless hours eliminating minor inconveniences from workflows because I feel an almost physical aversion to them in my day-to-day work. Tedious, repetitive, boring tasks make me unhappy. Being unhappy makes me less useful.
 
 This isn't just me wanting to avoid tasks that aren't creative. There's research to back me up here:
 
@@ -78,7 +78,7 @@ Sometimes, we can't automate things, and that's okay. The goal is to think about
 
 The philosophy of [leaving the world a better place](https://en.wikipedia.org/wiki/Leaving_the_world_a_better_place) is well-known, and while I do my best to follow it in how I live my everyday life, it's also become an important guiding principle for how I approach codebases, teams, and organizations. Based on my experience and industry research, I offer what I can and do my best to improve the existing code and processes that I touch, or at least maintain them and leave them in a state no worse than I found them.
 
-If there are no tests, I add some. If there are flaky tests, I make them reliable. If there is no code review process, I advocate for one. If there's no release pipeline, I configure one. If there's a bad interview process, I try to implement a [better](https://interwebalchemy.com/posts/how-i-interview-developers/) one. If something takes too long to do, I make it faster.
+If there are no tests, I add some. If there are flaky tests, I make them reliable. If there is no code review process, I advocate for one. If there's no release pipeline, I configure one. If there's a bad interview process, I try to implement a [better](https://interwebalchemy.com/blog/post/how-i-interview-developers/) one. If something takes too long to do, I make it faster.
 
 In one role, I inherited an internal database for tracking conference [Calls for Proposals/Papers/Presentations](https://glasnt.com/blog/on-proposing-to-conferences/) (CFPs) that worked well but was plagued with flaky, rarely-used functionality leveraging AirTable automation that would send out error emails to our manager any time automation failed. After spending some time trying to diagnose and fix the errors, I documented the current state of our investigation and attempts to fix the issue and then disabled that part of the system as a sort of ["scream test."](https://lunduke.substack.com/p/the-scream-test)
 

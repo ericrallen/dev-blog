@@ -89,7 +89,7 @@ export default function Chess({ game, onMove }: ChessProps) {
   };
 
   return (
-    <div className="flex flex-col w-1/2 justify-center items-center">
+    <div className="flex flex-col w-full lg:w-1/2 justify-center items-center">
       {gameState ? (
         <Chessboard
           position={gameState.fen()}

@@ -27,8 +27,8 @@ export async function GET() {
   posts.forEach((post) => {
     const item: Item = {
       title: post.title,
-      id: `${BASE_URL}/posts/${post.slug}`,
-      link: `${BASE_URL}/posts/${post.slug}`,
+      id: `${BASE_URL}/blog/post/${post.slug}`,
+      link: `${BASE_URL}/blog/post/${post.slug}`,
       description: post.excerpt,
       content: post.content,
       date: new Date(post.date),

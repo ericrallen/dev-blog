@@ -25,7 +25,7 @@ There are ${getTotalPosts()} posts in total.
 
 ${(await getPagePosts(0))
   .map((post) => {
-    return `- [${post.title}](${BASE_URL}/posts/${post.slug}): ${post.excerpt}`;
+    return `- [${post.title}](${BASE_URL}/blog/post/${post.slug}): ${post.excerpt}`;
   })
   .join("\n")}
 
@@ -35,7 +35,7 @@ ${(await getPagePosts(0))
 
 ${(await getAllPosts())
   .map((post) => {
-    return `- [${post.title}](${BASE_URL}/posts/${post.slug}): ${post.excerpt}`;
+    return `- [${post.title}](${BASE_URL}/blog/post/${post.slug}): ${post.excerpt}`;
   })
   .join("\n")}
 `;

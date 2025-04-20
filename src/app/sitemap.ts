@@ -25,20 +25,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   posts.forEach((post) => {
     routes.push({
-      url: `${BASE_URL}/posts/${post.slug}`,
+      url: `${BASE_URL}/blog/post/${post.slug}`,
       lastModified: new Date(post.date).toString(),
       changeFrequency: "weekly",
       priority: 0.8,
     });
   });
 
-  const postPages = Array.from({ length: await getTotalPages() }, (_, i) => i).filter((i) => i !== 0);
+  const postPages = Array.from(
+    { length: await getTotalPages() },
+    (_, i) => i
+  ).filter((i) => i !== 0);
 
   for (const pageNumber of postPages) {
     const posts = await getPagePosts(pageNumber);
 
     routes.push({
-      url: `${BASE_URL}/page/${pageNumber}`,
+      url: `${BASE_URL}/blog/page/${pageNumber}`,
       lastModified: new Date(posts[0].date).toString(),
       changeFrequency: "weekly",
       priority: 0.5,

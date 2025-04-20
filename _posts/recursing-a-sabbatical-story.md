@@ -4,10 +4,10 @@ date: 2025-04-12
 excerpt: "Reflections on my time at the Recurse Center as part of the Winter 2025 batch that started in January." author:
   name: Eric Allen
   picture: "/assets/blog/authors/avatar-eric.jpg"
-coverImage: "/assets/blog/recurse-center/logo.svg"
+coverImage: "/assets/blog/recurse-center/hero.png"
 ogDescription: "Reflections on my time at the Recurse Center as part of the Winter 2025 batch that started in January."
 ogImage:
-  url: "/assets/blog/recurse-center/logo.svg" 
+  url: "/assets/blog/recurse-center/hero.png" 
 ---
 
 The [Recurse Center](https://www.recurse.com/scout/click?t=1b9ee5f39bb35af1073bda78cf4cabdf) (colloquially referred to as "RC") is a truly unique and exceptional experience in a world where so many things are forgettable or an attempt to sell you something.
@@ -75,10 +75,10 @@ Many of the things I accomplished in my 12 weeks at the Recurse Center:
 
 ### Projects
 
-- [PGN Tokenizer](https://interwebalchemy.com/posts/chess-byte-pair-encoding/): Chess Portable Game Notation (PGN) Byte-Pair Encoding (BPE) Tokenizer for language models
+- [PGN Tokenizer](https://interwebalchemy.com/blog/post/chess-byte-pair-encoding/): Chess Portable Game Notation (PGN) Byte-Pair Encoding (BPE) Tokenizer for language models
 - [Interweb.WTF](https://interweb.wtf/): user-centered, privacy-focused, open-source short links
 - [Collabodoro.work](https://collabodoro.work/): synchronized Pomodoro Timer for virtual co-working sessions
-- [Ciph3r Text](https://interwebalchemy.com/posts/encode-the-matrix/): animated text transformations for React apps
+- [Ciph3r Text](https://interwebalchemy.com/blog/post/encode-the-matrix/): animated text transformations for React apps
 - [Lost Signal](): tech demo of retro-inspired, computer interface for what I had hoped would turn into an entry for an [RC Game Dev Interest Group Game Jam](https://itch.io/jam/lost-signal-rc-game-gam/entries)
 - Started work on a [Virtual Desktop Pet](https://github.com/DVDAGames/gl1tch-pet) in Godot; he just hovers right now, but I have ideas to make him more interesting
 
@@ -90,7 +90,7 @@ Many of the things I accomplished in my 12 weeks at the Recurse Center:
 - Built several take-home projects for interviews, like [this one](https://github.com/ericrallen/old-school-front-end-challenge) that required building out an interactive User Interface (UI) using only HTML and CSS
 - Added MDX support to this blog, which is why there are fancy embedded demos in some of the newer posts, like []
 - Wrote about [how I was approaching programming realism](https://dvdagames.com/posts/coding-verisimilitude/) into [Line of Sight](https://dvdagames.com/games/line-of-sight/) a retro-inspired, isometric stealth game I'm working on under my side project and pretend game studio, [Dead Villager Dead Adventurer Games](https://dvdagames.com/)
-- Wrote about how [URLs are an Interface](https://interwebalchemy.com/posts/url-bar-as-interface/) and added a fun [URL bar audio spectrum analyzer](https://github.com/DVDAGames/blog/blob/main/README.md#url-bar-spectrum-analyzer) to the Dead Villager Dead Adventurer Games site
+- Wrote about how [URLs are an Interface](https://interwebalchemy.com/blog/post/url-bar-as-interface/) and added a fun [URL bar audio spectrum analyzer](https://github.com/DVDAGames/blog/blob/main/README.md#url-bar-spectrum-analyzer) to the Dead Villager Dead Adventurer Games site
 
 ### Non Work
 
