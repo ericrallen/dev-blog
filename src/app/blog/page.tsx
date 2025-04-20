@@ -16,11 +16,12 @@ type Params = {
 
 export default async function Page(props: Params) {
   const params = await props.params;
-  const page = parseInt(params.page, 10);
+  const page = parseInt(params.page ?? 0, 10);
+
   const posts = await getPagePosts(page);
   const pages = await getTotalPages();
 
-  if (!page) {
+  if (typeof page !== "number") {
     return notFound();
   }
 
@@ -28,7 +29,12 @@ export default async function Page(props: Params) {
     <main>
       <Container>
         <Header />
-        <MoreStories posts={posts} />
+        <MoreStories
+          posts={posts}
+          heading="Blog Posts for Humans"
+          readMore={true}
+          viewAll={false}
+        />
         <Pagination currentPage={page} totalPages={pages} />
       </Container>
     </main>
@@ -37,10 +43,10 @@ export default async function Page(props: Params) {
 
 export async function generateMetadata(props: Params): Promise<Metadata> {
   const params = await props.params;
-  const page = parseInt(params.page, 10);
+  const page = parseInt(params.page ?? 0, 10);
   const posts = await getPagePosts(page);
 
-  if (!page) {
+  if (typeof page !== "number") {
     return notFound();
   }
 
@@ -58,9 +64,11 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
 export async function generateStaticParams(props: Params) {
   const totalPages = await getTotalPages();
 
-  const pages = Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => ({
-    page: page.toString(),
-  }));
+  const pages = Array.from({ length: totalPages }, (_, i) => i + 1).map(
+    (page) => ({
+      page: page.toString(),
+    })
+  );
 
   return pages;
 }

@@ -6,24 +6,33 @@ type Props = {
   title: string;
   src: string;
   slug?: string;
+  glitch?: boolean;
+  hoverGlitch?: boolean;
 };
 
-const CoverImage = ({ title, src, slug }: Props) => {
+const CoverImage = ({
+  title,
+  src,
+  slug,
+  glitch = false,
+  hoverGlitch = false,
+}: Props) => {
   const image = (
-    <Image
+    <img
       src={src}
       alt=""
-      className={cn("shadow-sm w-full", {
-        "hover:shadow-lg transition-shadow duration-200": slug,
+      className={cn("rounded-md w-full h-auto", {
+        "glitch-effect": glitch,
+        "glitch-effect-on-hover": hoverGlitch,
       })}
-      width={1300}
-      height={630}
+      width="100%"
+      height="auto"
     />
   );
   return (
-    <div className="sm:mx-0">
+    <div className="sm:mx-0 rounded-md">
       {slug ? (
-        <Link href={`/posts/${slug}`} aria-label={title}>
+        <Link href={`/blog/post/${slug}`} aria-label={title}>
           {image}
         </Link>
       ) : (

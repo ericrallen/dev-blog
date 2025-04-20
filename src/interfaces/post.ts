@@ -13,5 +13,6 @@ export type Post = {
   };
   content: string;
   preview?: boolean;
+  featured?: boolean;
   isMdx: boolean;
 };

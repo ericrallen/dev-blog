@@ -1,8 +1,24 @@
+"use client";
+
+import { useIsClient } from "usehooks-ts";
+
+import Subtitle from "@/app/_components/subtitle";
+import Header from "@/app/_components/header";
+
 export function Intro() {
+  const isClient = useIsClient();
+
   return (
-    <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">
-      <h1 className="text-2xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">Interweb Alchemy</h1>
-      <h4 className="text-center md:text-left text-lg mt-5 md:pl-8">Transmuting the Web.</h4>
+    <section className="flex flex-col gap-20 pt-8 w-full">
+      <Header />
+
+      {isClient ? (
+        <Subtitle />
+      ) : (
+        <h4 className="text-4xl text-gray-400">
+          Human-centered software for an AI-haunted world.
+        </h4>
+      )}
     </section>
   );
 }

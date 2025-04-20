@@ -66,3 +66,13 @@ export async function getTotalPosts(): Promise<number> {
 export async function getTotalPages(): Promise<number> {
   return Math.ceil((await getTotalPosts()) / POSTS_PER_PAGE);
 }
+
+export async function getFeaturedPosts(count = 1): Promise<Post[]> {
+  const allPosts = await getAllPosts();
+
+  const featuredPosts = allPosts
+    .filter((post) => post.featured)
+    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
+
+  return featuredPosts.slice(0, count);
+}

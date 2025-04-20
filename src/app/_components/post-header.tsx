@@ -16,7 +16,7 @@ export function PostHeader({ title, coverImage, date, update, author }: Props) {
   return (
     <>
       {coverImage && (
-        <div className="mb-8 md:mb-16 sm:mx-0">
+        <div className="mb-8 md:mb-16 sm:mx-0 w-full">
           <CoverImage title={title} src={coverImage} />
         </div>
       )}
