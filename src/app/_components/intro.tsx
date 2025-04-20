@@ -3,19 +3,19 @@
 import { useIsClient } from "usehooks-ts";
 
 import Subtitle from "@/app/_components/subtitle";
+import Header from "@/app/_components/header";
 
 export function Intro() {
   const isClient = useIsClient();
 
   return (
-    <section className="flex flex-col lg:flex-row gap-8 pt-8 lg:items-center w-full">
-      <h1 className="text-2xl md:text-5xl font-bold tracking-tighter leading-tight">
-        Interweb Alchemy
-      </h1>
+    <section className="flex flex-col gap-20 pt-8 w-full">
+      <Header />
+
       {isClient ? (
         <Subtitle />
       ) : (
-        <h4 className="text-xl text-gray-400 ml-auto">
+        <h4 className="text-4xl text-gray-400">
           Human-centered software for an AI-haunted world.
         </h4>
       )}

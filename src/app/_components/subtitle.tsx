@@ -23,7 +23,7 @@ export function Intro() {
   );
 
   return (
-    <h4 className="text-xl text-gray-400 ml-auto">
+    <h4 className="text-4xl text-gray-400">
       Human-centered software for an AI-
       <Ciph3rText
         defaultText={defaultText}

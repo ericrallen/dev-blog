@@ -1,10 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { IconMenu2, IconX } from "@tabler/icons-react";
+import { useOnClickOutside } from "usehooks-ts";
+
+import IconButton from "@/app/_components/posts/VisualizationLibrary/IconButton";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  // @ts-expect-error the type for the ref isn't handled correctly
+  useOnClickOutside(containerRef, () => setIsOpen(false));
 
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
@@ -18,18 +26,24 @@ const Header = () => {
       >
         Interweb Alchemy
       </Link>
-      <nav className="ml-auto flex flex-row gap-6">
-        <button
+      <nav className="ml-auto flex flex-row gap-6 z-10">
+        <IconButton
+          icon={isOpen ? <IconX /> : <IconMenu2 />}
           onClick={toggleMenu}
-          className="text-neutral-200 border border-neutral-400 rounded-sm px-2 py-1 hover:text-amber-600 hover:underline hover:border-amber-600 transition-all duration-300 ease-in-out"
-        >
-          Menu
-        </button>
+          label={isOpen ? "Close" : "Menu"}
+        />
         <div
+          ref={containerRef}
           className={`${
             isOpen ? "right-0" : "right-[-101%]"
-          } flex flex-col gap-4 text-right p-8 lg:px-24 text-2xl absolute top-20 border-t border-l border-b border-neutral-400 h-[80%] w-[90%] lg:w-[50%] lg:h-[50%] bg-neutral-900 transition-all duration-500 lg:duration-800 ease-in-out`}
+          } flex flex-col gap-4 text-right p-8 lg:px-24 text-2xl absolute top-[20%] border-t border-l border-b border-neutral-400 h-[80%] w-[90%] lg:w-[50%] lg:h-[50%] bg-neutral-900 transition-all duration-500 lg:duration-800 ease-in-out`}
         >
+          <Link
+            href="/"
+            className="hover:underline no-underline text-slate-100 hover:text-amber-600"
+          >
+            Home
+          </Link>
           <Link
             href="/blog"
             className="hover:underline no-underline text-slate-100 hover:text-amber-600"

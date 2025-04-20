@@ -8,7 +8,7 @@ const nextConfig = {
     unoptimized: true,
   },
   transpilePackages: ["next-mdx-remote"],
-  redirects: [
+  rewrites: [
     {
       source: "/posts/:slug",
       destination: "/blog/post/:slug",
