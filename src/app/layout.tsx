@@ -64,10 +64,7 @@ export default function RootLayout({
       </head>
       <body
         suppressHydrationWarning
-        className={cn(
-          plexMono.className,
-          "dark:bg-slate-900 dark:text-slate-400"
-        )}
+        className={cn(plexMono.className, "bg-slate-950 text-neutral-200")}
       >
         <div className="min-h-screen">{children}</div>
         <Footer />
