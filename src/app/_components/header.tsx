@@ -35,8 +35,8 @@ const Header = () => {
         <div
           ref={containerRef}
           className={`${
-            isOpen ? "right-0" : "right-[-101%]"
-          } flex flex-col gap-4 text-right p-8 lg:px-24 text-2xl absolute top-[20%] border-t border-l border-b border-neutral-400 h-[80%] w-[90%] lg:w-[50%] lg:h-[50%] bg-neutral-900 transition-all duration-500 lg:duration-800 ease-in-out`}
+            isOpen ? "right-0 opacity-100" : "right-[-101%] opacity-0"
+          } flex flex-col gap-4 text-right p-8 lg:px-24 text-2xl fixed top-[17%] border-t border-l border-b border-neutral-400 h-[70%] w-[90%] lg:w-[50%] lg:h-[50%] bg-neutral-900 transition-[right,opacity] duration-500 lg:duration-800 ease-in-out`}
         >
           <Link
             href="/"
