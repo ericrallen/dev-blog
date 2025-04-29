@@ -4,7 +4,7 @@ import CTAButton from "@/app/_components/cta-button";
 
 const services = [
   {
-    title: "AI Enablement",
+    title: "Enable",
     description:
       "Learn how to safely integrate Generative AI into your application, workflows, and processes to enable your teams to leverage the power of Generative AI.",
     image: "/assets/images/services/enable.png",
@@ -12,7 +12,7 @@ const services = [
     cta: "Enable your Apps",
   },
   {
-    title: "LLM Education",
+    title: "Educate",
     description:
       "Expand your teams' capabilities with Large Language Model (LLM) training, workshops, and resources tailored to their experience level and needs.",
     image: "/assets/images/services/educate.png",
@@ -20,7 +20,7 @@ const services = [
     cta: "Educate your Team",
   },
   {
-    title: "User Empowerment",
+    title: "Empower",
     description:
       "Reach your customers with engaging developer-focused content, events, and open-source tooling that prioritizes developer experience.",
     image: "/assets/images/services/engage.png",
